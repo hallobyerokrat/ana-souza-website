@@ -1,173 +1,156 @@
 "use client";
 
+import Image from "next/image";
+import { useT } from "@/lib/i18n";
+
+const Divider = () => (
+  <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.5rem 0" }}>
+    <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(90,64,50,0.2), transparent)" }} />
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+      <circle cx="5" cy="5" r="1.5" fill="#8b6f4d" opacity="0.4"/>
+    </svg>
+    <div style={{ flex: 1, height: 1, background: "linear-gradient(to left, rgba(90,64,50,0.2), transparent)" }} />
+  </div>
+);
+
 export default function AuthorSection() {
+  const { t } = useT();
+
+  const bioGroups = [
+    [t("author.p1")],
+    [t("author.p2"), t("author.p3")],
+    [t("author.p4"), t("author.p5"), t("author.p6")],
+    [t("author.p7"), t("author.p8")],
+  ];
+
   return (
     <section
       id="sobre"
-      className="relative py-28 md:py-40 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(160deg, #100e0a 0%, #0d0d18 50%, #0a0a12 100%)",
-      }}
+      className="wallpaper-botanical-dense relative py-28 md:py-36 overflow-hidden"
     >
-      {/* Background accent */}
+      {/* Soft vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 60%, rgba(201,168,76,0.05) 0%, transparent 55%)",
+            "linear-gradient(to bottom, rgba(253,251,246,1) 0%, rgba(253,251,246,0) 8%, rgba(253,251,246,0) 92%, rgba(253,251,246,1) 100%)",
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-5 gap-16 items-center">
-          {/* Photo placeholder */}
-          <div className="md:col-span-2 flex justify-center md:justify-start">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-14 justify-center">
+          <div
+            className="h-px flex-1 max-w-xs"
+            style={{
+              background:
+                "linear-gradient(to right, transparent, rgba(90,64,50,0.3))",
+            }}
+          />
+          <span
+            className="text-xs uppercase tracking-[0.3em]"
+            style={{
+              color: "#5a4032",
+              fontFamily: "var(--font-inter)",
+              fontWeight: 500,
+            }}
+          >
+            {t("author.label")}
+          </span>
+          <div
+            className="h-px flex-1 max-w-xs"
+            style={{
+              background:
+                "linear-gradient(to left, transparent, rgba(90,64,50,0.3))",
+            }}
+          />
+        </div>
+
+        <div className="grid md:grid-cols-5 gap-14 md:gap-16 items-start">
+          {/* Photo */}
+          <div className="md:col-span-2 flex justify-center md:justify-start md:sticky md:top-28">
             <div className="relative">
-              {/* Glow ring */}
               <div
+                aria-hidden
                 className="absolute inset-0 rounded-full"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%)",
-                  transform: "scale(1.2)",
-                  filter: "blur(20px)",
+                    "radial-gradient(circle, rgba(194,160,116,0.25) 0%, transparent 70%)",
+                  transform: "scale(1.25)",
+                  filter: "blur(24px)",
                 }}
               />
-              {/* Photo frame */}
               <div
                 className="relative rounded-full overflow-hidden"
                 style={{
-                  width: 260,
-                  height: 260,
-                  border: "2px solid rgba(201,168,76,0.25)",
-                  boxShadow: "0 20px 60px rgba(0,0,0,0.5), 0 0 0 6px rgba(201,168,76,0.06)",
+                  width: 280,
+                  height: 280,
+                  border: "3px solid rgba(139,111,77,0.35)",
+                  boxShadow:
+                    "0 24px 48px rgba(60,40,22,0.25), 0 0 0 8px rgba(253,251,246,0.8), 0 0 0 9px rgba(139,111,77,0.18)",
                 }}
               >
-                {/* Placeholder for author photo */}
-                <div
-                  className="w-full h-full flex items-center justify-center"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 35% 35%, #3a2a18, #1a1208)",
-                  }}
-                >
-                  <svg width="90" height="110" viewBox="0 0 90 110" fill="none">
-                    <ellipse cx="45" cy="36" rx="24" ry="28" fill="rgba(201,168,76,0.25)" />
-                    <path
-                      d="M5 105 C5 72 85 72 85 105"
-                      fill="rgba(201,168,76,0.2)"
-                    />
-                  </svg>
-                </div>
+                <Image
+                  src="/images/ana-souza-foto.jpg"
+                  alt="Ana Souza de Magalhães"
+                  fill
+                  sizes="280px"
+                  style={{ objectFit: "cover", objectPosition: "center 15%" }}
+                />
               </div>
-              {/* Caption badge */}
               <div
-                className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase font-medium glass"
-                style={{ color: "#c9a84c", whiteSpace: "nowrap" }}
+                className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase whitespace-nowrap"
+                style={{
+                  background: "#faf6ed",
+                  color: "#5a4032",
+                  border: "1px solid rgba(139,111,77,0.3)",
+                  boxShadow: "0 4px 12px rgba(60,40,22,0.1)",
+                  fontWeight: 500,
+                }}
               >
-                Claudio / MG → Wertheim, DE
+                {t("author.badge")}
               </div>
             </div>
           </div>
 
           {/* Bio text */}
           <div className="md:col-span-3">
-            <p
-              className="text-xs uppercase tracking-[0.3em] mb-4"
-              style={{ color: "rgba(201,168,76,0.6)" }}
-            >
-              Sobre a autora
-            </p>
             <h2
               className="mb-8 leading-tight"
               style={{
                 fontFamily: "var(--font-playfair)",
                 fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                fontWeight: 700,
-                color: "#f5f0e8",
+                fontWeight: 600,
+                color: "#3d2a1a",
+                letterSpacing: "0.005em",
               }}
             >
-              Uma mineira de coração,{" "}
-              <em className="gold-text" style={{ fontStyle: "italic" }}>
-                escrevendo o mundo
+              {t("author.title.pre")}{" "}
+              <em style={{ fontStyle: "italic", color: "#5a4032" }}>
+                {t("author.title.em")}
               </em>
             </h2>
 
-            <div className="space-y-4" style={{ color: "rgba(245,240,232,0.65)" }}>
-              <p className="leading-relaxed">
-                Ana Souza de Magalhães nasceu no interior de Minas Gerais. É
-                formada em Pedagogia pela UEMG, com pós-graduação em Pedagogia
-                Empresarial pela PUC Minas.
-              </p>
-              <p className="leading-relaxed">
-                Vive há alguns anos na Alemanha, onde se especializou em cuidados
-                geriátricos pela escola Johanniter, em Wertheim. A distância não
-                apagou as raízes — ao contrário, a fez enxergar com mais nitidez
-                tudo que carregava dentro de si.
-              </p>
-              <p className="leading-relaxed">
-                Participa das coletâneas{" "}
-                <em>Casos de Família</em> e <em>Mundo Fantástico</em>, com o
-                conto <em>Urá</em>, e do curso de escrita criativa da Metamorfose.
-                É também autora do livro infantil{" "}
-                <em className="text-cream">Céu de Brincar</em> e do romance{" "}
-                <em>Entre Flores e Algodão</em>, em edição pela Metamorfose.
-              </p>
-            </div>
-
-            {/* Social links */}
-            <div className="mt-10 flex items-center gap-5">
-              {[
-                {
-                  name: "Instagram",
-                  icon: (
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <rect x="2" y="2" width="20" height="20" rx="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                    </svg>
-                  ),
-                },
-                {
-                  name: "YouTube",
-                  icon: (
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <rect x="2" y="6" width="20" height="12" rx="4" />
-                      <polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none" />
-                    </svg>
-                  ),
-                },
-                {
-                  name: "WhatsApp",
-                  icon: (
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l4.93-1.37A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" />
-                      <path d="M8.5 9.5c.5 1 1.5 2.5 3 3.5 1.5 1 2.5 1.5 3.5 2" strokeLinecap="round" />
-                    </svg>
-                  ),
-                },
-              ].map((s) => (
-                <a
-                  key={s.name}
-                  href="#"
-                  aria-label={s.name}
-                  className="p-2.5 rounded-full transition-all duration-300 hover:-translate-y-0.5"
-                  style={{
-                    color: "rgba(245,240,232,0.5)",
-                    border: "1px solid rgba(245,240,232,0.1)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#c9a84c";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(201,168,76,0.4)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "rgba(245,240,232,0.5)";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(245,240,232,0.1)";
-                  }}
-                >
-                  {s.icon}
-                </a>
+            <div style={{ color: "#5a4032", maxWidth: 620 }}>
+              {bioGroups.map((group, gi) => (
+                <div key={gi}>
+                  {gi > 0 && <Divider />}
+                  <div className="space-y-3" style={{ padding: "0.25rem 0" }}>
+                    {group.map((p, pi) => (
+                      <p
+                        key={pi}
+                        className="leading-relaxed"
+                        style={
+                          gi === 0
+                            ? { fontSize: "1.05rem", color: "#3d2a1a", fontWeight: 400 }
+                            : { fontSize: "0.95rem" }
+                        }
+                      >
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>

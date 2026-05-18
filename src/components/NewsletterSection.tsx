@@ -1,133 +1,128 @@
 "use client";
 
-import { useState } from "react";
+import { useT } from "@/lib/i18n";
 
 export default function NewsletterSection() {
-  const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    setState("loading");
-    // TODO: wire to /api/newsletter
-    await new Promise((r) => setTimeout(r, 900));
-    setState("success");
-  };
+  const { t } = useT();
+  const email = "anasouzademagalhaes@gmail.com";
+  const instagramHandle = "@anasouzademagalhaes";
 
   return (
     <section
-      id="newsletter"
-      className="relative py-28 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(135deg, #0e0c08 0%, #14110a 100%)",
-      }}
+      id="contato"
+      className="wallpaper-botanical-dense relative py-24 md:py-32 overflow-hidden"
     >
-      {/* Gold glow */}
+      {/* Soft vignette */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-60 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%)",
-          filter: "blur(40px)",
+          background:
+            "linear-gradient(to bottom, rgba(253,251,246,1) 0%, rgba(253,251,246,0) 8%, rgba(253,251,246,0) 92%, rgba(253,251,246,1) 100%)",
         }}
       />
 
-      <div className="relative max-w-2xl mx-auto px-6 text-center">
-        {/* Icon */}
-        <div
-          className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-8"
-          style={{
-            background: "rgba(201,168,76,0.1)",
-            border: "1px solid rgba(201,168,76,0.25)",
-          }}
-        >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c9a84c" strokeWidth={1.5}>
-            <path d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z" />
-          </svg>
+      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
+        {/* Section label */}
+        <div className="flex items-center gap-4 mb-10 justify-center">
+          <div
+            className="h-px flex-1 max-w-40"
+            style={{
+              background:
+                "linear-gradient(to right, transparent, rgba(90,64,50,0.3))",
+            }}
+          />
+          <span
+            className="text-xs uppercase tracking-[0.3em]"
+            style={{
+              color: "#5a4032",
+              fontFamily: "var(--font-inter)",
+              fontWeight: 500,
+            }}
+          >
+            {t("contato.label")}
+          </span>
+          <div
+            className="h-px flex-1 max-w-40"
+            style={{
+              background:
+                "linear-gradient(to left, transparent, rgba(90,64,50,0.3))",
+            }}
+          />
         </div>
 
         <h2
-          className="mb-4 leading-snug"
+          className="mb-6 leading-snug"
           style={{
             fontFamily: "var(--font-playfair)",
             fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-            fontWeight: 700,
-            color: "#f5f0e8",
+            fontWeight: 600,
+            color: "#3d2a1a",
+            letterSpacing: "0.005em",
           }}
         >
-          Receba um{" "}
-          <em className="gold-text" style={{ fontStyle: "italic" }}>
-            capítulo grátis
+          {t("contato.title.pre")}{" "}
+          <em style={{ fontStyle: "italic", color: "#5a4032" }}>
+            {t("contato.title.em")}
           </em>
         </h2>
 
         <p
           className="mb-10 leading-relaxed"
-          style={{ color: "rgba(245,240,232,0.55)", fontSize: "1.05rem" }}
+          style={{ color: "#5a4032", fontSize: "1.05rem" }}
         >
-          Cadastre-se e ganhe um capítulo exclusivo de{" "}
-          <em>Casos de Família</em> — direto no seu e-mail, sem spam.
+          {t("contato.intro")}
         </p>
 
-        {state === "success" ? (
-          <div
-            className="flex flex-col items-center gap-3 py-8"
-            style={{ color: "#c9a84c" }}
+        <div className="flex flex-col items-center gap-6">
+          <a
+            href={`mailto:${email}`}
+            className="px-8 py-3.5 rounded-full text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+            style={{
+              background: "#6d7e5f",
+              color: "#faf6ed",
+              fontWeight: 500,
+              boxShadow: "0 6px 18px rgba(109,126,95,0.35)",
+            }}
           >
-            <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <circle cx="12" cy="12" r="10" />
-              <path d="M8 12l3 3 5-5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <p className="text-lg font-medium text-cream">
-              Obrigada! Verifique seu e-mail.
-            </p>
-            <p style={{ color: "rgba(245,240,232,0.5)", fontSize: 14 }}>
-              O capítulo estará na sua caixa de entrada em instantes.
-            </p>
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            {t("contato.cta")}
+          </a>
+
+          <a
+            href="https://instagram.com/anasouzademagalhaes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 transition-colors duration-300"
+            style={{ color: "#5a4032" }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "#6d7e5f")
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "#5a4032")
+            }
           >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="seu@email.com"
-              required
-              className="flex-1 px-5 py-3.5 rounded-full outline-none transition-all duration-300 text-cream placeholder:text-muted"
-              style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.1)",
-              }}
-              onFocus={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(201,168,76,0.5)";
-              }}
-              onBlur={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)";
-              }}
-            />
-            <button
-              type="submit"
-              disabled={state === "loading"}
-              className="px-7 py-3.5 rounded-full font-semibold text-sm tracking-wide text-ink transition-all duration-300 disabled:opacity-60"
-              style={{
-                background: "linear-gradient(135deg, #c9a84c, #e8c96a)",
-                boxShadow: "0 4px 20px rgba(201,168,76,0.3)",
-              }}
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.5}
             >
-              {state === "loading" ? "Enviando…" : "Quero meu capítulo"}
-            </button>
-          </form>
-        )}
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+            <span style={{ fontFamily: "var(--font-inter)", fontSize: 14 }}>
+              {instagramHandle}
+            </span>
+          </a>
+        </div>
 
         <p
-          className="mt-6 text-xs"
-          style={{ color: "rgba(245,240,232,0.3)" }}
+          className="mt-10 text-xs"
+          style={{ color: "rgba(90,64,50,0.5)" }}
         >
-          Sem spam. Cancele quando quiser. Seus dados são protegidos conforme o RGPD.
+          {t("contato.privacy")}
         </p>
       </div>
     </section>

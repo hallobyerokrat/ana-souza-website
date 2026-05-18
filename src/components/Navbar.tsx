@@ -1,101 +1,258 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useT, type Locale } from "@/lib/i18n";
+
+const SECTION_TO_HREF: Record<string, string> = {
+  hero: "#hero",
+  livros: "#livros",
+  "casos-de-familia": "#livros",
+  "entre-flores": "#livros",
+  "ceu-de-brincar": "#livros",
+  loja: "#loja",
+  sobre: "#sobre",
+  contato: "#contato",
+};
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#hero");
+  const { locale, setLocale, t } = useT();
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const href = SECTION_TO_HREF[entry.target.id];
+            if (href) setActiveHref(href);
+          }
+        }
+      },
+      { rootMargin: "-35% 0px -60% 0px" },
+    );
+    Object.keys(SECTION_TO_HREF).forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   const links = [
-    { href: "#livros", label: "Livros" },
-    { href: "#sobre", label: "Sobre" },
-    { href: "#contato", label: "Contato" },
+    { href: "#hero", label: t("nav.inicio") },
+    { href: "#livros", label: t("nav.livros") },
+    { href: "#loja", label: t("nav.loja") },
+    { href: "#sobre", label: t("nav.sobre") },
+    { href: "#contato", label: t("nav.contato") },
   ];
+
+  const toggleLocale = (next: Locale) => {
+    if (next !== locale) setLocale(next);
+  };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass-dark py-3 shadow-lg shadow-black/40"
-          : "bg-transparent py-5"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        background: "rgba(250,246,237,0.88)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+        borderBottom: "1px solid rgba(61,42,26,0.08)",
+      }}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
+      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
         <Link
-          href="/"
-          className="font-heading text-lg font-semibold tracking-wide text-cream hover:text-gold transition-colors duration-300"
-          style={{ fontFamily: "var(--font-playfair)" }}
+          href="#hero"
+          className="text-base tracking-wide transition-opacity duration-300 hover:opacity-70"
+          style={{
+            fontFamily: "var(--font-playfair)",
+            color: "#3d2a1a",
+            fontSize: 17,
+          }}
         >
-          Ana Souza<span className="text-gold"> de Magalhães</span>
+          Ana Souza{" "}
+          <em style={{ fontStyle: "italic", color: "#5a4032" }}>de Magalhães</em>
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-muted hover:text-cream transition-colors duration-300 tracking-wide uppercase"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href="#newsletter"
-            className="px-5 py-2 rounded-full text-sm font-semibold tracking-wide border border-gold text-gold hover:bg-gold hover:text-ink transition-all duration-300"
-          >
-            Capítulo Grátis
-          </a>
+        <div className="hidden md:flex items-center gap-7">
+          {links.map((l, i) => {
+            const isActive = activeHref === l.href;
+            return (
+              <a
+                key={`${l.href}-${i}`}
+                href={l.href}
+                className="tracking-wide transition-colors duration-300 relative"
+                style={{
+                  fontFamily: "var(--font-playfair)",
+                  fontSize: 15,
+                  color: isActive ? "#6d7e5f" : "#3d2a1a",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#6d7e5f")}
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = isActive ? "#6d7e5f" : "#3d2a1a")
+                }
+              >
+                {l.label}
+                {isActive && (
+                  <span
+                    style={{
+                      position: "absolute",
+                      bottom: -4,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: 4,
+                      height: 4,
+                      borderRadius: "50%",
+                      background: "#6d7e5f",
+                      opacity: 0.7,
+                    }}
+                  />
+                )}
+              </a>
+            );
+          })}
         </div>
 
-        {/* Mobile hamburger */}
+        <div className="hidden md:flex items-center">
+          <div
+            role="group"
+            aria-label="Language"
+            style={{
+              border: "1px solid rgba(61,42,26,0.2)",
+              borderRadius: 3,
+              padding: "3px 4px",
+              fontFamily: "var(--font-playfair)",
+              fontSize: 12,
+              color: "#3d2a1a",
+              letterSpacing: "0.03em",
+              background: "rgba(255,255,255,0.4)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 2,
+            }}
+          >
+            <LocaleButton
+              active={locale === "pt"}
+              onClick={() => toggleLocale("pt")}
+              label="PT"
+            />
+            <span style={{ opacity: 0.3 }}>|</span>
+            <LocaleButton
+              active={locale === "de"}
+              onClick={() => toggleLocale("de")}
+              label="DE"
+            />
+          </div>
+        </div>
+
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-cream transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+            style={{ background: "#3d2a1a" }}
           />
           <span
-            className={`block w-6 h-0.5 bg-cream transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+            style={{ background: "#3d2a1a" }}
           />
           <span
-            className={`block w-6 h-0.5 bg-cream transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+            style={{ background: "#3d2a1a" }}
           />
         </button>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden glass-dark border-t border-white/10 px-6 py-4 flex flex-col gap-4">
-          {links.map((l) => (
+        <div
+          className="md:hidden border-t px-6 py-4 flex flex-col gap-3"
+          style={{
+            background: "rgba(250,246,237,0.96)",
+            borderColor: "rgba(61,42,26,0.1)",
+          }}
+        >
+          {links.map((l, i) => (
             <a
-              key={l.href}
+              key={`${l.href}-m-${i}`}
               href={l.href}
-              className="text-sm font-medium text-muted hover:text-cream py-1"
+              className="py-1"
+              style={{
+                fontFamily: "var(--font-playfair)",
+                fontSize: 16,
+                color: "#3d2a1a",
+              }}
               onClick={() => setMenuOpen(false)}
             >
               {l.label}
             </a>
           ))}
-          <a
-            href="#newsletter"
-            className="inline-flex justify-center px-5 py-2 rounded-full text-sm font-semibold border border-gold text-gold"
-            onClick={() => setMenuOpen(false)}
+          <div
+            style={{
+              marginTop: 8,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 2,
+              fontFamily: "var(--font-playfair)",
+              fontSize: 14,
+              color: "#3d2a1a",
+            }}
           >
-            Capítulo Grátis
-          </a>
+            <LocaleButton
+              active={locale === "pt"}
+              onClick={() => toggleLocale("pt")}
+              label="PT"
+            />
+            <span style={{ opacity: 0.3, margin: "0 4px" }}>|</span>
+            <LocaleButton
+              active={locale === "de"}
+              onClick={() => toggleLocale("de")}
+              label="DE"
+            />
+          </div>
         </div>
       )}
     </nav>
+  );
+}
+
+function LocaleButton({
+  active,
+  onClick,
+  label,
+}: {
+  active: boolean;
+  onClick: () => void;
+  label: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      style={{
+        padding: "2px 8px",
+        borderRadius: 2,
+        background: active ? "rgba(109,126,95,0.18)" : "transparent",
+        color: active ? "#3d2a1a" : "rgba(61,42,26,0.55)",
+        fontWeight: active ? 600 : 400,
+        fontFamily: "inherit",
+        fontSize: "inherit",
+        letterSpacing: "inherit",
+        transition: "all 0.2s ease",
+        cursor: "pointer",
+        border: "none",
+      }}
+      onMouseEnter={(e) => {
+        if (!active) e.currentTarget.style.color = "#3d2a1a";
+      }}
+      onMouseLeave={(e) => {
+        if (!active) e.currentTarget.style.color = "rgba(61,42,26,0.55)";
+      }}
+    >
+      {label}
+    </button>
   );
 }
