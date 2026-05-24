@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  background-color: #ede0d8;
+  background-color: #d8cac4;
   color: #4a2e44;
   font-family: var(--font-inter), 'Inter', sans-serif;
   overflow-x: hidden;
@@ -41,7 +41,7 @@ body {
 
 /* ---- Dense botanical wallpaper ---- */
 .wallpaper-botanical-dense {
-  background-color: #e8d8d4;
+  background-color: #d8cac4;
   background-image:
     url("/botanical-1.svg"),
     url("/botanical-2.svg");

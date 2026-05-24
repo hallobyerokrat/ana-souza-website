@@ -4,7 +4,7 @@ import { useT } from "@/lib/i18n";
 
 // ─── Farb-Konstanten ────────────────────────────────────────────────
 const C = {
-  bg: "#ede5df",
+  bg: "#d8cac4",
   frameOuter: "#7a5068",
   frameFace: "#bfadb5",
   notePaper: "#f2e8dc",
@@ -18,88 +18,82 @@ const C = {
 
 // ─── Botanische SVGs ─────────────────────────────────────────────────
 
-/** Schlanker Zweig oben-links */
+/** Gypsophila-Zweig oben-links */
 function BotanicTopLeft() {
+  const s = C.botanicCorner;
+  const sl = C.botanicCornerLight;
   return (
-    <svg
-      aria-hidden
-      width="140"
-      height="200"
-      viewBox="0 0 140 200"
-      fill="none"
-      style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}
-    >
+    <svg aria-hidden width="120" height="220" viewBox="0 0 120 220" fill="none"
+      style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}>
       {/* Hauptstamm */}
-      <line x1="30" y1="200" x2="55" y2="40" stroke={C.botanicCorner} strokeWidth="1.2" />
-      {/* Seitenzweige links */}
-      <line x1="45" y1="130" x2="10" y2="105" stroke={C.botanicCorner} strokeWidth="0.9" />
-      <line x1="50" y1="90" x2="12" y2="68" stroke={C.botanicCorner} strokeWidth="0.9" />
-      <line x1="53" y1="60" x2="22" y2="42" stroke={C.botanicCorner} strokeWidth="0.8" />
-      {/* Seitenzweige rechts */}
-      <line x1="40" y1="150" x2="78" y2="128" stroke={C.botanicCornerLight} strokeWidth="0.8" />
-      <line x1="47" y1="110" x2="82" y2="92" stroke={C.botanicCornerLight} strokeWidth="0.8" />
-      {/* Kleine Blütenkreise */}
-      <circle cx="10" cy="104" r="3.5" fill={C.botanicCorner} />
-      <circle cx="8" cy="100" r="2" fill={C.botanicCornerLight} />
-      <circle cx="12" cy="67" r="3.5" fill={C.botanicCorner} />
-      <circle cx="10" cy="63" r="2" fill={C.botanicCornerLight} />
-      <circle cx="22" cy="41" r="3" fill={C.botanicCorner} />
-      <circle cx="78" cy="127" r="3" fill={C.botanicCornerLight} />
-      <circle cx="82" cy="91" r="3" fill={C.botanicCornerLight} />
-      {/* Beeren-Cluster oben */}
-      <circle cx="55" cy="38" r="2.8" fill={C.botanicCorner} />
-      <circle cx="60" cy="32" r="2.2" fill={C.botanicCornerLight} />
-      <circle cx="50" cy="30" r="2.5" fill={C.botanicCorner} />
-      <circle cx="64" cy="38" r="1.8" fill={C.botanicCornerLight} />
-      <circle cx="46" cy="36" r="1.8" fill={C.botanicCorner} />
-      {/* Kleiner Zweig ganz oben */}
-      <line x1="55" y1="40" x2="68" y2="20" stroke={C.botanicCornerLight} strokeWidth="0.7" />
-      <line x1="55" y1="40" x2="40" y2="18" stroke={C.botanicCornerLight} strokeWidth="0.7" />
-      <circle cx="68" cy="18" r="2" fill={C.botanicCornerLight} />
-      <circle cx="40" cy="17" r="2" fill={C.botanicCornerLight} />
+      <line x1="20" y1="220" x2="45" y2="80" stroke={s} strokeWidth="1.0" />
+      {/* Ast 1 */}
+      <line x1="35" y1="150" x2="8" y2="120" stroke={s} strokeWidth="0.8" />
+      <line x1="8" y1="120" x2="2" y2="100" stroke={sl} strokeWidth="0.7" />
+      <line x1="8" y1="120" x2="18" y2="102" stroke={sl} strokeWidth="0.7" />
+      <circle cx="2" cy="98" r="2.8" fill={s} /><circle cx="4" cy="95" r="1.8" fill={sl} />
+      <circle cx="18" cy="100" r="2.5" fill={s} /><circle cx="20" cy="97" r="1.6" fill={sl} />
+      {/* Ast 2 */}
+      <line x1="40" y1="115" x2="12" y2="88" stroke={s} strokeWidth="0.8" />
+      <line x1="12" y1="88" x2="5" y2="70" stroke={sl} strokeWidth="0.7" />
+      <line x1="12" y1="88" x2="24" y2="72" stroke={sl} strokeWidth="0.7" />
+      <circle cx="4" cy="68" r="2.8" fill={s} /><circle cx="6" cy="65" r="1.8" fill={sl} />
+      <circle cx="24" cy="70" r="2.5" fill={s} /><circle cx="26" cy="67" r="1.6" fill={sl} />
+      {/* Ast 3 */}
+      <line x1="43" y1="95" x2="20" y2="68" stroke={s} strokeWidth="0.8" />
+      <line x1="20" y1="68" x2="10" y2="50" stroke={sl} strokeWidth="0.7" />
+      <line x1="20" y1="68" x2="32" y2="52" stroke={sl} strokeWidth="0.7" />
+      <circle cx="9" cy="48" r="2.5" fill={s} /><circle cx="11" cy="45" r="1.6" fill={sl} />
+      <circle cx="32" cy="50" r="2.5" fill={s} /><circle cx="34" cy="47" r="1.6" fill={sl} />
+      {/* Spitze */}
+      <line x1="45" y1="80" x2="35" y2="55" stroke={sl} strokeWidth="0.7" />
+      <line x1="45" y1="80" x2="58" y2="60" stroke={sl} strokeWidth="0.7" />
+      <circle cx="34" cy="53" r="2.2" fill={sl} /><circle cx="36" cy="50" r="1.4" fill={sl} />
+      <circle cx="58" cy="58" r="2.2" fill={sl} /><circle cx="60" cy="55" r="1.4" fill={sl} />
+      {/* Rechte Aste */}
+      <line x1="30" y1="170" x2="60" y2="148" stroke={sl} strokeWidth="0.7" />
+      <line x1="60" y1="148" x2="68" y2="132" stroke={sl} strokeWidth="0.6" />
+      <line x1="60" y1="148" x2="74" y2="150" stroke={sl} strokeWidth="0.6" />
+      <circle cx="68" cy="130" r="2.2" fill={sl} /><circle cx="74" cy="148" r="2.0" fill={sl} />
     </svg>
   );
 }
 
-/** Gespiegelter Zweig oben-rechts */
+/** Gypsophila-Zweig oben-rechts (gespiegelt) */
 function BotanicTopRight() {
   return (
-    <svg
-      aria-hidden
-      width="140"
-      height="200"
-      viewBox="0 0 140 200"
-      fill="none"
-      style={{
-        position: "absolute",
-        top: 0,
-        right: 0,
-        pointerEvents: "none",
-        transform: "scaleX(-1)",
-      }}
-    >
-      <line x1="30" y1="200" x2="55" y2="40" stroke={C.botanicCorner} strokeWidth="1.2" />
-      <line x1="45" y1="130" x2="10" y2="105" stroke={C.botanicCorner} strokeWidth="0.9" />
-      <line x1="50" y1="90" x2="12" y2="68" stroke={C.botanicCorner} strokeWidth="0.9" />
-      <line x1="53" y1="60" x2="22" y2="42" stroke={C.botanicCorner} strokeWidth="0.8" />
-      <line x1="40" y1="150" x2="78" y2="128" stroke={C.botanicCornerLight} strokeWidth="0.8" />
-      <line x1="47" y1="110" x2="82" y2="92" stroke={C.botanicCornerLight} strokeWidth="0.8" />
-      <circle cx="10" cy="104" r="3.5" fill={C.botanicCorner} />
-      <circle cx="8" cy="100" r="2" fill={C.botanicCornerLight} />
-      <circle cx="12" cy="67" r="3.5" fill={C.botanicCorner} />
-      <circle cx="10" cy="63" r="2" fill={C.botanicCornerLight} />
-      <circle cx="22" cy="41" r="3" fill={C.botanicCorner} />
-      <circle cx="78" cy="127" r="3" fill={C.botanicCornerLight} />
-      <circle cx="82" cy="91" r="3" fill={C.botanicCornerLight} />
-      <circle cx="55" cy="38" r="2.8" fill={C.botanicCorner} />
-      <circle cx="60" cy="32" r="2.2" fill={C.botanicCornerLight} />
-      <circle cx="50" cy="30" r="2.5" fill={C.botanicCorner} />
-      <circle cx="64" cy="38" r="1.8" fill={C.botanicCornerLight} />
-      <circle cx="46" cy="36" r="1.8" fill={C.botanicCorner} />
-      <line x1="55" y1="40" x2="68" y2="20" stroke={C.botanicCornerLight} strokeWidth="0.7" />
-      <line x1="55" y1="40" x2="40" y2="18" stroke={C.botanicCornerLight} strokeWidth="0.7" />
-      <circle cx="68" cy="18" r="2" fill={C.botanicCornerLight} />
-      <circle cx="40" cy="17" r="2" fill={C.botanicCornerLight} />
+    <svg aria-hidden width="120" height="220" viewBox="0 0 120 220" fill="none"
+      style={{ position: "absolute", top: 0, right: 0, pointerEvents: "none", transform: "scaleX(-1)" }}>
+      {/* identisch mit TopLeft — gespiegelt via CSS */}
+      {(() => {
+        const s = C.botanicCorner; const sl = C.botanicCornerLight;
+        return (<>
+          <line x1="20" y1="220" x2="45" y2="80" stroke={s} strokeWidth="1.0" />
+          <line x1="35" y1="150" x2="8" y2="120" stroke={s} strokeWidth="0.8" />
+          <line x1="8" y1="120" x2="2" y2="100" stroke={sl} strokeWidth="0.7" />
+          <line x1="8" y1="120" x2="18" y2="102" stroke={sl} strokeWidth="0.7" />
+          <circle cx="2" cy="98" r="2.8" fill={s} /><circle cx="4" cy="95" r="1.8" fill={sl} />
+          <circle cx="18" cy="100" r="2.5" fill={s} /><circle cx="20" cy="97" r="1.6" fill={sl} />
+          <line x1="40" y1="115" x2="12" y2="88" stroke={s} strokeWidth="0.8" />
+          <line x1="12" y1="88" x2="5" y2="70" stroke={sl} strokeWidth="0.7" />
+          <line x1="12" y1="88" x2="24" y2="72" stroke={sl} strokeWidth="0.7" />
+          <circle cx="4" cy="68" r="2.8" fill={s} /><circle cx="6" cy="65" r="1.8" fill={sl} />
+          <circle cx="24" cy="70" r="2.5" fill={s} /><circle cx="26" cy="67" r="1.6" fill={sl} />
+          <line x1="43" y1="95" x2="20" y2="68" stroke={s} strokeWidth="0.8" />
+          <line x1="20" y1="68" x2="10" y2="50" stroke={sl} strokeWidth="0.7" />
+          <line x1="20" y1="68" x2="32" y2="52" stroke={sl} strokeWidth="0.7" />
+          <circle cx="9" cy="48" r="2.5" fill={s} /><circle cx="11" cy="45" r="1.6" fill={sl} />
+          <circle cx="32" cy="50" r="2.5" fill={s} /><circle cx="34" cy="47" r="1.6" fill={sl} />
+          <line x1="45" y1="80" x2="35" y2="55" stroke={sl} strokeWidth="0.7" />
+          <line x1="45" y1="80" x2="58" y2="60" stroke={sl} strokeWidth="0.7" />
+          <circle cx="34" cy="53" r="2.2" fill={sl} /><circle cx="36" cy="50" r="1.4" fill={sl} />
+          <circle cx="58" cy="58" r="2.2" fill={sl} /><circle cx="60" cy="55" r="1.4" fill={sl} />
+          <line x1="30" y1="170" x2="60" y2="148" stroke={sl} strokeWidth="0.7" />
+          <line x1="60" y1="148" x2="68" y2="132" stroke={sl} strokeWidth="0.6" />
+          <line x1="60" y1="148" x2="74" y2="150" stroke={sl} strokeWidth="0.6" />
+          <circle cx="68" cy="130" r="2.2" fill={sl} /><circle cx="74" cy="148" r="2.0" fill={sl} />
+        </>);
+      })()}
     </svg>
   );
 }
@@ -116,19 +110,18 @@ function BotanicBottomLeft() {
       style={{ position: "absolute", bottom: 0, left: 0, pointerEvents: "none" }}
     >
       <defs>
-        <filter id="wc-left" x="-60%" y="-40%" width="220%" height="200%">
-          <feTurbulence type="turbulence" baseFrequency="0.012 0.018" numOctaves="3" seed="3" result="turb" />
-          <feDisplacementMap in="SourceGraphic" in2="turb" scale="28" xChannelSelector="R" yChannelSelector="G" result="displaced" />
-          <feGaussianBlur in="displaced" stdDeviation="10" />
+        <filter id="wc-left" x="-30%" y="-30%" width="160%" height="160%">
+          <feTurbulence type="turbulence" baseFrequency="0.008 0.012" numOctaves="4" seed="2" result="turb" />
+          <feDisplacementMap in="SourceGraphic" in2="turb" scale="45" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+          <feGaussianBlur in="displaced" stdDeviation="18" />
         </filter>
       </defs>
-      {/* Watercolor-Wash — organische Blobs */}
+      {/* Große Watercolor-Wolken unten-links */}
       <g filter="url(#wc-left)">
-        <ellipse cx="80" cy="248" rx="75" ry="32" fill="rgba(155,95,128,0.5)" />
-        <ellipse cx="45" cy="258" rx="52" ry="24" fill="rgba(135,80,112,0.45)" />
-        <ellipse cx="125" cy="254" rx="60" ry="22" fill="rgba(168,115,142,0.38)" />
-        <ellipse cx="30" cy="252" rx="38" ry="18" fill="rgba(148,90,120,0.42)" />
-        <ellipse cx="100" cy="264" rx="70" ry="16" fill="rgba(175,128,150,0.32)" />
+        <path d="M0,200 Q40,170 90,185 Q140,195 170,175 Q200,160 220,180 L220,280 L0,280 Z" fill="rgba(148,95,125,0.55)" />
+        <path d="M0,220 Q50,195 110,210 Q160,220 200,205 L220,280 L0,280 Z" fill="rgba(130,80,108,0.45)" />
+        <path d="M0,240 Q60,225 130,235 Q175,240 220,228 L220,280 L0,280 Z" fill="rgba(165,118,142,0.38)" />
+        <path d="M0,255 Q80,245 150,252 Q185,255 220,248 L220,280 L0,280 Z" fill="rgba(155,105,132,0.32)" />
       </g>
       {/* Stamm */}
       <line x1="70" y1="280" x2="70" y2="90" stroke={C.botanicCorner} strokeWidth="1.4" />
@@ -169,18 +162,18 @@ function BotanicBottomRight() {
       style={{ position: "absolute", bottom: 0, right: 0, pointerEvents: "none", transform: "scaleX(-1)" }}
     >
       <defs>
-        <filter id="wc-right" x="-60%" y="-40%" width="220%" height="200%">
-          <feTurbulence type="turbulence" baseFrequency="0.012 0.018" numOctaves="3" seed="7" result="turb" />
-          <feDisplacementMap in="SourceGraphic" in2="turb" scale="28" xChannelSelector="R" yChannelSelector="G" result="displaced" />
-          <feGaussianBlur in="displaced" stdDeviation="10" />
+        <filter id="wc-right" x="-30%" y="-30%" width="160%" height="160%">
+          <feTurbulence type="turbulence" baseFrequency="0.008 0.012" numOctaves="4" seed="9" result="turb" />
+          <feDisplacementMap in="SourceGraphic" in2="turb" scale="45" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+          <feGaussianBlur in="displaced" stdDeviation="18" />
         </filter>
       </defs>
+      {/* Große Watercolor-Wolken unten-rechts (gespiegelt) */}
       <g filter="url(#wc-right)">
-        <ellipse cx="80" cy="248" rx="75" ry="32" fill="rgba(155,95,128,0.5)" />
-        <ellipse cx="45" cy="258" rx="52" ry="24" fill="rgba(135,80,112,0.45)" />
-        <ellipse cx="125" cy="254" rx="60" ry="22" fill="rgba(168,115,142,0.38)" />
-        <ellipse cx="30" cy="252" rx="38" ry="18" fill="rgba(148,90,120,0.42)" />
-        <ellipse cx="100" cy="264" rx="70" ry="16" fill="rgba(175,128,150,0.32)" />
+        <path d="M0,200 Q40,170 90,185 Q140,195 170,175 Q200,160 220,180 L220,280 L0,280 Z" fill="rgba(148,95,125,0.55)" />
+        <path d="M0,220 Q50,195 110,210 Q160,220 200,205 L220,280 L0,280 Z" fill="rgba(130,80,108,0.45)" />
+        <path d="M0,240 Q60,225 130,235 Q175,240 220,228 L220,280 L0,280 Z" fill="rgba(165,118,142,0.38)" />
+        <path d="M0,255 Q80,245 150,252 Q185,255 220,248 L220,280 L0,280 Z" fill="rgba(155,105,132,0.32)" />
       </g>
       <line x1="70" y1="280" x2="70" y2="90" stroke={C.botanicCorner} strokeWidth="1.4" />
       <path d="M70 210 Q25 185 8 158" stroke={C.botanicCorner} strokeWidth="1.1" fill="none" />
@@ -461,7 +454,7 @@ function FramedNote({
   label,
   rotate = -2,
   width = 158,
-  noteHeight = 190,
+  noteHeight = 155,
 }: {
   href: string;
   label: string;
@@ -531,17 +524,16 @@ function SideFrame({ children }: { children: React.ReactNode }) {
       style={{
         padding: 10,
         background: C.frameOuter,
-        boxShadow:
-          "0 18px 44px rgba(40,20,35,0.26), 0 5px 14px rgba(40,20,35,0.14), inset 0 1px 2px rgba(200,170,185,0.35)",
-        borderRadius: 3,
+        boxShadow: "0 4px 16px rgba(40,20,35,0.18)",
+        borderRadius: 2,
       }}
     >
       {/* Innere Rahmenlinie */}
       <div
         style={{
-          padding: 5,
-          background: "rgba(90,50,70,0.35)",
-          boxShadow: "inset 0 2px 8px rgba(40,20,35,0.2)",
+          padding: 4,
+          background: "rgba(90,50,70,0.2)",
+          boxShadow: "none",
         }}
       >
         {/* Cork-Flache mit SVG-Leinwand-Textur */}
@@ -559,31 +551,27 @@ function SideFrame({ children }: { children: React.ReactNode }) {
             overflow: "hidden",
           }}
         >
-          {/* SVG Leinwand-Muster Overlay */}
+          {/* SVG Jute/Burlap Leinwand-Textur */}
           <svg
             aria-hidden
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
             preserveAspectRatio="xMidYMid slice"
           >
             <defs>
-              <filter id="linen-noise" x="0%" y="0%" width="100%" height="100%">
-                <feTurbulence type="turbulence" baseFrequency="0.65 0.35" numOctaves="3" seed="5" result="noise" />
-                <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise" />
-                <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blended" />
-                <feComponentTransfer in="blended">
-                  <feFuncA type="linear" slope="0.18" />
-                </feComponentTransfer>
-              </filter>
-              <pattern id="weave" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
-                <rect width="6" height="6" fill="none" />
-                <line x1="0" y1="0" x2="6" y2="0" stroke="rgba(70,40,60,0.09)" strokeWidth="0.8" />
-                <line x1="0" y1="3" x2="6" y2="3" stroke="rgba(70,40,60,0.06)" strokeWidth="0.5" />
-                <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(70,40,60,0.09)" strokeWidth="0.8" />
-                <line x1="3" y1="0" x2="3" y2="6" stroke="rgba(70,40,60,0.06)" strokeWidth="0.5" />
+              <pattern id="burlap" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+                {/* Horizontale Fäden */}
+                <line x1="0" y1="1" x2="8" y2="1" stroke="rgba(80,50,68,0.13)" strokeWidth="1.2" />
+                <line x1="0" y1="3" x2="8" y2="3" stroke="rgba(80,50,68,0.08)" strokeWidth="0.7" />
+                <line x1="0" y1="5" x2="8" y2="5" stroke="rgba(80,50,68,0.13)" strokeWidth="1.2" />
+                <line x1="0" y1="7" x2="8" y2="7" stroke="rgba(80,50,68,0.08)" strokeWidth="0.7" />
+                {/* Vertikale Fäden */}
+                <line x1="1" y1="0" x2="1" y2="8" stroke="rgba(80,50,68,0.13)" strokeWidth="1.2" />
+                <line x1="3" y1="0" x2="3" y2="8" stroke="rgba(80,50,68,0.08)" strokeWidth="0.7" />
+                <line x1="5" y1="0" x2="5" y2="8" stroke="rgba(80,50,68,0.13)" strokeWidth="1.2" />
+                <line x1="7" y1="0" x2="7" y2="8" stroke="rgba(80,50,68,0.08)" strokeWidth="0.7" />
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#weave)" />
-            <rect width="100%" height="100%" filter="url(#linen-noise)" />
+            <rect width="100%" height="100%" fill="url(#burlap)" />
           </svg>
           {children}
         </div>
