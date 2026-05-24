@@ -74,21 +74,15 @@ const pt: Dict = {
   "author.title.pre": "Uma escrita intuitiva,",
   "author.title.em": "tecida pela memória",
   "author.p1":
-    "Nasci em 1974, na cidade de Cláudio, Minas Gerais, Brasil. Há alguns anos vivo na Alemanha, onde construí minha família.",
+    "Nasci no interior de Minas Gerais, entre paisagens e memórias que ainda atravessam minha escrita.",
   "author.p2":
-    "Minha trajetória profissional teve início na área pedagógica, com atuação na elaboração de projetos empresariais. Com a mudança de país, priorizei a vida familiar, dedicando-me ao cuidado dos meus filhos e à transmissão da língua portuguesa como herança afetiva e cultural.",
+    "Sou formada em Pedagogia pela UEMG, com pós-graduação em Pedagogia Empresarial pela PUC Minas. Vivo há alguns anos na Alemanha, onde me especializei em cuidados geriátricos pela escola Johanniter, em Wertheim.",
   "author.p3":
-    "Posteriormente, retomei os estudos, aprofundei meus conhecimentos na língua alemã e me formei em enfermagem geriátrica em Wertheim. Essa experiência me proporcionou um contato profundo com os processos de envelhecimento e com a finitude da vida — temas que atravessam minha escrita.",
+    "Participo do curso de escrita criativa da Metamorfose, onde publiquei os contos Idaí, na coletânea Casos de Família, e Urá, na coletânea Mundo Fantástico.",
   "author.p4":
-    "A escrita sempre esteve presente em minha vida. Por muito tempo, mantive textos e fragmentos guardados, publicando ocasionalmente no site Recanto das Letras. Esse percurso levou à publicação do meu primeiro livro, Céu de Brincar (2025), uma obra infantil inspirada em um de meus poemas.",
+    "Sou autora do livro infantil Céu de Brincar e do romance Entre Flores e Algodão, atualmente em edição pela Metamorfose.",
   "author.p5":
-    "Minha escrita é intuitiva e livre, orientada pelo fluxo da memória e da experiência. No romance Entre Flores e Algodão, esse processo se revelou de forma clara: os capítulos iniciais surgiram de maneira orgânica, enquanto os finais exigiram construção mais deliberada.",
-  "author.p6":
-    "Entre minhas principais referências está o autor José Mauro de Vasconcelos, cuja obra influenciou especialmente a elaboração do meu primeiro romance.",
-  "author.p7":
-    "Participei das coletâneas Casos de Família (conto \"Idaí\") e Planeta Fantástico (conto \"Urá\"), publicações da escola de escrita Metamorfose.",
-  "author.p8":
-    "Atualmente, desenvolvo projetos literários voltados aos públicos infantil, infantojuvenil e adulto. O romance Entre Flores e Algodão encontra-se em processo editorial, com previsão de publicação.",
+    "Entre literatura, música e pequenas paisagens poéticas, sigo criando espaços onde delicadeza, imaginação e afeto possam permanecer.",
   "author.badge": "Minas Gerais → Wertheim, DE",
   "author.readMore": "Mais sobre mim",
   "author.readLess": "Mostrar menos",
@@ -196,21 +190,15 @@ const de: Dict = {
   "author.title.pre": "Ein intuitives Schreiben,",
   "author.title.em": "gewebt aus Erinnerung",
   "author.p1":
-    "Ich wurde 1974 in Cláudio, Minas Gerais, Brasilien, geboren. Seit einigen Jahren lebe ich in Deutschland, wo ich meine Familie gegründet habe.",
+    "Ich wurde im Landesinneren von Minas Gerais geboren, zwischen Landschaften und Erinnerungen, die meiner Schrift noch heute innewohnen.",
   "author.p2":
-    "Meinen beruflichen Einstieg hatte ich im pädagogischen Bereich, mit dem Schwerpunkt auf der Entwicklung von Bildungsprojekten. Nach dem Umzug ins Ausland rückte das Familienleben in den Vordergrund — ich widmete mich der Erziehung meiner Kinder und der Weitergabe der portugiesischen Sprache als emotionales und kulturelles Erbe.",
+    "Ich habe Pädagogik an der UEMG studiert und einen Postgraduierten-Abschluss in Betriebspädagogik von der PUC Minas. Seit einigen Jahren lebe ich in Deutschland, wo ich mich an der Johanniter-Schule in Wertheim auf Altenpflege spezialisiert habe.",
   "author.p3":
-    "Später nahm ich mein Studium wieder auf, vertiefte meine Deutschkenntnisse und absolvierte eine Ausbildung in der Altenpflege in Wertheim. Diese Erfahrung ermöglichte mir einen tiefen Kontakt mit den Prozessen des Alterns und der Endlichkeit des Lebens — Themen, die mein Schreiben durchziehen.",
+    "Ich nehme am Kurs für kreatives Schreiben der Metamorfose teil, wo ich die Kurzgeschichten Idaí in der Anthologie Casos de Família und Urá in der Anthologie Mundo Fantástico veröffentlicht habe.",
   "author.p4":
-    "Das Schreiben war schon immer ein Teil meines Lebens. Lange bewahrte ich Texte und Fragmente auf und veröffentlichte gelegentlich auf der Plattform Recanto das Letras. Dieser Weg führte schließlich zur Veröffentlichung meines ersten Buches, Céu de Brincar (2025), einem Kinderbuch, das von einem meiner Gedichte inspiriert wurde.",
+    "Ich bin Autorin des Kinderbuchs Céu de Brincar und des Romans Entre Flores e Algodão, der derzeit von Metamorfose bearbeitet wird.",
   "author.p5":
-    "Mein Schreiben ist intuitiv und frei, geleitet vom Fluss der Erinnerung und Erfahrung. Im Roman Entre Flores e Algodão zeigte sich das deutlich: Die ersten Kapitel entstanden organisch, während die letzten eine bewusstere Gestaltung verlangten.",
-  "author.p6":
-    "Einer meiner wichtigsten literarischen Einflüsse ist der Autor José Mauro de Vasconcelos, dessen Werk besonders die Entstehung meines ersten Romans geprägt hat.",
-  "author.p7":
-    "Ich habe an den Anthologien Casos de Família (Erzählung \"Idaí\") und Planeta Fantástico (Erzählung \"Urá\") mitgewirkt — beide erschienen im Rahmen der Schreibschule Metamorfose.",
-  "author.p8":
-    "Derzeit entwickle ich literarische Projekte für Kinder, Jugendliche und Erwachsene. Der Roman Entre Flores e Algodão befindet sich im Lektorat, eine Veröffentlichung ist geplant.",
+    "Zwischen Literatur, Musik und kleinen poetischen Landschaften schaffe ich weiterhin Räume, in denen Zartheit, Phantasie und Zuneigung Bestand haben können.",
   "author.badge": "Minas Gerais → Wertheim, DE",
   "author.readMore": "Mehr lesen",
   "author.readLess": "Weniger anzeigen",

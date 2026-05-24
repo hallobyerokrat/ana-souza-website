@@ -5,7 +5,7 @@ import EntreFloresSection from "@/components/EntreFloresSection";
 import CeuDeBrincarSection from "@/components/CeuDeBrincarSection";
 import AuthorSection from "@/components/AuthorSection";
 import NewsletterSection from "@/components/NewsletterSection";
-import ShopSection from "@/components/ShopSection";
+// import ShopSection from "@/components/ShopSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -20,7 +20,7 @@ export default function Home() {
         <EntreFloresSection />
         <CeuDeBrincarSection />
         <AuthorSection />
-        <ShopSection />
+        {/* <ShopSection /> */}
         <NewsletterSection />
       </main>
       <Footer />

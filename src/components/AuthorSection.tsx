@@ -21,8 +21,7 @@ export default function AuthorSection() {
   const bioGroups = [
     [t("author.p1")],
     [t("author.p2"), t("author.p3")],
-    [t("author.p4"), t("author.p5"), t("author.p6")],
-    [t("author.p7"), t("author.p8")],
+    [t("author.p4"), t("author.p5")],
   ];
 
   return (

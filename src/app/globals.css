@@ -33,19 +33,19 @@ html {
 }
 
 body {
-  background-color: #faf6ed;
-  color: #3d2a1a;
+  background-color: #ede0d8;
+  color: #4a2e44;
   font-family: var(--font-inter), 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
 /* ---- Dense botanical wallpaper ---- */
 .wallpaper-botanical-dense {
-  background-color: #fdfbf6;
+  background-color: #e8d8d4;
   background-image:
     url("/botanical-1.svg"),
     url("/botanical-2.svg");
-  background-size: 180px 180px, 320px 320px;
+  background-size: 320px 320px, 560px 560px;
   background-position: 0 0, 40px 50px;
   contain: paint;
 }
@@ -123,7 +123,7 @@ body {
 .pin-yellow { background: radial-gradient(circle at 35% 30%, #c4934a, #885a1e); }
 .pin-green  { background: radial-gradient(circle at 35% 30%, #5a8a6a, #2e5a40); }
 .pin-silver { background: radial-gradient(circle at 35% 30%, #e8e8e8, #999); }
-.pin-note   { background: radial-gradient(circle at 35% 30%, #7a5538, #4a2e18); }
+.pin-note   { background: radial-gradient(circle at 35% 30%, #7a5268, #5a3850); }
 
 /* ---- Paper notes ---- */
 .paper {
