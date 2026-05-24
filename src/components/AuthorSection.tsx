@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { useT } from "@/lib/i18n";
 
 const Divider = () => (
@@ -15,6 +16,7 @@ const Divider = () => (
 
 export default function AuthorSection() {
   const { t } = useT();
+  const [expanded, setExpanded] = useState(false);
 
   const bioGroups = [
     [t("author.p1")],
@@ -132,7 +134,8 @@ export default function AuthorSection() {
             </h2>
 
             <div style={{ color: "#5a4032", maxWidth: 620 }}>
-              {bioGroups.map((group, gi) => (
+              {/* Always visible: groups 0 + 1 */}
+              {bioGroups.slice(0, 2).map((group, gi) => (
                 <div key={gi}>
                   {gi > 0 && <Divider />}
                   <div className="space-y-3" style={{ padding: "0.25rem 0" }}>
@@ -152,6 +155,64 @@ export default function AuthorSection() {
                   </div>
                 </div>
               ))}
+
+              {/* Collapsible: groups 2 + 3 */}
+              <div
+                style={{
+                  overflow: "hidden",
+                  maxHeight: expanded ? 600 : 0,
+                  transition: "max-height 0.55s cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
+              >
+                {bioGroups.slice(2).map((group, gi) => (
+                  <div key={gi + 2}>
+                    <Divider />
+                    <div className="space-y-3" style={{ padding: "0.25rem 0" }}>
+                      {group.map((p, pi) => (
+                        <p key={pi} className="leading-relaxed" style={{ fontSize: "0.95rem" }}>
+                          {p}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Expand / collapse button */}
+              <button
+                onClick={() => setExpanded(!expanded)}
+                style={{
+                  marginTop: "1.25rem",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.4rem",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  fontFamily: "var(--font-playfair)",
+                  fontSize: "0.9rem",
+                  fontStyle: "italic",
+                  color: "#8b6f4d",
+                  padding: 0,
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#5a3d23")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#8b6f4d")}
+              >
+                {expanded ? t("author.readLess") : t("author.readMore")}
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  style={{
+                    transition: "transform 0.4s ease",
+                    transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+                  }}
+                >
+                  <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
             </div>
           </div>
         </div>

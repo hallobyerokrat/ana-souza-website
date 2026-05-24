@@ -23,181 +23,146 @@ export default function ShopSection() {
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        {/* Section header */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6">
+        {/* Storefront */}
         <motion.div
-          className="flex flex-col items-center mb-16"
-          initial={{ opacity: 0, y: 24 }}
+          className="storefront"
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Shop sign */}
-          <div className="shop-sign mb-8">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path
-                d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
-                stroke="#c2a074"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <polyline
-                points="9 22 9 12 15 12 15 22"
-                stroke="#c2a074"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+          {/* Top fascia — shop sign board */}
+          <div className="storefront-fascia">
+            {/* Decorative botanical left */}
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden style={{ opacity: 0.6, flexShrink: 0 }}>
+              <path d="M4 24 Q10 16 18 12 Q22 10 26 8" stroke="#c2a074" strokeWidth="1.2" strokeLinecap="round"/>
+              <ellipse cx="10" cy="18" rx="2" ry="4" transform="rotate(-40 10 18)" fill="#c2a074" fillOpacity="0.5"/>
+              <ellipse cx="18" cy="12" rx="1.8" ry="3.5" transform="rotate(-20 18 12)" fill="#c2a074" fillOpacity="0.5"/>
             </svg>
-            {t("shop.label")}
-          </div>
 
-          {/* Divider with label */}
-          <div className="flex items-center gap-4 w-full max-w-sm">
-            <div
-              className="h-px flex-1"
-              style={{
-                background: "linear-gradient(to right, transparent, rgba(90,64,50,0.3))",
-              }}
-            />
+            {/* Shop name */}
             <span
-              className="text-xs uppercase tracking-[0.3em]"
               style={{
-                color: "#5a4032",
-                fontFamily: "var(--font-inter)",
-                fontWeight: 500,
+                fontFamily: "var(--font-caveat)",
+                fontSize: "2rem",
+                color: "#f3e8cf",
+                letterSpacing: "0.08em",
+                fontWeight: 600,
+                position: "relative",
+                zIndex: 1,
+                textShadow: "0 1px 4px rgba(0,0,0,0.3)",
               }}
             >
-              {t("shop.subtitle")}
+              {t("shop.label")}
             </span>
-            <div
-              className="h-px flex-1"
-              style={{
-                background: "linear-gradient(to left, transparent, rgba(90,64,50,0.3))",
-              }}
-            />
+
+            {/* Decorative botanical right (mirrored) */}
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden style={{ opacity: 0.6, flexShrink: 0, transform: "scaleX(-1)" }}>
+              <path d="M4 24 Q10 16 18 12 Q22 10 26 8" stroke="#c2a074" strokeWidth="1.2" strokeLinecap="round"/>
+              <ellipse cx="10" cy="18" rx="2" ry="4" transform="rotate(-40 10 18)" fill="#c2a074" fillOpacity="0.5"/>
+              <ellipse cx="18" cy="12" rx="1.8" ry="3.5" transform="rotate(-20 18 12)" fill="#c2a074" fillOpacity="0.5"/>
+            </svg>
           </div>
-        </motion.div>
 
-        {/* Shop window frame */}
-        <div className="shop-window-frame p-8 md:p-12" style={{ background: "#faf6ed" }}>
-          {/* Book cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {books.map((book, i) => (
-              <motion.div
-                key={book.slug}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{
-                  duration: 0.65,
-                  delay: i * 0.15,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                <Link href={`/loja/${book.slug}`} className="block">
-                  <div className={`book-card${!book.available ? " book-card-coming-soon" : ""}`}>
-                    {/* Cover */}
-                    <div className="book-card-cover">
-                      {book.cover ? (
-                        <Image
-                          src={book.cover}
-                          alt={book.title}
-                          fill
-                          sizes="(max-width: 768px) 90vw, 320px"
-                          style={{ objectFit: "cover" }}
-                        />
-                      ) : (
-                        <ComingSoonCover title={book.title} locale={locale} />
-                      )}
+          {/* Body: left wall + window + right wall */}
+          <div className="storefront-body">
+            <div className="storefront-wall" />
 
-                      {/* Coming soon badge */}
-                      {!book.available && (
-                        <div
-                          className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs tracking-wide"
-                          style={{
-                            background: "rgba(61,42,26,0.82)",
-                            color: "#f3e8cf",
-                            fontFamily: "var(--font-inter)",
-                            fontWeight: 500,
-                            backdropFilter: "blur(6px)",
-                          }}
-                        >
-                          {t("shop.comingSoon")}
+            {/* Window — books inside */}
+            <div className="storefront-window">
+              <div className="flex flex-wrap justify-center gap-6">
+                {books.map((book, i) => (
+                  <motion.div
+                    key={book.slug}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{
+                      duration: 0.6,
+                      delay: i * 0.12,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    <Link href={`/loja/${book.slug}`} className="block w-44">
+                      <div className={`book-card${!book.available ? " book-card-coming-soon" : ""}`}>
+                        {/* Cover */}
+                        <div className="book-card-cover">
+                          {book.cover ? (
+                            <Image
+                              src={book.cover}
+                              alt={book.title}
+                              fill
+                              sizes="(max-width: 768px) 50vw, 176px"
+                              style={{ objectFit: "cover" }}
+                            />
+                          ) : (
+                            <ComingSoonCover title={book.title} locale={locale} />
+                          )}
+
+                          {/* Coming soon badge */}
+                          {!book.available && (
+                            <div
+                              className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-xs tracking-wide"
+                              style={{
+                                background: "rgba(61,42,26,0.82)",
+                                color: "#f3e8cf",
+                                fontFamily: "var(--font-inter)",
+                                fontWeight: 500,
+                                backdropFilter: "blur(6px)",
+                              }}
+                            >
+                              {t("shop.comingSoon")}
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
 
-                    {/* Body */}
-                    <div className="book-card-body">
-                      {/* Genre label */}
-                      <p
-                        className="text-xs uppercase tracking-[0.22em] mb-2"
-                        style={{
-                          color: "#8b6f4d",
-                          fontFamily: "var(--font-inter)",
-                          fontWeight: 500,
-                        }}
-                      >
-                        {book.genre[locale]}
-                      </p>
+                        {/* Body */}
+                        <div className="book-card-body">
+                          <p
+                            className="text-xs uppercase tracking-[0.22em] mb-1.5"
+                            style={{ color: "#8b6f4d", fontFamily: "var(--font-inter)", fontWeight: 500 }}
+                          >
+                            {book.genre[locale]}
+                          </p>
 
-                      {/* Title */}
-                      <h3
-                        className="mb-3 leading-snug"
-                        style={{
-                          fontFamily: "var(--font-playfair)",
-                          fontSize: "1.2rem",
-                          fontWeight: 600,
-                          color: "#3d2a1a",
-                        }}
-                      >
-                        {book.titlePre}{" "}
-                        <em style={{ fontStyle: "italic", color: "#5a4032" }}>
-                          {book.titleEm}
-                        </em>
-                      </h3>
+                          <h3
+                            className="mb-2 leading-snug"
+                            style={{ fontFamily: "var(--font-playfair)", fontSize: "1rem", fontWeight: 600, color: "#3d2a1a" }}
+                          >
+                            {book.titlePre}{" "}
+                            <em style={{ fontStyle: "italic", color: "#5a4032" }}>{book.titleEm}</em>
+                          </h3>
 
-                      {/* Short description */}
-                      <p
-                        className="text-sm leading-relaxed mb-4 flex-1"
-                        style={{ color: "rgba(90,64,50,0.85)" }}
-                      >
-                        {book.shortDesc[locale]}
-                      </p>
+                          <p
+                            className="text-xs leading-relaxed mb-3 flex-1"
+                            style={{ color: "rgba(90,64,50,0.85)" }}
+                          >
+                            {book.shortDesc[locale]}
+                          </p>
 
-                      {/* Footer: price + CTA */}
-                      <div className="flex items-center justify-between mt-auto pt-3" style={{ borderTop: "1px solid rgba(139,111,77,0.18)" }}>
-                        <span
-                          className="text-sm"
-                          style={{
-                            fontFamily: "var(--font-caveat)",
-                            fontSize: "1.1rem",
-                            color: "#6b4a2b",
-                            fontWeight: 600,
-                          }}
-                        >
-                          {book.price?.[locale]}
-                        </span>
-                        <span
-                          className="text-sm tracking-wide"
-                          style={{
-                            color: "#6d7e5f",
-                            fontFamily: "var(--font-inter)",
-                            fontWeight: 500,
-                          }}
-                        >
-                          {t("shop.readMore")}
-                        </span>
+                          <div className="flex items-center justify-between mt-auto pt-2.5" style={{ borderTop: "1px solid rgba(139,111,77,0.18)" }}>
+                            <span style={{ fontFamily: "var(--font-caveat)", fontSize: "1rem", color: "#6b4a2b", fontWeight: 600 }}>
+                              {book.price?.[locale]}
+                            </span>
+                            <span className="text-xs tracking-wide" style={{ color: "#6d7e5f", fontFamily: "var(--font-inter)", fontWeight: 500 }}>
+                              {t("shop.readMore")}
+                            </span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="storefront-wall" />
           </div>
-        </div>
+
+          {/* Bottom sill */}
+          <div className="storefront-sill" />
+        </motion.div>
       </div>
     </section>
   );

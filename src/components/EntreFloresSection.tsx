@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useT } from "@/lib/i18n";
 
 export default function EntreFloresSection() {
@@ -47,7 +48,7 @@ export default function EntreFloresSection() {
         </div>
 
         <div className="grid md:grid-cols-[auto_1fr] gap-14 md:gap-20 items-center">
-          {/* Coming-soon cover placeholder */}
+          {/* Book cover */}
           <div className="flex justify-center md:justify-start">
             <div className="relative" style={{ width: 280, height: 420 }}>
               <div
@@ -64,112 +65,18 @@ export default function EntreFloresSection() {
                 }}
               />
               <div
-                className="relative w-full h-full overflow-hidden flex flex-col items-center justify-between"
+                className="relative w-full h-full overflow-hidden"
                 style={{
                   borderRadius: 4,
-                  boxShadow:
-                    "0 30px 60px rgba(60,40,22,0.22), 0 10px 20px rgba(60,40,22,0.12), -6px 0 0 rgba(0,0,0,0.10)",
-                  background: "#f5ede0",
-                  backgroundImage:
-                    "radial-gradient(ellipse at 20% 10%, rgba(180,140,80,0.2) 0%, transparent 40%), radial-gradient(ellipse at 80% 90%, rgba(140,100,60,0.22) 0%, transparent 40%), radial-gradient(ellipse at 50% 50%, rgba(210,180,130,0.08) 0%, transparent 70%)",
-                  padding: "2.2rem 1.6rem 1.8rem",
+                  boxShadow: "0 30px 60px rgba(60,40,22,0.22), 0 10px 20px rgba(60,40,22,0.12), -6px 0 0 rgba(0,0,0,0.10)",
                 }}
               >
-                {/* Top ornament */}
-                <div style={{ width: "100%", textAlign: "center" }}>
-                  <svg width="60" height="20" viewBox="0 0 60 20" fill="none" style={{ opacity: 0.4 }}>
-                    <line x1="0" y1="10" x2="22" y2="10" stroke="#5a3e28" strokeWidth="0.8"/>
-                    <circle cx="30" cy="10" r="3.5" fill="none" stroke="#5a3e28" strokeWidth="0.8"/>
-                    <circle cx="30" cy="10" r="1.2" fill="#5a3e28" opacity="0.6"/>
-                    <line x1="38" y1="10" x2="60" y2="10" stroke="#5a3e28" strokeWidth="0.8"/>
-                  </svg>
-                </div>
-
-                {/* Main title block */}
-                <div style={{ textAlign: "center", flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "0.9rem" }}>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-playfair)",
-                      fontSize: "1.55rem",
-                      fontWeight: 400,
-                      color: "#3d2a1a",
-                      lineHeight: 1.25,
-                      letterSpacing: "0.02em",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    Entre Flores e
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-playfair)",
-                      fontSize: "2.1rem",
-                      fontWeight: 700,
-                      color: "#2c1a0e",
-                      lineHeight: 1,
-                      letterSpacing: "0.04em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    Algodão
-                  </p>
-
-                  {/* Decorative rule */}
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", width: "100%", padding: "0.2rem 0" }}>
-                    <div style={{ flex: 1, height: 1, background: "rgba(90,62,40,0.3)" }} />
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M6 1 L7.5 4.5 L11 6 L7.5 7.5 L6 11 L4.5 7.5 L1 6 L4.5 4.5 Z" fill="#8a6040" opacity="0.5"/>
-                    </svg>
-                    <div style={{ flex: 1, height: 1, background: "rgba(90,62,40,0.3)" }} />
-                  </div>
-
-                  <p
-                    style={{
-                      fontFamily: "var(--font-playfair)",
-                      fontSize: "0.72rem",
-                      fontWeight: 400,
-                      color: "#6b4a2b",
-                      letterSpacing: "0.18em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    Ana Souza de Magalhães
-                  </p>
-                </div>
-
-                {/* Status stamp at bottom */}
-                <div
-                  style={{
-                    border: "1.5px solid rgba(90,62,40,0.35)",
-                    borderRadius: 2,
-                    padding: "0.3rem 0.9rem",
-                    textAlign: "center",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "var(--font-inter)",
-                      fontSize: "0.58rem",
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                      color: "#8a6040",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {t("flores.status")}
-                  </p>
-                </div>
-
-                {/* Spine shadow */}
-                <div
-                  aria-hidden
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    pointerEvents: "none",
-                    background:
-                      "linear-gradient(90deg, rgba(255,255,255,0.14) 0%, transparent 5%, transparent 95%, rgba(0,0,0,0.1) 100%)",
-                  }}
+                <Image
+                  src="/images/entre-flores-cover-2.jpg"
+                  alt="Entre Flores e Algodão"
+                  fill
+                  sizes="280px"
+                  style={{ objectFit: "cover" }}
                 />
               </div>
             </div>

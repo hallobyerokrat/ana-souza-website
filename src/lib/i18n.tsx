@@ -23,10 +23,13 @@ const pt: Dict = {
     "Memória, infância e imaginário atravessam sua escrita. Em uma linguagem sensorial e delicada, seus textos transitam entre o real e o fantástico, explorando o que permanece — nos silêncios, nos afetos e nas perdas.",
   "hero.caption": "escritora · contos · literatura infantil",
   "hero.note.livros": "Livros",
+  "hero.note.poemas": "Poemas e Textos",
+  "hero.note.artes": "Artes",
+  "hero.note.contato": "Contato",
+  "hero.note.loja": "Loja",
   "hero.note.sobre1": "Sobre",
   "hero.note.sobre2": "a autora",
   "hero.note.arte": "arte",
-  "hero.note.contato": "Contato",
   "hero.note.contatoSub": "vamos conversar →",
 
   "casos.label": "Coletânea",
@@ -83,10 +86,12 @@ const pt: Dict = {
   "author.p6":
     "Entre minhas principais referências está o autor José Mauro de Vasconcelos, cuja obra influenciou especialmente a elaboração do meu primeiro romance.",
   "author.p7":
-    "Participei das coletâneas Casos de Família (conto “Idaí”) e Planeta Fantástico (conto “Urá”), publicações da escola de escrita Metamorfose.",
+    "Participei das coletâneas Casos de Família (conto \"Idaí\") e Planeta Fantástico (conto \"Urá\"), publicações da escola de escrita Metamorfose.",
   "author.p8":
     "Atualmente, desenvolvo projetos literários voltados aos públicos infantil, infantojuvenil e adulto. O romance Entre Flores e Algodão encontra-se em processo editorial, com previsão de publicação.",
   "author.badge": "Minas Gerais → Wertheim, DE",
+  "author.readMore": "Mais sobre mim",
+  "author.readLess": "Mostrar menos",
 
   "contato.label": "Contato",
   "contato.title.pre": "Vamos",
@@ -140,10 +145,13 @@ const de: Dict = {
     "Erinnerung, Kindheit und das Imaginäre durchziehen ihr Schreiben. In einer sinnlichen, zarten Sprache bewegen sich ihre Texte zwischen dem Realen und dem Fantastischen — und erkunden, was bleibt: in der Stille, in der Zuneigung, in den Verlusten.",
   "hero.caption": "Schriftstellerin · Erzählungen · Kinderliteratur",
   "hero.note.livros": "Bücher",
+  "hero.note.poemas": "Gedichte & Texte",
+  "hero.note.artes": "Kunst",
+  "hero.note.contato": "Kontakt",
+  "hero.note.loja": "Shop",
   "hero.note.sobre1": "Über",
   "hero.note.sobre2": "die Autorin",
   "hero.note.arte": "Kunst",
-  "hero.note.contato": "Kontakt",
   "hero.note.contatoSub": "Lass uns sprechen →",
 
   "casos.label": "Anthologie",
@@ -200,10 +208,12 @@ const de: Dict = {
   "author.p6":
     "Einer meiner wichtigsten literarischen Einflüsse ist der Autor José Mauro de Vasconcelos, dessen Werk besonders die Entstehung meines ersten Romans geprägt hat.",
   "author.p7":
-    "Ich habe an den Anthologien Casos de Família (Erzählung „Idaí”) und Planeta Fantástico (Erzählung „Urá”) mitgewirkt — beide erschienen im Rahmen der Schreibschule Metamorfose.",
+    "Ich habe an den Anthologien Casos de Família (Erzählung \"Idaí\") und Planeta Fantástico (Erzählung \"Urá\") mitgewirkt — beide erschienen im Rahmen der Schreibschule Metamorfose.",
   "author.p8":
     "Derzeit entwickle ich literarische Projekte für Kinder, Jugendliche und Erwachsene. Der Roman Entre Flores e Algodão befindet sich im Lektorat, eine Veröffentlichung ist geplant.",
   "author.badge": "Minas Gerais → Wertheim, DE",
+  "author.readMore": "Mehr lesen",
+  "author.readLess": "Weniger anzeigen",
 
   "contato.label": "Kontakt",
   "contato.title.pre": "Lass uns",

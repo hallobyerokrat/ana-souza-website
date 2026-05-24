@@ -86,7 +86,7 @@ export const books: Book[] = [
   },
   {
     slug: "entre-flores",
-    cover: null,
+    cover: "/images/entre-flores-cover-2.jpg",
     available: false,
     lemonsqueezyUrl: null,
     price: { pt: "Em breve", de: "Demnächst" },

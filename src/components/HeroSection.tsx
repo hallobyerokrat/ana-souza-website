@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useT } from "@/lib/i18n";
 
 const FRAME_BG =
@@ -15,15 +14,15 @@ function FramedNote({
   label,
   sublabel,
   rotate = -2,
-  pinColor = "pin-red",
-  width = 148,
+  width = 160,
+  noteHeight = 185,
 }: {
   href: string;
   label: string;
   sublabel?: string;
   rotate?: number;
-  pinColor?: string;
   width?: number;
+  noteHeight?: number;
 }) {
   return (
     <a
@@ -32,9 +31,11 @@ function FramedNote({
       style={
         {
           "--fn-rotate": `${rotate}deg`,
-          display: "block",
           position: "relative",
-          padding: "10px 14px 12px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "14px 14px 32px 14px",
           background: "#fdf8ec",
           border: "1px solid rgba(120,88,48,0.25)",
           boxShadow: "0 4px 12px rgba(60,38,20,0.18), 0 1px 3px rgba(60,38,20,0.1)",
@@ -42,33 +43,63 @@ function FramedNote({
           transition: "transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s ease",
           cursor: "pointer",
           width,
+          minHeight: noteHeight,
           textDecoration: "none",
         } as React.CSSProperties
       }
     >
+      {/* Pin */}
       <span
-        className={`pin ${pinColor}`}
+        className="pin pin-note"
         style={{ position: "absolute", top: -9, left: "50%", marginLeft: -9 }}
       />
+
+      {/* Botanical sprig — left side */}
+      <svg
+        width="14"
+        height="52"
+        viewBox="0 0 14 52"
+        fill="none"
+        aria-hidden
+        style={{
+          position: "absolute",
+          left: 7,
+          top: "50%",
+          transform: "translateY(-50%)",
+          opacity: 0.18,
+          pointerEvents: "none",
+        }}
+      >
+        <line x1="7" y1="3" x2="7" y2="49" stroke="#3d2a1a" strokeWidth="0.9" />
+        <ellipse cx="7" cy="4" rx="2" ry="2.5" fill="#3d2a1a" />
+        <ellipse cx="3" cy="12" rx="3.5" ry="1.8" fill="#3d2a1a" transform="rotate(-28 3 12)" />
+        <ellipse cx="11" cy="19" rx="3.5" ry="1.8" fill="#3d2a1a" transform="rotate(28 11 19)" />
+        <ellipse cx="3" cy="27" rx="3.5" ry="1.8" fill="#3d2a1a" transform="rotate(-28 3 27)" />
+        <ellipse cx="11" cy="35" rx="3.5" ry="1.8" fill="#3d2a1a" transform="rotate(28 11 35)" />
+        <ellipse cx="3" cy="43" rx="3.5" ry="1.8" fill="#3d2a1a" transform="rotate(-28 3 43)" />
+      </svg>
+
+      {/* Label */}
       <p
         style={{
           fontFamily: "var(--font-playfair)",
           fontStyle: "italic",
           fontSize: 14,
           color: "#3d2a1a",
-          lineHeight: 1.3,
+          lineHeight: 1.35,
           textAlign: "center",
         }}
       >
         {label}
       </p>
+
       {sublabel && (
         <p
           style={{
             fontFamily: "var(--font-playfair)",
             fontSize: 11,
             color: "#5a4032",
-            marginTop: 5,
+            marginTop: 4,
             opacity: 0.75,
             textAlign: "center",
             fontStyle: "italic",
@@ -77,6 +108,31 @@ function FramedNote({
           {sublabel}
         </p>
       )}
+
+      {/* Bottom ornament */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          bottom: 10,
+          left: 14,
+          right: 14,
+          display: "flex",
+          alignItems: "center",
+          gap: 4,
+          opacity: 0.22,
+        }}
+      >
+        <div style={{ flex: 1, height: 0.8, background: "#3d2a1a" }} />
+        <svg width="8" height="8" viewBox="0 0 10 10" fill="none">
+          <circle cx="5" cy="5" r="1.6" fill="#3d2a1a" />
+          <path
+            d="M5 1.5C4.2 2.8 2.5 3.2 1.5 4 2.5 4.6 4 5.2 5 7.5 6 5.2 7.5 4.6 8.5 4 7.5 3.2 5.8 2.8 5 1.5Z"
+            fill="#3d2a1a"
+          />
+        </svg>
+        <div style={{ flex: 1, height: 0.8, background: "#3d2a1a" }} />
+      </div>
     </a>
   );
 }
@@ -97,11 +153,11 @@ function SideFrame({ children }: { children: React.ReactNode }) {
             backgroundSize: "12px 12px, 16px 16px, 10px 10px, 100% 100%",
             minHeight: 240,
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "row",
             alignItems: "center",
-            justifyContent: "space-evenly",
+            justifyContent: "center",
             gap: 20,
-            padding: "32px 20px",
+            padding: "28px 32px",
           }}
         >
           {children}
@@ -111,58 +167,6 @@ function SideFrame({ children }: { children: React.ReactNode }) {
   );
 }
 
-function CenterPhotoFrame({ href }: { href: string }) {
-  return (
-    <div style={{ padding: 14, background: FRAME_BG, boxShadow: FRAME_SHADOW, borderRadius: 2 }}>
-      <div style={{ padding: 8, background: "#e8d5a8", boxShadow: "inset 0 3px 10px rgba(40,25,10,0.32)" }}>
-        <a href={href} style={{ display: "block", textDecoration: "none" }}>
-          <div
-            style={{
-              position: "relative",
-              width: 220,
-              height: 270,
-              overflow: "hidden",
-              borderRadius: "50%",
-              boxShadow: "0 4px 16px rgba(40,25,10,0.28), inset 0 0 0 1px rgba(0,0,0,0.22)",
-            }}
-          >
-            <Image
-              src="/images/ana-souza-foto.jpg"
-              alt="Ana Souza de Magalhães"
-              fill
-              sizes="220px"
-              style={{ objectFit: "cover", objectPosition: "center 15%" }}
-              priority
-            />
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: "radial-gradient(ellipse at center, transparent 55%, rgba(40,22,8,0.2) 100%)",
-                pointerEvents: "none",
-              }}
-            />
-          </div>
-          <p
-            style={{
-              fontFamily: "var(--font-playfair)",
-              fontSize: 14,
-              fontStyle: "italic",
-              color: "#3d2a1a",
-              textAlign: "center",
-              marginTop: 12,
-              marginBottom: 4,
-              letterSpacing: "0.015em",
-              opacity: 0.85,
-            }}
-          >
-            Ana Souza de Magalhães
-          </p>
-        </a>
-      </div>
-    </div>
-  );
-}
 
 export default function HeroSection() {
   const { t } = useT();
@@ -182,127 +186,34 @@ export default function HeroSection() {
       />
 
       <div className="relative anim-fade-in" style={{ zIndex: 2, animationDelay: "0.1s" }}>
-        {/* Desktop: 3 frames */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* Desktop: 2 frames, 3 notes each */}
+        <div className="hidden md:flex items-center gap-16">
           <SideFrame>
-            <FramedNote
-              href="#livros"
-              label={t("hero.note.livros")}
-              rotate={-3}
-              pinColor="pin-red"
-            />
-            <FramedNote
-              href="#sobre"
-              label={t("hero.note.sobre1")}
-              sublabel={t("hero.note.sobre2")}
-              rotate={2}
-              pinColor="pin-blue"
-            />
+            <FramedNote href="#livros" label={t("hero.note.livros")} rotate={-3} />
+            <FramedNote href="#poemas" label={t("hero.note.poemas")} rotate={1} />
+            <FramedNote href="#artes" label={t("hero.note.artes")} rotate={-2} />
           </SideFrame>
 
-          <CenterPhotoFrame href="#sobre" />
-
           <SideFrame>
-            <FramedNote
-              href="#sobre"
-              label={t("hero.note.arte")}
-              rotate={3}
-              pinColor="pin-yellow"
-            />
-            <FramedNote
-              href="#contato"
-              label={t("hero.note.contato")}
-              sublabel={t("hero.note.contatoSub")}
-              rotate={-2}
-              pinColor="pin-green"
-            />
+            <FramedNote href="#contato" label={t("hero.note.contato")} rotate={2} />
+            <FramedNote href="#loja" label={t("hero.note.loja")} rotate={-1} />
+            <FramedNote href="#sobre" label={t("hero.note.sobre1")} rotate={2} />
           </SideFrame>
         </div>
 
-        {/* Mobile: photo on top, 2 side frames below */}
-        <div className="md:hidden flex flex-col items-center gap-7">
-          <CenterPhotoFrame href="#sobre" />
-          <div className="flex gap-5">
-            <SideFrame>
-              <FramedNote
-                href="#livros"
-                label={t("hero.note.livros")}
-                rotate={-3}
-                pinColor="pin-red"
-                width={110}
-              />
-              <FramedNote
-                href="#sobre"
-                label={t("hero.note.sobre1")}
-                sublabel={t("hero.note.sobre2")}
-                rotate={2}
-                pinColor="pin-blue"
-                width={110}
-              />
-            </SideFrame>
-            <SideFrame>
-              <FramedNote
-                href="#sobre"
-                label={t("hero.note.arte")}
-                rotate={3}
-                pinColor="pin-yellow"
-                width={110}
-              />
-              <FramedNote
-                href="#contato"
-                label={t("hero.note.contato")}
-                sublabel={t("hero.note.contatoSub")}
-                rotate={-2}
-                pinColor="pin-green"
-                width={110}
-              />
-            </SideFrame>
-          </div>
+        {/* Mobile: 2 frames stacked */}
+        <div className="md:hidden flex flex-col items-center gap-5">
+          <SideFrame>
+            <FramedNote href="#livros" label={t("hero.note.livros")} rotate={-3} width={105} noteHeight={150} />
+            <FramedNote href="#poemas" label={t("hero.note.poemas")} rotate={1} width={105} noteHeight={150} />
+            <FramedNote href="#artes" label={t("hero.note.artes")} rotate={-2} width={105} noteHeight={150} />
+          </SideFrame>
+          <SideFrame>
+            <FramedNote href="#contato" label={t("hero.note.contato")} rotate={2} width={105} noteHeight={150} />
+            <FramedNote href="#loja" label={t("hero.note.loja")} rotate={-1} width={105} noteHeight={150} />
+            <FramedNote href="#sobre" label={t("hero.note.sobre1")} rotate={2} width={105} noteHeight={150} />
+          </SideFrame>
         </div>
-      </div>
-
-      {/* Author name + subtitle */}
-      <div
-        className="relative mt-14 text-center anim-fade-up"
-        style={{ animationDelay: "0.8s", zIndex: 2 }}
-      >
-        <h1
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(2rem, 5vw, 3.5rem)",
-            fontWeight: 600,
-            color: "#3d2a1a",
-            letterSpacing: "0.01em",
-            lineHeight: 1.1,
-          }}
-        >
-          Ana Souza{" "}
-          <em style={{ fontStyle: "italic", color: "#6b4a2b" }}>de Magalhães</em>
-        </h1>
-        <p
-          className="mt-3"
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(0.95rem, 1.6vw, 1.2rem)",
-            color: "#5a4032",
-            letterSpacing: "0.06em",
-            fontStyle: "italic",
-          }}
-        >
-          {t("hero.caption")}
-        </p>
-        <p
-          className="mt-6 mx-auto leading-relaxed"
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(0.95rem, 1.2vw, 1.1rem)",
-            color: "#5a4032",
-            maxWidth: 620,
-            letterSpacing: "0.005em",
-          }}
-        >
-          {t("hero.subtitle")}
-        </p>
       </div>
     </section>
   );
