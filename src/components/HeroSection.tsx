@@ -679,9 +679,10 @@ export default function HeroSection() {
             <FramedNote href="#artes" label={t("hero.note.artes")} rotate={-2} />
           </SideFrame>
 
-          {/* Rechtes Board: Contato | Sobre */}
+          {/* Rechtes Board: Contato | Loja | Sobre */}
           <SideFrame>
             <FramedNote href="#contato" label={t("hero.note.contato")} rotate={2} />
+            <FramedNote href="#loja" label={t("hero.note.loja")} rotate={-1} />
             <FramedNote href="#sobre" label={t("hero.note.sobre1")} rotate={2} />
           </SideFrame>
         </div>

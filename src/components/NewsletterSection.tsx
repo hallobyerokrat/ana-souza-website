@@ -12,14 +12,6 @@ export default function NewsletterSection() {
       id="contato"
       className="wallpaper-botanical-dense relative py-24 md:py-32 overflow-hidden"
     >
-      {/* Soft vignette */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(253,251,246,1) 0%, rgba(253,251,246,0) 8%, rgba(253,251,246,0) 92%, rgba(253,251,246,1) 100%)",
-        }}
-      />
 
       <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
         {/* Section label */}

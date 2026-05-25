@@ -11,25 +11,6 @@ export default function CeuDeBrincarSection() {
       id="ceu-de-brincar"
       className="wallpaper-botanical-dense relative overflow-hidden py-24 md:py-32"
     >
-      {/* Soft vignette */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(253,251,246,1) 0%, rgba(253,251,246,0) 8%, rgba(253,251,246,0) 92%, rgba(253,251,246,1) 100%)",
-        }}
-      />
-
-      {/* Divider between the two book sections */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
-        style={{
-          width: "min(80%, 640px)",
-          height: 1,
-          background:
-            "linear-gradient(to right, transparent, rgba(90,64,50,0.25), transparent)",
-        }}
-      />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Section label */}
