@@ -29,8 +29,8 @@ export default function BookReviewAccordion({
 }) {
   const { locale } = useT();
   const [open, setOpen] = useState(false);
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [reviews, setReviews] = useState<Review[]>(seedReviews);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", stars: 0, comment: "" });
   const [submitted, setSubmitted] = useState(false);
   const supabase = createClient();
@@ -61,10 +61,7 @@ export default function BookReviewAccordion({
       .then(({ data, error }) => {
         if (!error && data && data.length > 0) {
           setReviews((data as DbReview[]).map(dbToReview));
-        } else {
-          setReviews(seedReviews);
         }
-        setLoading(false);
       });
   }, [bookId]); // eslint-disable-line react-hooks/exhaustive-deps
 
