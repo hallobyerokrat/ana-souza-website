@@ -79,30 +79,32 @@ export default function AuthorSection() {
             <div className="relative">
               <div
                 aria-hidden
-                className="absolute inset-0 rounded-full"
+                className="absolute inset-0"
                 style={{
                   background:
                     "radial-gradient(circle, rgba(180,140,160,0.25) 0%, transparent 70%)",
+                  borderRadius: "50%",
                   transform: "scale(1.25)",
                   filter: "blur(24px)",
                 }}
               />
               <div
-                className="relative rounded-full overflow-hidden"
+                className="relative overflow-hidden"
                 style={{
-                  width: "min(280px, calc(100vw - 96px))",
-                  height: "min(280px, calc(100vw - 96px))",
+                  width: "min(240px, calc(100vw - 96px))",
+                  height: "min(320px, calc((100vw - 96px) * 4 / 3))",
+                  borderRadius: "50%",
                   border: "3px solid rgba(155,112,128,0.35)",
                   boxShadow:
                     "0 24px 48px rgba(61,43,53,0.25), 0 0 0 8px rgba(253,251,246,0.8), 0 0 0 9px rgba(155,112,128,0.18)",
                 }}
               >
                 <Image
-                  src="/images/ana-souza-foto-2.jpg"
+                  src="/images/ana-souza-foto-3.jpg"
                   alt="Ana Souza de Magalhães"
                   fill
-                  sizes="280px"
-                  style={{ objectFit: "cover", objectPosition: "center 15%" }}
+                  sizes="240px"
+                  style={{ objectFit: "cover", objectPosition: "center 10%" }}
                 />
               </div>
               <div
