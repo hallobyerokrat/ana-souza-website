@@ -130,15 +130,24 @@ export default function AuthorSection() {
                 <div key={gi}>
                   {gi > 0 && <Divider />}
                   <div className="space-y-3" style={{ padding: "0.25rem 0" }}>
-                    {group.map((p, pi) => (
-                      <p
-                        key={pi}
-                        className="leading-relaxed"
-                        style={{ fontSize: "0.95rem" }}
-                      >
-                        {p}
-                      </p>
-                    ))}
+                    {group.map((p, pi) => {
+                      if (gi === 0 && pi === 0) {
+                        const dotIdx = p.indexOf(". ");
+                        const first = dotIdx !== -1 ? p.slice(0, dotIdx + 1) : p;
+                        const rest = dotIdx !== -1 ? p.slice(dotIdx + 2) : "";
+                        return (
+                          <p key={pi} className="leading-relaxed" style={{ fontSize: "0.95rem" }}>
+                            <span style={{ fontSize: "1.05rem", fontWeight: 600, color: "#3d2b35" }}>{first}</span>
+                            {rest ? " " + rest : ""}
+                          </p>
+                        );
+                      }
+                      return (
+                        <p key={pi} className="leading-relaxed" style={{ fontSize: "0.95rem" }}>
+                          {p}
+                        </p>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
