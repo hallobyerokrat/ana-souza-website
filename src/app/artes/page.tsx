@@ -94,47 +94,103 @@ Texto produzido como exercício do curso de escrita criativa da Escola Metamorfo
 
 function TextosSection() {
   const { locale } = useT();
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
   const [textos, setTextos] = useState<{ id: string; title: string; body: string }[]>([]);
+  const [activeId, setActiveId] = useState<string | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
     supabase.from("textos").select("*").order("sort_order").then(({ data }) => setTextos(data ?? []));
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = activeId ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [activeId]);
+
   const label = locale === "de" ? "Worte" : "Palavras";
   const title = locale === "de" ? "Gedichte & Texte" : "Poemas & Textos";
+  const readMore = locale === "de" ? "Lesen →" : "Ler mais →";
   const items = textos.length > 0 ? textos : SEED_TEXTOS;
+  const activeItem = items.find(i => i.id === activeId) ?? null;
+
+  function teaser(body: string) {
+    const lines = body.trim().split("\n").filter(l => l.trim());
+    const preview = lines.slice(0, 2).join(" ");
+    return (preview.length > 150 ? preview.slice(0, 150) : preview) + "…";
+  }
 
   return (
     <section style={{ padding: "80px 24px", background: "rgba(245,237,232,0.4)" }}>
-      <div style={{ maxWidth: 720, margin: "0 auto" }}>
+      <div style={{ maxWidth: 960, margin: "0 auto" }}>
         <SectionHeader label={label} title={title} />
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          {items.map((item, i) => {
-            const isOpen = openIdx === i;
-            return (
-              <div key={item.id} style={{ background: "#fdf8f5", border: "1px solid rgba(107,80,96,0.15)", borderRadius: 8, overflow: "hidden", borderLeft: "3px solid rgba(107,80,96,0.3)" }}>
-                <button
-                  onClick={() => item.body ? setOpenIdx(isOpen ? null : i) : undefined}
-                  disabled={!item.body}
-                  style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "18px 24px", background: "none", border: "none", cursor: item.body ? "pointer" : "default", textAlign: "left", gap: 12 }}
-                >
-                  <span style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 16, color: "#3d2b35" }}>{item.title}</span>
-                  {item.body && (
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, transition: "transform 0.35s ease", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
-                      <path d="M3 5l4 4 4-4" stroke="#9b7080" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  )}
-                </button>
-                <div style={{ overflow: "hidden", maxHeight: isOpen ? 600 : 0, transition: "max-height 0.45s cubic-bezier(0.22,1,0.36,1)" }}>
-                  <p style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 15, color: "#6b5060", lineHeight: 1.8, margin: 0, padding: "0 24px 24px", whiteSpace: "pre-wrap" }}>{item.body}</p>
-                </div>
-              </div>
-            );
-          })}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 20 }}>
+          {items.map(item => (
+            <button
+              key={item.id}
+              onClick={() => setActiveId(item.id)}
+              style={{
+                background: "#fdf8f5",
+                border: "1px solid rgba(107,80,96,0.15)",
+                borderRadius: 10,
+                padding: "24px 22px 20px",
+                cursor: "pointer",
+                textAlign: "left",
+                display: "flex",
+                flexDirection: "column",
+                gap: 0,
+                transition: "box-shadow 0.2s, transform 0.2s",
+                boxShadow: "0 2px 8px rgba(61,43,53,0.06)",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 28px rgba(61,43,53,0.14)";
+                (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 8px rgba(61,43,53,0.06)";
+                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+              }}
+            >
+              <div style={{ width: 28, height: 2, background: "rgba(122,84,104,0.3)", borderRadius: 2, marginBottom: 16 }} />
+              <h3 style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 17, color: "#3d2b35", margin: "0 0 12px", lineHeight: 1.35 }}>
+                {item.title}
+              </h3>
+              <p style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 13, color: "#9b7080", lineHeight: 1.75, margin: "0 0 20px", flex: 1 }}>
+                {teaser(item.body)}
+              </p>
+              <span style={{ fontFamily: "var(--font-inter)", fontSize: 11, color: "#7a5468", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                {readMore}
+              </span>
+            </button>
+          ))}
         </div>
       </div>
+
+      {activeItem && (
+        <div
+          onClick={() => setActiveId(null)}
+          style={{ position: "fixed", inset: 0, background: "rgba(30,15,20,0.6)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{ background: "#fdf8f5", borderRadius: 12, maxWidth: 640, width: "100%", maxHeight: "85vh", overflowY: "auto", padding: "44px 40px 40px", position: "relative", boxShadow: "0 32px 80px rgba(30,15,20,0.35)" }}
+          >
+            <button
+              onClick={() => setActiveId(null)}
+              style={{ position: "absolute", top: 16, right: 18, background: "none", border: "none", cursor: "pointer", fontFamily: "var(--font-inter)", fontSize: 18, color: "#9b7080", lineHeight: 1, padding: 4 }}
+              aria-label="Fechar"
+            >
+              ✕
+            </button>
+            <div style={{ width: 32, height: 2, background: "rgba(122,84,104,0.3)", borderRadius: 2, marginBottom: 20 }} />
+            <h2 style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 22, color: "#3d2b35", margin: "0 0 28px", lineHeight: 1.3 }}>
+              {activeItem.title}
+            </h2>
+            <p style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 15, color: "#6b5060", lineHeight: 1.9, margin: 0, whiteSpace: "pre-wrap" }}>
+              {activeItem.body}
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
