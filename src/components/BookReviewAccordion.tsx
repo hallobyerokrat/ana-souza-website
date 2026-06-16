@@ -192,7 +192,7 @@ export default function BookReviewAccordion({
               />
               <div style={{ display: "flex", gap: 4 }}>
                 {[1, 2, 3, 4, 5].map((s) => (
-                  <button key={s} onClick={() => setForm((f) => ({ ...f, stars: s }))}
+                  <button type="button" key={s} onClick={() => setForm((f) => ({ ...f, stars: s }))}
                     style={{ background: "none", border: "none", cursor: "pointer", fontSize: 24, padding: 0, lineHeight: 1, color: s <= form.stars ? "#9b7080" : "rgba(107,80,96,0.22)", transition: "color 0.15s" }}>
                     ★
                   </button>
@@ -206,7 +206,7 @@ export default function BookReviewAccordion({
                 style={{ background: "#fdf8f5", border: "1px solid rgba(107,80,96,0.18)", borderRadius: 6, padding: "9px 13px", fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 13, color: "#3d2b35", outline: "none", resize: "none", width: "100%" }}
               />
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <button onClick={handleSubmit} disabled={!canSubmit}
+                <button type="button" onClick={handleSubmit} disabled={!canSubmit}
                   style={{ background: canSubmit ? "#7a5468" : "rgba(107,80,96,0.1)", color: canSubmit ? "#faf6f1" : "#9b7080", border: "none", borderRadius: 40, padding: "9px 24px", fontFamily: "var(--font-inter)", fontSize: 12, letterSpacing: "0.08em", cursor: canSubmit ? "pointer" : "not-allowed", transition: "all 0.2s" }}>
                   {L.submit}
                 </button>
