@@ -65,10 +65,6 @@ export default function BookReviewAccordion({
           setReviews(seedReviews);
         }
         setLoading(false);
-      })
-      .catch(() => {
-        setReviews(seedReviews);
-        setLoading(false);
       });
   }, [bookId]); // eslint-disable-line react-hooks/exhaustive-deps
 
