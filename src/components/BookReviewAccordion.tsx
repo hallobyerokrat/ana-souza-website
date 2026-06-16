@@ -83,15 +83,16 @@ export default function BookReviewAccordion({
           aria-expanded={open}
           aria-label={L.toggle}
           style={{
-            background: "none",
-            border: "none",
+            background: "#f5ede8",
+            border: "1px solid rgba(107,80,96,0.2)",
+            borderRadius: 9999,
             cursor: "pointer",
-            padding: "8px 20px",
+            padding: "10px 24px",
             display: "inline-flex",
-            flexDirection: "column",
+            flexDirection: "row",
             alignItems: "center",
-            gap: 5,
-            opacity: 0.55,
+            gap: 8,
+            opacity: 0.85,
             transition: "opacity 0.2s",
           }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.9")}

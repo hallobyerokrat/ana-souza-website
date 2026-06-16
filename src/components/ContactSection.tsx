@@ -66,18 +66,34 @@ export default function ContactSection() {
         </p>
 
         <div className="flex flex-col items-center gap-6">
-          <a
-            href={`mailto:${email}`}
-            className="px-8 py-3.5 rounded-full text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
-            style={{
-              background: "#7a5468",
-              color: "#faf6ed",
-              fontWeight: 500,
-              boxShadow: "0 6px 18px rgba(122,84,104,0.35)",
-            }}
-          >
-            {t("contato.cta")}
-          </a>
+          <div className="flex flex-col items-center gap-1.5">
+            <span style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: 9,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "#9b7080",
+              opacity: 0.45,
+            }}>
+              E-mail
+            </span>
+            <svg width="8" height="10" viewBox="0 0 8 10" fill="none" aria-hidden>
+              <line x1="4" y1="0" x2="4" y2="7" stroke="#9b7080" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+              <path d="M1.5 5L4 8L6.5 5" stroke="#9b7080" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.4" />
+            </svg>
+            <a
+              href={`mailto:${email}`}
+              className="px-8 py-3.5 rounded-full text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: "#7a5468",
+                color: "#faf6ed",
+                fontWeight: 500,
+                boxShadow: "0 6px 18px rgba(122,84,104,0.35)",
+              }}
+            >
+              {t("contato.cta")}
+            </a>
+          </div>
 
           <a
             href="https://instagram.com/anasouzademagalhaes"
