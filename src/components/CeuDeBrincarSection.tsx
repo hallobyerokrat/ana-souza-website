@@ -2,17 +2,6 @@
 
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
-import BookReviewAccordion from "@/components/BookReviewAccordion";
-
-const CEU_SEED_REVIEWS = [
-  {
-    id: "seed-1",
-    name: "Daniel Nikolay",
-    stars: 5,
-    comment: "Um livro absolutamente lindo. As imagens e as palavras se complementam de forma mágica — dá vontade de olhar para o céu o tempo todo!",
-    date: "maio de 2026",
-  },
-];
 
 function LeafSmall() {
   return (
@@ -138,18 +127,6 @@ export default function CeuDeBrincarSection() {
 
             {/* Buy buttons */}
             <div className="flex flex-wrap gap-3">
-              <span
-                className="px-6 py-3 rounded-full text-sm tracking-wide"
-                style={{
-                  background: "rgba(122,84,104,0.12)",
-                  color: "#6b4a2b",
-                  fontWeight: 500,
-                  border: "1px solid rgba(122,84,104,0.25)",
-                  cursor: "default",
-                }}
-              >
-                Em breve na Amazon
-              </span>
               <a
                 href="https://literaryhighways.com/de/bucher/suche?where=books-search&what=C%C3%A9u+de+brincar"
                 target="_blank"
@@ -213,7 +190,6 @@ export default function CeuDeBrincarSection() {
           </div>
         </div>
 
-        <BookReviewAccordion bookId="ceu-de-brincar" seedReviews={CEU_SEED_REVIEWS} />
       </div>
     </section>
   );

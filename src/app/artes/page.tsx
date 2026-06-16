@@ -40,6 +40,58 @@ function SectionHeader({ label, title }: { label: string; title: string }) {
 
 // ─── Textos Section ───────────────────────────────────────────────────────────
 
+const SEED_TEXTOS = [
+  {
+    id: "carta-jovem-escritor",
+    title: "Carta a um Jovem Escritor",
+    body: `Meu caro escritor,
+
+hoje recebi seu livro. Quero agradecer pelo imenso carinho a mim dedicado. Fiquei muito feliz com esse gesto.
+
+Ao folheá-lo, me encantei com as ilustrações. Elas me remeteram ao Pequeno Príncipe: quanta candura nos traços! O ilustrador soube interpretar muito bem as palavras. A capa, então! Fiquei encantada com a leveza e a perfeição da fênix. O último capítulo levou-me às lágrimas. Li também a correspondência que estava anexada na primeira página.
+
+Ao lê-la, percebi sua frustração, o desapontamento com a escrita e, principalmente, a dúvida quanto a continuar nessa jornada de escritor.
+
+Sim, meu caro, compreendo perfeitamente sua angústia. Dói — e é totalmente aceitável sentir essa dor. Este é um momento confuso, cheio de sentimentos contraditórios. Enquanto alguns parecem seguir adiante sem tropeços, para outros o caminho exige mais tempo, mais esforço.
+
+Para mim, foi assim. E talvez para você não seja muito diferente. Depois que terminamos de escrever, começa um trabalho diferente — e, muitas vezes, mais difícil.
+
+Quando comecei, pensei em desistir. Lembro-me do lançamento de meu primeiro livro, uma obra infantil. Acreditei, ingenuamente, que conseguiria vender o bastante para cobrir as despesas da publicação.
+
+Ledo engano. As vendas foram um desastre.
+
+O que mais me feriu foi ver a editora dedicar toda a publicidade a outro título infantil, de uma autora já reconhecida. Não preciso dizer o quanto aquilo foi frustrante e doloroso.
+
+No auge da revolta, perguntei a mim mesma:
+— O que ela tem que eu não tenho?
+Tudo, respondi.
+
+Ela tinha nome, experiência e leitores. Eu sabia disso, mas algo dentro de mim insistia em dizer que eu não era escritora. Pensei em queimar o livro, mas não o fiz.
+
+Recolhi-me em silêncio e permaneci assim por dias, meses e anos. Só muito tempo depois compreendi o que estava acontecendo. Este afastamento, após lançar o livro, foi para mim uma espécie de resguardo.
+
+O resguardo é aprender a confiar no instinto materno. É um processo confuso: noites mal dormidas, choros incessantes, peito dolorido, leite que teima em não sair. Queremos mostrar ao mundo a beleza do filho, mas estamos cansadas, desarrumadas, escondidas atrás de olheiras. Ao mesmo tempo que ansiamos por reconhecimento, tudo o que desejamos é desaparecer.
+
+Com o tempo, tudo se acalma. As noites deixam de ser um tormento, os choros passam a ter hora marcada, as cólicas já são compreendidas e — pasme — aprendemos até a reconhecer o significado de cada choro. Assim se constrói a relação entre mãe e filho: ele nasce de nós, mas não para nós.
+
+O mesmo acontece com os livros. Eles também nascem de nós, mas não para nós. Esse período eu o chamo de resguardo literário.
+
+Você está, justamente, nessa fase: a do resguardo literário. Um período para aprender a conviver com sua criação. Ela é sua obra. Queira ou não, nasceu de você. E, a partir daí, ganha o mundo. Não é mais possível controlá-la.
+
+Certa vez, após ler um de meus poemas, um senhor disse:
+— Não entendo muito o que você escreve, mas há algo filosófico nas letras. Por isso, você deve continuar.
+
+Para encerrar, cuide de sua obra e de si mesmo. Ambos ainda estão aprendendo a caminhar juntos.
+
+Um grande abraço — e já ansiosa para ler o próximo livro, que sei que virá.
+
+Ana Souza de Magalhães
+
+_______________________
+Texto produzido como exercício do curso de escrita criativa da Escola Metamorfose`,
+  },
+];
+
 function TextosSection() {
   const { locale } = useT();
   const [openIdx, setOpenIdx] = useState<number | null>(null);
@@ -52,8 +104,7 @@ function TextosSection() {
 
   const label = locale === "de" ? "Worte" : "Palavras";
   const title = locale === "de" ? "Gedichte & Texte" : "Poemas & Textos";
-  const emBreve = locale === "de" ? "Demnächst…" : "Em breve…";
-  const items = textos.length > 0 ? textos : [{ id: "placeholder", title: emBreve, body: "" }];
+  const items = textos.length > 0 ? textos : SEED_TEXTOS;
 
   return (
     <section style={{ padding: "80px 24px", background: "rgba(245,237,232,0.4)" }}>
