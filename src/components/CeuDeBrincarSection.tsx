@@ -2,6 +2,17 @@
 
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
+import BookReviewAccordion from "@/components/BookReviewAccordion";
+
+const CEU_SEED_REVIEWS = [
+  {
+    id: "seed-1",
+    name: "Anônimo",
+    stars: 5,
+    comment: "Eu super indico o livro Céu de Brincar. É um livro que nos leva a antigos hábitos que foram se perdendo com o tempo. As crianças precisam desse livro para se conectar com as maravilhas que Deus nos proporciona e deixar de lado o celular.",
+    date: "2026",
+  },
+];
 
 function LeafSmall() {
   return (
@@ -190,6 +201,7 @@ export default function CeuDeBrincarSection() {
           </div>
         </div>
 
+        <BookReviewAccordion bookId="ceu-de-brincar" seedReviews={CEU_SEED_REVIEWS} />
       </div>
     </section>
   );
