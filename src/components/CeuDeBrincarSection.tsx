@@ -106,36 +106,6 @@ export default function CeuDeBrincarSection() {
               {t("ceu.p3")}
             </p>
 
-            {/* Quote / Social Proof */}
-            <div style={{
-              marginBottom: 20,
-              padding: "10px 14px 10px 16px",
-              borderLeft: "2px solid #7a5468",
-              background: "rgba(122,84,104,0.07)",
-              borderRadius: "0 4px 4px 0",
-            }}>
-              <p style={{
-                fontFamily: "var(--font-playfair)",
-                fontStyle: "italic",
-                fontSize: 14,
-                color: "#6b5060",
-                lineHeight: 1.65,
-                margin: "0 0 5px 0",
-              }}>
-                {t("ceu.quote")}
-              </p>
-              <p style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: 11,
-                color: "#9b7080",
-                letterSpacing: "0.04em",
-                margin: 0,
-                opacity: 0.8,
-              }}>
-                {t("ceu.quote.author")}
-              </p>
-            </div>
-
             {/* Buy buttons */}
             <div className="flex flex-wrap gap-3">
               <a
