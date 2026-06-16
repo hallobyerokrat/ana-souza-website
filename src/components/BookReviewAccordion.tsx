@@ -58,12 +58,16 @@ export default function BookReviewAccordion({
       .select("*")
       .eq("book_id", bookId)
       .order("created_at", { ascending: false })
-      .then(({ data }) => {
-        if (data && data.length > 0) {
+      .then(({ data, error }) => {
+        if (!error && data && data.length > 0) {
           setReviews((data as DbReview[]).map(dbToReview));
         } else {
           setReviews(seedReviews);
         }
+        setLoading(false);
+      })
+      .catch(() => {
+        setReviews(seedReviews);
         setLoading(false);
       });
   }, [bookId]); // eslint-disable-line react-hooks/exhaustive-deps
