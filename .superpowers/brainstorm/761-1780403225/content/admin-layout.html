@@ -1,0 +1,85 @@
+<h2>Admin-Seite — Layout & Struktur</h2>
+<p class="subtitle">So würde Ana's /admin aussehen. Schaut das für dich richtig aus?</p>
+
+<div class="mockup">
+  <div class="mockup-header">anasouza.space/admin — Ana's Dashboard</div>
+  <div class="mockup-body" style="padding:0">
+
+    <!-- Top bar -->
+    <div style="background:#7a5468;color:#fdf8f5;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;font-family:sans-serif;font-size:12px">
+      <span style="font-weight:600">Ana Souza — Área Administrativa</span>
+      <span style="opacity:0.7;cursor:pointer">Sair →</span>
+    </div>
+
+    <div style="display:flex;min-height:360px">
+
+      <!-- Sidebar nav -->
+      <div style="width:160px;background:#f5ede8;border-right:1px solid rgba(107,80,96,0.15);padding:12px 0;flex-shrink:0">
+        <div style="font-family:sans-serif;font-size:10px;color:#9b7080;padding:0 12px 6px;letter-spacing:0.1em;text-transform:uppercase">Conteúdo</div>
+        <div style="padding:8px 16px;font-family:sans-serif;font-size:12px;background:#7a5468;color:#fff;border-left:3px solid #3d2b35">📸 Fotos</div>
+        <div style="padding:8px 16px;font-family:sans-serif;font-size:12px;color:#6b5060">🎥 Vídeos</div>
+        <div style="padding:8px 16px;font-family:sans-serif;font-size:12px;color:#6b5060">✏️ Textos & Poemas</div>
+        <div style="padding:8px 16px;font-family:sans-serif;font-size:12px;color:#6b5060">👤 Biografia</div>
+        <div style="padding:8px 16px;font-family:sans-serif;font-size:12px;color:#6b5060">📚 Livros</div>
+      </div>
+
+      <!-- Main content area (Fotos active) -->
+      <div style="flex:1;padding:20px;font-family:sans-serif">
+        <div style="font-size:14px;font-weight:600;color:#3d2b35;margin-bottom:4px">Fotos</div>
+        <div style="font-size:11px;color:#9b7080;margin-bottom:16px">Faça upload das suas fotos. Elas aparecerão na página Arte e Textos.</div>
+
+        <!-- Upload area -->
+        <div style="border:2px dashed rgba(107,80,96,0.3);border-radius:8px;padding:20px;text-align:center;background:#fdf8f5;margin-bottom:16px">
+          <div style="font-size:24px;margin-bottom:6px">📁</div>
+          <div style="font-size:12px;color:#6b5060;font-weight:600">Clique ou arraste fotos aqui</div>
+          <div style="font-size:10px;color:#9b7080;margin-top:4px">JPG, PNG — máx. 10MB por foto</div>
+        </div>
+
+        <!-- Uploaded photos grid -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+          <div style="background:#ede3de;border-radius:4px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;font-size:10px;color:#9b7080">
+            foto_1.jpg
+            <span style="position:absolute;top:4px;right:4px;background:rgba(122,84,104,0.8);color:#fff;border-radius:50%;width:16px;height:16px;display:flex;align-items:center;justify-content:center;font-size:9px;cursor:pointer">×</span>
+          </div>
+          <div style="background:#ede3de;border-radius:4px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:10px;color:#9b7080">foto_2.jpg</div>
+          <div style="background:#f0ece8;border-radius:4px;aspect-ratio:1;border:1px dashed rgba(107,80,96,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;color:#c0aab8;cursor:pointer">+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px">
+  <h3>Was wird wo gespeichert?</h3>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px">
+    <div style="background:#f5f0ff;border-radius:6px;padding:12px;border-left:3px solid #7a5468">
+      <div style="font-size:11px;font-weight:700;color:#7a5468;margin-bottom:4px">☁️ Cloudinary (kostenlos)</div>
+      <div style="font-size:11px;color:#6b5060">Alle Fotos — 25GB frei, automatisch optimiert, schnelles CDN</div>
+    </div>
+    <div style="background:#f0f7ff;border-radius:6px;padding:12px;border-left:3px solid #2d5a8a">
+      <div style="font-size:11px;font-weight:700;color:#2d5a8a;margin-bottom:4px">🗄 Supabase (schon vorhanden)</div>
+      <div style="font-size:11px;color:#6b5060">Texte, Bio, Bücher-Beschreibungen, YouTube-Links — alles als DB-Einträge</div>
+    </div>
+    <div style="background:#f0fff4;border-radius:6px;padding:12px;border-left:3px solid #2d8a5a">
+      <div style="font-size:11px;font-weight:700;color:#2d8a5a;margin-bottom:4px">🔐 Supabase Auth (schon vorhanden)</div>
+      <div style="font-size:11px;color:#6b5060">Ana loggt sich mit E-Mail + Passwort ein — kein neuer Account nötig</div>
+    </div>
+    <div style="background:#fff8f0;border-radius:6px;padding:12px;border-left:3px solid #c07030">
+      <div style="font-size:11px;font-weight:700;color:#c07030;margin-bottom:4px">🌐 Öffentliche Seite</div>
+      <div style="font-size:11px;color:#6b5060">Besucher sehen nur veröffentlichte Inhalte — Admin-UI komplett unsichtbar</div>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;margin-top:20px;font-size:12px;color:#9b7080">Schaut das so richtig aus? Klick auf "Sieht gut aus ✓" wenn ja, oder sag mir was anders sein soll.</p>
+
+<div class="options" style="margin-top:16px;max-width:400px;margin-left:auto;margin-right:auto">
+  <div class="option" data-choice="ok" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content"><h3>Sieht gut aus</h3><p>Plan so umsetzen</p></div>
+  </div>
+  <div class="option" data-choice="change" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content"><h3>Etwas ändern</h3><p>Ich sage was anders sein soll</p></div>
+  </div>
+</div>

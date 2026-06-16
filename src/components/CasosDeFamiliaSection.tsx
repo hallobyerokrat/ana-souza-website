@@ -1,9 +1,18 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
 
 const PIX_ACTIVE = false;
+
+function LeafSmall() {
+  return (
+    <svg width="10" height="14" viewBox="0 0 10 14" fill="none" aria-hidden style={{ display: "inline", verticalAlign: "middle" }}>
+      <path d="M5 13 C5 13 1 9.5 1 6 C1 2.8 2.9 1 5 1 C7.1 1 9 2.8 9 6 C9 9.5 5 13 5 13 Z" fill="#9b7080" opacity="0.5" />
+      <line x1="5" y1="13" x2="5" y2="1" stroke="#9b7080" strokeWidth="0.7" opacity="0.35" />
+    </svg>
+  );
+}
 
 export default function CasosDeFamiliaSection() {
   const { t } = useT();
@@ -20,24 +29,29 @@ export default function CasosDeFamiliaSection() {
             className="h-px flex-1 max-w-xs"
             style={{
               background:
-                "linear-gradient(to right, transparent, rgba(90,64,50,0.3))",
+                "linear-gradient(to right, transparent, rgba(107,80,96,0.3))",
             }}
           />
           <span
             className="text-xs uppercase tracking-[0.3em]"
             style={{
-              color: "#5a4032",
+              color: "#6b5060",
               fontFamily: "var(--font-inter)",
               fontWeight: 500,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
             }}
           >
+            <LeafSmall />
             {t("casos.label")}
+            <LeafSmall />
           </span>
           <div
             className="h-px flex-1 max-w-xs"
             style={{
               background:
-                "linear-gradient(to left, transparent, rgba(90,64,50,0.3))",
+                "linear-gradient(to left, transparent, rgba(107,80,96,0.3))",
             }}
           />
         </div>
@@ -45,7 +59,7 @@ export default function CasosDeFamiliaSection() {
         <div className="grid md:grid-cols-[auto_1fr] gap-14 md:gap-20 items-center">
           {/* Book cover */}
           <div className="flex justify-center md:justify-start">
-            <div className="relative" style={{ width: 280, height: 420 }}>
+            <div className="relative" style={{ width: "min(280px, 70vw)", height: "calc(min(280px, 70vw) * 1.5)" }}>
               <div
                 aria-hidden
                 className="absolute"
@@ -89,12 +103,12 @@ export default function CasosDeFamiliaSection() {
           </div>
 
           {/* Text */}
-          <div>
+          <div style={{ background: "#f5ede8", borderRadius: 4, padding: "4px 8px", boxShadow: "0 0 8px 4px #f5ede8, 0 0 18px 10px rgba(245,237,232,0.85), 0 0 36px 18px rgba(245,237,232,0.45)", width: "fit-content", maxWidth: "100%" }}>
             {/* Sublabel */}
             <p
               className="text-xs uppercase tracking-[0.25em] mb-5"
               style={{
-                color: "#8b6f4d",
+                color: "#9b7080",
                 fontFamily: "var(--font-inter)",
                 fontWeight: 500,
               }}
@@ -108,37 +122,37 @@ export default function CasosDeFamiliaSection() {
                 fontFamily: "var(--font-playfair)",
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
                 fontWeight: 600,
-                color: "#3d2a1a",
+                color: "#3d2b35",
                 letterSpacing: "0.005em",
               }}
             >
               Casos de{" "}
-              <em style={{ fontStyle: "italic", color: "#5a4032" }}>
+              <em style={{ fontStyle: "italic", color: "#6b5060" }}>
                 Família
               </em>
             </h2>
 
             <p
               className="text-base md:text-lg leading-loose mb-3"
-              style={{ color: "#5a4032", maxWidth: 520 }}
+              style={{ color: "#6b5060", maxWidth: 520 }}
             >
               {t("casos.p1")}
             </p>
             <p
               className="text-base leading-loose mb-3"
-              style={{ color: "rgba(90,64,50,0.9)", maxWidth: 520 }}
+              style={{ color: "#6b5060", maxWidth: 520 }}
             >
               {t("casos.p2")}
             </p>
             <p
               className="text-base leading-loose mb-3"
-              style={{ color: "rgba(90,64,50,0.85)", maxWidth: 520 }}
+              style={{ color: "#6b5060", maxWidth: 520 }}
             >
               {t("casos.p3")}
             </p>
             <p
-              className="text-base leading-loose mb-10"
-              style={{ color: "rgba(90,64,50,0.75)", maxWidth: 520 }}
+              className="text-base leading-loose mb-5"
+              style={{ color: "#6b5060", maxWidth: 520 }}
             >
               {t("casos.p4")}
             </p>
@@ -149,7 +163,7 @@ export default function CasosDeFamiliaSection() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs tracking-wide"
                 style={{
                   background: "rgba(139,111,77,0.12)",
-                  color: "#6b4a2b",
+                  color: "#6b5060",
                   fontFamily: "var(--font-inter)",
                   fontWeight: 500,
                   border: "1px solid rgba(139,111,77,0.25)",
@@ -170,10 +184,10 @@ export default function CasosDeFamiliaSection() {
                   disabled
                   className="px-6 py-3 rounded-full text-sm tracking-wide"
                   style={{
-                    background: "#6d7e5f",
+                    background: "#7a5468",
                     color: "#faf6ed",
                     fontWeight: 500,
-                    boxShadow: "0 6px 16px rgba(109,126,95,0.3)",
+                    boxShadow: "0 6px 16px rgba(122,84,104,0.3)",
                     opacity: 0.6,
                     cursor: "not-allowed",
                   }}

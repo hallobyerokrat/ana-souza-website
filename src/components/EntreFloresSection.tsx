@@ -1,7 +1,17 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
+import BookReviewAccordion from "@/components/BookReviewAccordion";
+
+function LeafSmall() {
+  return (
+    <svg width="10" height="14" viewBox="0 0 10 14" fill="none" aria-hidden style={{ display: "inline", verticalAlign: "middle" }}>
+      <path d="M5 13 C5 13 1 9.5 1 6 C1 2.8 2.9 1 5 1 C7.1 1 9 2.8 9 6 C9 9.5 5 13 5 13 Z" fill="#7a5468" opacity="0.6" />
+      <line x1="5" y1="13" x2="5" y2="1" stroke="#7a5468" strokeWidth="0.7" opacity="0.4" />
+    </svg>
+  );
+}
 
 export default function EntreFloresSection() {
   const { t } = useT();
@@ -13,28 +23,52 @@ export default function EntreFloresSection() {
     >
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* Announcement — #13 */}
+        <p style={{
+          textAlign: "center",
+          fontFamily: "var(--font-inter)",
+          fontSize: 10,
+          letterSpacing: "0.22em",
+          textTransform: "uppercase",
+          color: "#7a5468",
+          fontWeight: 600,
+          marginBottom: 10,
+          opacity: 0.9,
+        }}>
+          ✦ {t("flores.announce")} ✦
+        </p>
+
         {/* Section label */}
         <div className="flex items-center gap-4 mb-14 justify-center">
           <div
             className="h-px flex-1 max-w-xs"
-            style={{ background: "linear-gradient(to right, transparent, rgba(90,64,50,0.3))" }}
+            style={{ background: "linear-gradient(to right, transparent, rgba(122,84,104,0.4))" }}
           />
           <span
             className="text-xs uppercase tracking-[0.3em]"
-            style={{ color: "#5a4032", fontFamily: "var(--font-inter)", fontWeight: 500 }}
+            style={{
+              color: "#7a5468",
+              fontFamily: "var(--font-inter)",
+              fontWeight: 600,
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+            }}
           >
+            <LeafSmall />
             {t("flores.label")}
+            <LeafSmall />
           </span>
           <div
             className="h-px flex-1 max-w-xs"
-            style={{ background: "linear-gradient(to left, transparent, rgba(90,64,50,0.3))" }}
+            style={{ background: "linear-gradient(to left, transparent, rgba(122,84,104,0.4))" }}
           />
         </div>
 
         <div className="grid md:grid-cols-[auto_1fr] gap-14 md:gap-20 items-center">
           {/* Book cover */}
           <div className="flex justify-center md:justify-start">
-            <div className="relative" style={{ width: 280, height: 420 }}>
+            <div className="relative" style={{ width: "min(280px, 70vw)", height: "calc(min(280px, 70vw) * 1.5)" }}>
               <div
                 aria-hidden
                 className="absolute"
@@ -52,7 +86,7 @@ export default function EntreFloresSection() {
                 className="relative w-full h-full overflow-hidden"
                 style={{
                   borderRadius: 4,
-                  boxShadow: "0 30px 60px rgba(60,40,22,0.22), 0 10px 20px rgba(60,40,22,0.12), -6px 0 0 rgba(0,0,0,0.10)",
+                  boxShadow: "0 0 0 2px rgba(160,140,80,0.3), 0 30px 60px rgba(60,40,22,0.25), 0 10px 20px rgba(60,40,22,0.15), -6px 0 0 rgba(0,0,0,0.10)",
                 }}
               >
                 <Image
@@ -67,73 +101,49 @@ export default function EntreFloresSection() {
           </div>
 
           {/* Text */}
-          <div>
+          <div style={{ background: "#f5ede8", borderRadius: 4, padding: "4px 8px", boxShadow: "0 0 8px 4px #f5ede8, 0 0 18px 10px rgba(245,237,232,0.85), 0 0 36px 18px rgba(245,237,232,0.45)", width: "fit-content", maxWidth: "100%" }}>
             <h2
               className="mb-6 leading-tight"
               style={{
                 fontFamily: "var(--font-playfair)",
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
                 fontWeight: 600,
-                color: "#3d2a1a",
+                color: "#3d2b35",
                 letterSpacing: "0.005em",
               }}
             >
               {t("flores.title.pre")}{" "}
-              <em style={{ fontStyle: "italic", color: "#5a4032" }}>
+              <em style={{ fontStyle: "italic", color: "#6b5060" }}>
                 {t("flores.title.em")}
               </em>
             </h2>
 
             <p
-              className="text-base md:text-lg leading-loose mb-4"
-              style={{ color: "#5a4032", maxWidth: 520 }}
+              className="text-base leading-relaxed mb-6"
+              style={{ color: "#6b5060", maxWidth: 420 }}
             >
-              {t("flores.p1")}
+              {t("flores.launchText")}
             </p>
-            <p
-              className="text-base leading-loose mb-4"
-              style={{ color: "rgba(90,64,50,0.85)", maxWidth: 520 }}
-            >
-              {t("flores.p2")}
-            </p>
-            <p
-              className="text-base leading-loose mb-10"
-              style={{ color: "rgba(90,64,50,0.75)", maxWidth: 520 }}
-            >
-              {t("flores.p3")}
-            </p>
-
-            {/* Status badge */}
-            <div className="flex flex-wrap items-center gap-4 mb-6">
-              <span
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs tracking-wide"
-                style={{
-                  background: "rgba(139,111,77,0.10)",
-                  color: "#6b4a2b",
-                  fontFamily: "var(--font-inter)",
-                  fontWeight: 500,
-                  border: "1px solid rgba(139,111,77,0.22)",
-                }}
-              >
-                <span style={{ opacity: 0.6 }}>◌</span>
-                {t("flores.status")}
-              </span>
-            </div>
 
             <a
-              href="mailto:anasouzademagalhaes@gmail.com?subject=Entre%20Flores%20e%20Alg%C3%B5ao%20%E2%80%94%20lan%C3%A7amento"
+              href="https://instagram.com/anasouzademagalhaes"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-3.5 rounded-full text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
               style={{
-                background: "#6d7e5f",
+                background: "#7a5468",
                 color: "#faf6ed",
                 fontWeight: 500,
-                boxShadow: "0 6px 18px rgba(109,126,95,0.3)",
+                boxShadow: "0 6px 18px rgba(122,84,104,0.3)",
               }}
             >
-              {t("flores.cta")}
+              {t("flores.instagram")}
             </a>
           </div>
         </div>
+
+        {/* Aktivieren wenn Buch erscheint: false → true */}
+        {false && <BookReviewAccordion bookId="entre-flores" />}
       </div>
     </section>
   );

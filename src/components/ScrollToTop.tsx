@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 
@@ -39,7 +39,7 @@ export default function ScrollToTop() {
         color: "#5a4032",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.background = "#6d7e5f";
+        (e.currentTarget as HTMLElement).style.background = "#7a5468";
         (e.currentTarget as HTMLElement).style.color = "#faf6ed";
         (e.currentTarget as HTMLElement).style.borderColor = "transparent";
       }}

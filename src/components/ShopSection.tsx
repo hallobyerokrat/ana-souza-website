@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -145,7 +145,7 @@ export default function ShopSection() {
                             <span style={{ fontFamily: "var(--font-caveat)", fontSize: "1rem", color: "#6b4a2b", fontWeight: 600 }}>
                               {book.price?.[locale]}
                             </span>
-                            <span className="text-xs tracking-wide" style={{ color: "#6d7e5f", fontFamily: "var(--font-inter)", fontWeight: 500 }}>
+                            <span className="text-xs tracking-wide" style={{ color: "#7a5468", fontFamily: "var(--font-inter)", fontWeight: 500 }}>
                               {t("shop.readMore")}
                             </span>
                           </div>

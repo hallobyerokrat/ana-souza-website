@@ -20,17 +20,26 @@ const pt: Dict = {
   "nav.contato": "Contato",
 
   "hero.subtitle":
-    "Memória, infância e imaginário atravessam sua escrita. Em uma linguagem sensorial e delicada, seus textos transitam entre o real e o fantástico, explorando o que permanece — nos silêncios, nos afetos e nas perdas.",
+    "Literatura e experiência poético-musicais atravessadas pela memória e pela imaginação.",
   "hero.caption": "escritora · contos · literatura infantil",
   "hero.note.livros": "Livros",
-  "hero.note.poemas": "Poemas e Textos",
-  "hero.note.artes": "Artes",
+  "hero.note.poemas": "Projetos",
+  "hero.note.artes": "Arte e Textos",
   "hero.note.contato": "Contato",
   "hero.note.loja": "Loja",
   "hero.note.sobre1": "Sobre",
   "hero.note.sobre2": "a autora",
   "hero.note.arte": "arte",
   "hero.note.contatoSub": "vamos conversar →",
+  "hero.note.livros.sub": "conheça minha obra",
+  "hero.note.poemas.sub": "projetos em andamento",
+  "hero.note.artes.sub": "poemas e ilustrações",
+  "hero.note.contato.sub": "vamos conversar",
+  "hero.note.loja.sub": "adquira meus livros",
+  "hero.note.sobre.sub": "a autora",
+  "hero.tagline": "Literatura e experiência poético-musicais atravessadas pela memória e pela imaginação.",
+  "hero.tagline2": "",
+  "hero.cta": "Ver Livros ↓",
 
   "casos.label": "Coletânea",
   "casos.sublabel": "Casos de Família · Conto Idaí",
@@ -44,8 +53,11 @@ const pt: Dict = {
     "Casais, avós, pais, irmãos, crianças — somos nós, refletidos em cada texto, em cada história.",
   "casos.badge": "Edição impressa — tiragem limitada, disponível no Brasil",
   "casos.cta": "Quero adquirir um exemplar",
+  "casos.quote": "«Uma escrita que toca o coração — delicada, verdadeira e cheia de afeto.»",
+  "casos.quote.author": "— Leitor da coletânea Casos de Família",
 
   "flores.label": "Destaque do Livro",
+  "flores.announce": "Novo romance · Em breve",
   "flores.title.pre": "Entre Flores e",
   "flores.title.em": "Algodão",
   "flores.p1":
@@ -56,6 +68,8 @@ const pt: Dict = {
     "Em uma linguagem sensorial e delicada, o livro constrói um percurso íntimo sobre crescer, lembrar e seguir adiante.",
   "flores.status": "Em edição — lançamento em breve",
   "flores.cta": "Quero acompanhar o lançamento",
+  "flores.launchText": "Lançamento em breve — acompanhe pelo Instagram",
+  "flores.instagram": "Seguir no Instagram →",
 
   "ceu.label": "Literatura Infantil",
   "ceu.title.pre": "Céu de",
@@ -69,21 +83,22 @@ const pt: Dict = {
   "ceu.cta.amazonBr": "Amazon Brasil",
   "ceu.cta.amazonDe": "Amazon.de",
   "ceu.cta.ebook": "Kindle / Ebook →",
+  "ceu.quote": "«Eu super indico o livro Céu de Brincar. É um livro que nos leva a antigos hábitos que foram se perdendo com o tempo. As crianças precisam desse livro para se conectar com as maravilhas que Deus nos proporciona e deixar de lado o celular.»",
+  "ceu.quote.author": "— Leitora",
 
   "author.label": "Sobre a autora",
   "author.title.pre": "Uma escrita intuitiva,",
   "author.title.em": "tecida pela memória",
   "author.p1":
-    "Nasci no interior de Minas Gerais, entre paisagens e memórias que ainda atravessam minha escrita.",
-  "author.p2":
-    "Sou formada em Pedagogia pela UEMG, com pós-graduação em Pedagogia Empresarial pela PUC Minas. Vivo há alguns anos na Alemanha, onde me especializei em cuidados geriátricos pela escola Johanniter, em Wertheim.",
+    "Ana Souza de Magalhães nasceu no interior de Minas Gerais. É formada em Pedagogia pela UEMG, com pós-graduação em Pedagogia Empresarial pela PUC Minas. Vive há alguns anos na Alemanha, onde se especializou em cuidados geriátricos pela escola Johanniter, em Wertheim. Atuou na área da geriatria, tanto em hospitais quanto em instituições de longa permanência para idosos, experiência que contribui para seu olhar sobre memória, envelhecimento e relações humanas.",
+  "author.p2": "",
   "author.p3":
-    "Participo do curso de escrita criativa da Metamorfose, onde publiquei os contos Idaí, na coletânea Casos de Família, e Urá, na coletânea Mundo Fantástico.",
+    "Participa das coletâneas Casos de Família, com o conto Idaí, e Mundo Fantástico, com o conto Urá, organizadas pela Metamorfose, escola de escrita criativa da qual faz parte.",
   "author.p4":
-    "Sou autora do livro infantil Céu de Brincar e do romance Entre Flores e Algodão, atualmente em edição pela Metamorfose.",
+    "É autora do livro infantil Céu de Brincar e do romance Entre Flores e Algodão, em edição pela Metamorfose.",
   "author.p5":
-    "Entre literatura, música e pequenas paisagens poéticas, sigo criando espaços onde delicadeza, imaginação e afeto possam permanecer.",
-  "author.badge": "Minas Gerais → Wertheim, DE",
+    "Entre literatura, música e pequenas paisagens poéticas, sua criação busca preservar espaços onde delicadeza, imaginação e afeto possam permanecer.",
+  "author.badge": "Minas Gerais - Hardheim",
   "author.readMore": "Mais sobre mim",
   "author.readLess": "Mostrar menos",
 
@@ -139,14 +154,23 @@ const de: Dict = {
     "Erinnerung, Kindheit und das Imaginäre durchziehen ihr Schreiben. In einer sinnlichen, zarten Sprache bewegen sich ihre Texte zwischen dem Realen und dem Fantastischen — und erkunden, was bleibt: in der Stille, in der Zuneigung, in den Verlusten.",
   "hero.caption": "Schriftstellerin · Erzählungen · Kinderliteratur",
   "hero.note.livros": "Bücher",
-  "hero.note.poemas": "Gedichte & Texte",
-  "hero.note.artes": "Kunst",
+  "hero.note.poemas": "Projekte",
+  "hero.note.artes": "Kunst & Texte",
   "hero.note.contato": "Kontakt",
   "hero.note.loja": "Shop",
   "hero.note.sobre1": "Über",
   "hero.note.sobre2": "die Autorin",
   "hero.note.arte": "Kunst",
   "hero.note.contatoSub": "Lass uns sprechen →",
+  "hero.note.livros.sub": "meine Bücher",
+  "hero.note.poemas.sub": "laufende Projekte",
+  "hero.note.artes.sub": "Gedichte & Illustrationen",
+  "hero.note.contato.sub": "Lass uns sprechen",
+  "hero.note.loja.sub": "Bücher kaufen",
+  "hero.note.sobre.sub": "die Autorin",
+  "hero.tagline": "Literatur und poetisch-musikalische Erfahrungen, durchdrungen von Erinnerung und Vorstellungskraft.",
+  "hero.tagline2": "",
+  "hero.cta": "Bücher ansehen ↓",
 
   "casos.label": "Anthologie",
   "casos.sublabel": "Casos de Família · Erzählung Idaí",
@@ -160,8 +184,11 @@ const de: Dict = {
     "Paare, Großeltern, Eltern, Geschwister, Kinder — das sind wir, gespiegelt in jedem Text und jeder Geschichte.",
   "casos.badge": "Gedruckte Ausgabe — limitierte Auflage, erhältlich in Brasilien",
   "casos.cta": "Ich möchte ein Exemplar kaufen",
+  "casos.quote": "«Ein Schreiben, das das Herz berührt — zart, aufrichtig und voller Wärme.»",
+  "casos.quote.author": "— Leser der Anthologie Casos de Família",
 
   "flores.label": "Buchpremiere",
+  "flores.announce": "Neuer Roman · Bald erhältlich",
   "flores.title.pre": "Entre Flores e",
   "flores.title.em": "Algodão",
   "flores.p1":
@@ -172,6 +199,8 @@ const de: Dict = {
     "In einer sinnlichen, zarten Sprache zeichnet das Buch einen intimen Weg durch das Heranwachsen, das Erinnern und das Weitergehen nach.",
   "flores.status": "In Bearbeitung — Veröffentlichung in Kürze",
   "flores.cta": "Auf dem Laufenden bleiben",
+  "flores.launchText": "Erscheint bald — folge dem Launch auf Instagram",
+  "flores.instagram": "Auf Instagram folgen →",
 
   "ceu.label": "Kinderliteratur",
   "ceu.title.pre": "Céu de",
@@ -185,21 +214,22 @@ const de: Dict = {
   "ceu.cta.amazonBr": "Amazon Brasil",
   "ceu.cta.amazonDe": "Amazon.de",
   "ceu.cta.ebook": "Kindle / E-Book →",
+  "ceu.quote": "«Ein zauberhaftes Buch für Kinder und Erwachsene — voller Phantasie und Zartheit.»",
+  "ceu.quote.author": "— Leserin, São Paulo",
 
   "author.label": "Über die Autorin",
   "author.title.pre": "Ein intuitives Schreiben,",
   "author.title.em": "gewebt aus Erinnerung",
   "author.p1":
-    "Ich wurde im Landesinneren von Minas Gerais geboren, zwischen Landschaften und Erinnerungen, die meiner Schrift noch heute innewohnen.",
-  "author.p2":
-    "Ich habe Pädagogik an der UEMG studiert und einen Postgraduierten-Abschluss in Betriebspädagogik von der PUC Minas. Seit einigen Jahren lebe ich in Deutschland, wo ich mich an der Johanniter-Schule in Wertheim auf Altenpflege spezialisiert habe.",
+    "Ana Souza de Magalhães wurde im Landesinneren von Minas Gerais geboren. Sie hat Pädagogik an der UEMG studiert und einen Postgraduierten-Abschluss in Betriebspädagogik von der PUC Minas. Seit einigen Jahren lebt sie in Deutschland, wo sie sich an der Johanniter-Schule in Wertheim auf Altenpflege spezialisiert hat. Sie war sowohl in Krankenhäusern als auch in stationären Pflegeeinrichtungen tätig – eine Erfahrung, die ihren Blick auf Gedächtnis, Alterung und menschliche Beziehungen prägt.",
+  "author.p2": "",
   "author.p3":
-    "Ich nehme am Kurs für kreatives Schreiben der Metamorfose teil, wo ich die Kurzgeschichten Idaí in der Anthologie Casos de Família und Urá in der Anthologie Mundo Fantástico veröffentlicht habe.",
+    "Sie nimmt an den Anthologien Casos de Família, mit der Kurzgeschichte Idaí, und Mundo Fantástico, mit der Kurzgeschichte Urá, teil – beide organisiert von Metamorfose, einer Schule für kreatives Schreiben, der sie angehört.",
   "author.p4":
-    "Ich bin Autorin des Kinderbuchs Céu de Brincar und des Romans Entre Flores e Algodão, der derzeit von Metamorfose bearbeitet wird.",
+    "Sie ist Autorin des Kinderbuchs Céu de Brincar und des Romans Entre Flores e Algodão, der derzeit bei Metamorfose erscheint.",
   "author.p5":
-    "Zwischen Literatur, Musik und kleinen poetischen Landschaften schaffe ich weiterhin Räume, in denen Zartheit, Phantasie und Zuneigung Bestand haben können.",
-  "author.badge": "Minas Gerais → Wertheim, DE",
+    "Zwischen Literatur, Musik und kleinen poetischen Landschaften sucht ihr Schaffen Räume zu bewahren, in denen Zartheit, Phantasie und Zuneigung Bestand haben können.",
+  "author.badge": "Minas Gerais - Hardheim",
   "author.readMore": "Mehr lesen",
   "author.readLess": "Weniger anzeigen",
 

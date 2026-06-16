@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @theme {
   /* Warm palette */
@@ -15,7 +15,7 @@
   --color-espresso: #3d2a1a;
   --color-espresso-soft: #5a4032;
   --color-ink-writing: #2c2418;
-  --color-sage: #6d7e5f;
+  --color-sage: #7a5468;
   --color-terracotta: #c1654a;
   --color-amber: #c4934a;
 
@@ -33,21 +33,21 @@ html {
 }
 
 body {
-  background-color: #d8cac4;
-  color: #4a2e44;
-  font-family: var(--font-inter), 'Inter', sans-serif;
-  overflow-x: hidden;
-}
-
-/* ---- Dense botanical wallpaper ---- */
-.wallpaper-botanical-dense {
-  background-color: #d8cac4;
+  background-color: #faf6f1;
   background-image:
     url("/botanical-1.svg"),
     url("/botanical-2.svg");
   background-size: 320px 320px, 560px 560px;
   background-position: 0 0, 40px 50px;
-  contain: paint;
+  background-attachment: fixed;
+  color: #3d2a1a;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---- Dense botanical wallpaper — transparent, shows body background ---- */
+.wallpaper-botanical-dense {
+  background: transparent;
 }
 
 

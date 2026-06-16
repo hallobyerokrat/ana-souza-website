@@ -1,27 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useT } from "@/lib/i18n";
+import { createClient } from "@/lib/supabase/client";
 
 const Divider = () => (
   <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.5rem 0" }}>
-    <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(90,64,50,0.2), transparent)" }} />
+    <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(107,80,96,0.2), transparent)" }} />
     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-      <circle cx="5" cy="5" r="1.5" fill="#8b6f4d" opacity="0.4"/>
+      <circle cx="5" cy="5" r="1.5" fill="#9b7080" opacity="0.4"/>
     </svg>
-    <div style={{ flex: 1, height: 1, background: "linear-gradient(to left, rgba(90,64,50,0.2), transparent)" }} />
+    <div style={{ flex: 1, height: 1, background: "linear-gradient(to left, rgba(107,80,96,0.2), transparent)" }} />
   </div>
 );
 
 export default function AuthorSection() {
-  const { t } = useT();
+  const { t, locale } = useT();
   const [expanded, setExpanded] = useState(false);
+  const [dbBio, setDbBio] = useState<Record<string, string>>({});
+  const supabase = createClient();
+
+  useEffect(() => {
+    supabase.from("bio_content").select("key, value_pt, value_de").then(({ data }) => {
+      if (!data) return;
+      const map: Record<string, string> = {};
+      data.forEach(row => { map[row.key] = locale === "de" ? row.value_de : row.value_pt; });
+      setDbBio(map);
+    });
+  }, [locale]);
+
+  function bio(key: string): string {
+    return dbBio[key] || t(`author.${key}` as Parameters<typeof t>[0]);
+  }
 
   const bioGroups = [
-    [t("author.p1")],
-    [t("author.p2"), t("author.p3")],
-    [t("author.p4"), t("author.p5")],
+    [bio("p1"), bio("p3"), bio("p4"), bio("p5")],
   ];
 
   return (
@@ -37,13 +51,13 @@ export default function AuthorSection() {
             className="h-px flex-1 max-w-xs"
             style={{
               background:
-                "linear-gradient(to right, transparent, rgba(90,64,50,0.3))",
+                "linear-gradient(to right, transparent, rgba(107,80,96,0.3))",
             }}
           />
           <span
             className="text-xs uppercase tracking-[0.3em]"
             style={{
-              color: "#5a4032",
+              color: "#6b5060",
               fontFamily: "var(--font-inter)",
               fontWeight: 500,
             }}
@@ -54,7 +68,7 @@ export default function AuthorSection() {
             className="h-px flex-1 max-w-xs"
             style={{
               background:
-                "linear-gradient(to left, transparent, rgba(90,64,50,0.3))",
+                "linear-gradient(to left, transparent, rgba(107,80,96,0.3))",
             }}
           />
         </div>
@@ -68,7 +82,7 @@ export default function AuthorSection() {
                 className="absolute inset-0 rounded-full"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(194,160,116,0.25) 0%, transparent 70%)",
+                    "radial-gradient(circle, rgba(180,140,160,0.25) 0%, transparent 70%)",
                   transform: "scale(1.25)",
                   filter: "blur(24px)",
                 }}
@@ -76,15 +90,15 @@ export default function AuthorSection() {
               <div
                 className="relative rounded-full overflow-hidden"
                 style={{
-                  width: 280,
-                  height: 280,
-                  border: "3px solid rgba(139,111,77,0.35)",
+                  width: "min(280px, calc(100vw - 96px))",
+                  height: "min(280px, calc(100vw - 96px))",
+                  border: "3px solid rgba(155,112,128,0.35)",
                   boxShadow:
-                    "0 24px 48px rgba(60,40,22,0.25), 0 0 0 8px rgba(253,251,246,0.8), 0 0 0 9px rgba(139,111,77,0.18)",
+                    "0 24px 48px rgba(61,43,53,0.25), 0 0 0 8px rgba(253,251,246,0.8), 0 0 0 9px rgba(155,112,128,0.18)",
                 }}
               >
                 <Image
-                  src="/images/ana-souza-foto.jpg"
+                  src="/images/ana-souza-foto-2.jpg"
                   alt="Ana Souza de Magalhães"
                   fill
                   sizes="280px"
@@ -94,10 +108,10 @@ export default function AuthorSection() {
               <div
                 className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs tracking-widest uppercase whitespace-nowrap"
                 style={{
-                  background: "#faf6ed",
-                  color: "#5a4032",
-                  border: "1px solid rgba(139,111,77,0.3)",
-                  boxShadow: "0 4px 12px rgba(60,40,22,0.1)",
+                  background: "#faf6f1",
+                  color: "#6b5060",
+                  border: "1px solid rgba(155,112,128,0.3)",
+                  boxShadow: "0 4px 12px rgba(61,43,53,0.1)",
                   fontWeight: 500,
                 }}
               >
@@ -107,24 +121,8 @@ export default function AuthorSection() {
           </div>
 
           {/* Bio text */}
-          <div className="md:col-span-3">
-            <h2
-              className="mb-8 leading-tight"
-              style={{
-                fontFamily: "var(--font-playfair)",
-                fontSize: "clamp(1.8rem, 4vw, 3rem)",
-                fontWeight: 600,
-                color: "#3d2a1a",
-                letterSpacing: "0.005em",
-              }}
-            >
-              {t("author.title.pre")}{" "}
-              <em style={{ fontStyle: "italic", color: "#5a4032" }}>
-                {t("author.title.em")}
-              </em>
-            </h2>
-
-            <div style={{ color: "#5a4032", maxWidth: 620 }}>
+          <div className="md:col-span-3" style={{ background: "#f5ede8", borderRadius: 4, padding: "4px 8px", boxShadow: "0 0 8px 4px #f5ede8, 0 0 18px 10px rgba(245,237,232,0.85), 0 0 36px 18px rgba(245,237,232,0.45)" }}>
+            <div style={{ color: "#6b5060", maxWidth: 620 }}>
               {/* Always visible: groups 0 + 1 */}
               {bioGroups.slice(0, 2).map((group, gi) => (
                 <div key={gi}>
@@ -134,11 +132,7 @@ export default function AuthorSection() {
                       <p
                         key={pi}
                         className="leading-relaxed"
-                        style={
-                          gi === 0
-                            ? { fontSize: "1.05rem", color: "#3d2a1a", fontWeight: 400 }
-                            : { fontSize: "0.95rem" }
-                        }
+                        style={{ fontSize: "0.95rem" }}
                       >
                         {p}
                       </p>
@@ -183,12 +177,12 @@ export default function AuthorSection() {
                   fontFamily: "var(--font-playfair)",
                   fontSize: "0.9rem",
                   fontStyle: "italic",
-                  color: "#8b6f4d",
+                  color: "#9b7080",
                   padding: 0,
                   transition: "color 0.2s",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#5a3d23")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#8b6f4d")}
+                onMouseEnter={e => (e.currentTarget.style.color = "#7a5468")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#9b7080")}
               >
                 {expanded ? t("author.readLess") : t("author.readMore")}
                 <svg

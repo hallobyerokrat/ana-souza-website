@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import { useT } from "@/lib/i18n";
 
-export default function NewsletterSection() {
+export default function ContactSection() {
   const { t } = useT();
   const email = "anasouzademagalhaes@gmail.com";
   const instagramHandle = "@anasouzademagalhaes";
@@ -13,20 +13,20 @@ export default function NewsletterSection() {
       className="wallpaper-botanical-dense relative py-24 md:py-32 overflow-hidden"
     >
 
-      <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-2xl mx-auto px-6 py-12 text-center" style={{ background: "#f5ede8", borderRadius: 4, boxShadow: "0 0 8px 4px #f5ede8, 0 0 18px 10px rgba(245,237,232,0.85), 0 0 36px 18px rgba(245,237,232,0.45)" }}>
         {/* Section label */}
         <div className="flex items-center gap-4 mb-10 justify-center">
           <div
             className="h-px flex-1 max-w-40"
             style={{
               background:
-                "linear-gradient(to right, transparent, rgba(90,64,50,0.3))",
+                "linear-gradient(to right, transparent, rgba(107,80,96,0.3))",
             }}
           />
           <span
             className="text-xs uppercase tracking-[0.3em]"
             style={{
-              color: "#5a4032",
+              color: "#6b5060",
               fontFamily: "var(--font-inter)",
               fontWeight: 500,
             }}
@@ -37,7 +37,7 @@ export default function NewsletterSection() {
             className="h-px flex-1 max-w-40"
             style={{
               background:
-                "linear-gradient(to left, transparent, rgba(90,64,50,0.3))",
+                "linear-gradient(to left, transparent, rgba(107,80,96,0.3))",
             }}
           />
         </div>
@@ -48,19 +48,19 @@ export default function NewsletterSection() {
             fontFamily: "var(--font-playfair)",
             fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
             fontWeight: 600,
-            color: "#3d2a1a",
+            color: "#3d2b35",
             letterSpacing: "0.005em",
           }}
         >
           {t("contato.title.pre")}{" "}
-          <em style={{ fontStyle: "italic", color: "#5a4032" }}>
+          <em style={{ fontStyle: "italic", color: "#6b5060" }}>
             {t("contato.title.em")}
           </em>
         </h2>
 
         <p
           className="mb-10 leading-relaxed"
-          style={{ color: "#5a4032", fontSize: "1.05rem" }}
+          style={{ color: "#6b5060", fontSize: "1.05rem" }}
         >
           {t("contato.intro")}
         </p>
@@ -70,10 +70,10 @@ export default function NewsletterSection() {
             href={`mailto:${email}`}
             className="px-8 py-3.5 rounded-full text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             style={{
-              background: "#6d7e5f",
+              background: "#7a5468",
               color: "#faf6ed",
               fontWeight: 500,
-              boxShadow: "0 6px 18px rgba(109,126,95,0.35)",
+              boxShadow: "0 6px 18px rgba(122,84,104,0.35)",
             }}
           >
             {t("contato.cta")}
@@ -84,12 +84,12 @@ export default function NewsletterSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 transition-colors duration-300"
-            style={{ color: "#5a4032" }}
+            style={{ color: "#6b5060" }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.color = "#6d7e5f")
+              ((e.currentTarget as HTMLElement).style.color = "#7a5468")
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.color = "#5a4032")
+              ((e.currentTarget as HTMLElement).style.color = "#6b5060")
             }
           >
             <svg
@@ -108,11 +108,40 @@ export default function NewsletterSection() {
               {instagramHandle}
             </span>
           </a>
+
+          <a
+            href="https://www.youtube.com/@anasouzademagalhaes32"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 transition-colors duration-300"
+            style={{ color: "#6b5060" }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "#7a5468")
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "#6b5060")
+            }
+          >
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.5}
+            >
+              <path d="M22.54 6.42A2.78 2.78 0 0 0 20.6 4.47C18.88 4 12 4 12 4s-6.88 0-8.6.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.53C5.12 20 12 20 12 20s6.88 0 8.6-.47a2.78 2.78 0 0 0 1.94-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58Z" />
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none" />
+            </svg>
+            <span style={{ fontFamily: "var(--font-inter)", fontSize: 14 }}>
+              YouTube
+            </span>
+          </a>
         </div>
 
         <p
           className="mt-10 text-xs"
-          style={{ color: "rgba(90,64,50,0.5)" }}
+          style={{ color: "#8a6878" }}
         >
           {t("contato.privacy")}
         </p>

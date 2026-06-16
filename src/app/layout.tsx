@@ -35,6 +35,20 @@ export const metadata: Metadata = {
     title: "Ana Souza de Magalhães — Escritora",
     description:
       "Autora de Casos de Família e Céu de Brincar. Livros disponíveis na Amazon e ebook direto.",
+    images: [
+      {
+        url: "https://anasouzademagalhaes.com/images/ana-souza-foto.jpg",
+        width: 800,
+        height: 800,
+        alt: "Ana Souza de Magalhães — Escritora",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ana Souza de Magalhães — Escritora",
+    description: "Autora de Casos de Família e Céu de Brincar.",
+    images: ["https://anasouzademagalhaes.com/images/ana-souza-foto.jpg"],
   },
 };
 

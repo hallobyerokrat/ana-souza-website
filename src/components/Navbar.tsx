@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -55,10 +55,10 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: "rgba(250,246,237,0.88)",
+        background: "rgba(250,246,241,0.88)",
         backdropFilter: "blur(10px)",
         WebkitBackdropFilter: "blur(10px)",
-        borderBottom: "1px solid rgba(61,42,26,0.08)",
+        borderBottom: "1px solid rgba(61,43,53,0.08)",
       }}
     >
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
@@ -67,12 +67,12 @@ export default function Navbar() {
           className="text-base tracking-wide transition-opacity duration-300 hover:opacity-70"
           style={{
             fontFamily: "var(--font-playfair)",
-            color: "#3d2a1a",
+            color: "#3d2b35",
             fontSize: 17,
           }}
         >
           Ana Souza{" "}
-          <em style={{ fontStyle: "italic", color: "#5a4032" }}>de Magalhães</em>
+          <em style={{ fontStyle: "italic", color: "#6b5060" }}>de Magalhães</em>
         </Link>
 
         <div className="hidden md:flex items-center gap-7">
@@ -86,11 +86,11 @@ export default function Navbar() {
                 style={{
                   fontFamily: "var(--font-playfair)",
                   fontSize: 15,
-                  color: isActive ? "#6d7e5f" : "#3d2a1a",
+                  color: isActive ? "#7a5468" : "#3d2b35",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#6d7e5f")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#7a5468")}
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = isActive ? "#6d7e5f" : "#3d2a1a")
+                  (e.currentTarget.style.color = isActive ? "#7a5468" : "#3d2b35")
                 }
               >
                 {l.label}
@@ -104,7 +104,7 @@ export default function Navbar() {
                       width: 4,
                       height: 4,
                       borderRadius: "50%",
-                      background: "#6d7e5f",
+                      background: "#7a5468",
                       opacity: 0.7,
                     }}
                   />
@@ -119,12 +119,12 @@ export default function Navbar() {
             role="group"
             aria-label="Language"
             style={{
-              border: "1px solid rgba(61,42,26,0.2)",
+              border: "1px solid rgba(61,43,53,0.2)",
               borderRadius: 3,
               padding: "3px 4px",
               fontFamily: "var(--font-playfair)",
               fontSize: 12,
-              color: "#3d2a1a",
+              color: "#3d2b35",
               letterSpacing: "0.03em",
               background: "rgba(255,255,255,0.4)",
               display: "inline-flex",
@@ -153,15 +153,15 @@ export default function Navbar() {
         >
           <span
             className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-            style={{ background: "#3d2a1a" }}
+            style={{ background: "#3d2b35" }}
           />
           <span
             className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-            style={{ background: "#3d2a1a" }}
+            style={{ background: "#3d2b35" }}
           />
           <span
             className={`block w-6 h-0.5 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-            style={{ background: "#3d2a1a" }}
+            style={{ background: "#3d2b35" }}
           />
         </button>
       </div>
@@ -170,8 +170,8 @@ export default function Navbar() {
         <div
           className="md:hidden border-t px-6 py-4 flex flex-col gap-3"
           style={{
-            background: "rgba(250,246,237,0.96)",
-            borderColor: "rgba(61,42,26,0.1)",
+            background: "rgba(250,246,241,0.96)",
+            borderColor: "rgba(61,43,53,0.1)",
           }}
         >
           {links.map((l, i) => (
@@ -182,7 +182,7 @@ export default function Navbar() {
               style={{
                 fontFamily: "var(--font-playfair)",
                 fontSize: 16,
-                color: "#3d2a1a",
+                color: "#3d2b35",
               }}
               onClick={() => setMenuOpen(false)}
             >
@@ -197,7 +197,7 @@ export default function Navbar() {
               gap: 2,
               fontFamily: "var(--font-playfair)",
               fontSize: 14,
-              color: "#3d2a1a",
+              color: "#3d2b35",
             }}
           >
             <LocaleButton
@@ -235,8 +235,8 @@ function LocaleButton({
       style={{
         padding: "2px 8px",
         borderRadius: 2,
-        background: active ? "rgba(109,126,95,0.18)" : "transparent",
-        color: active ? "#3d2a1a" : "rgba(61,42,26,0.55)",
+        background: active ? "rgba(122,84,104,0.18)" : "transparent",
+        color: active ? "#3d2b35" : "rgba(61,43,53,0.55)",
         fontWeight: active ? 600 : 400,
         fontFamily: "inherit",
         fontSize: "inherit",
@@ -246,10 +246,10 @@ function LocaleButton({
         border: "none",
       }}
       onMouseEnter={(e) => {
-        if (!active) e.currentTarget.style.color = "#3d2a1a";
+        if (!active) e.currentTarget.style.color = "#3d2b35";
       }}
       onMouseLeave={(e) => {
-        if (!active) e.currentTarget.style.color = "rgba(61,42,26,0.55)";
+        if (!active) e.currentTarget.style.color = "rgba(61,43,53,0.55)";
       }}
     >
       {label}

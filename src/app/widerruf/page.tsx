@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export const metadata = {
   title: "Widerrufsbelehrung — Ana Souza de Magalhães",
@@ -20,7 +20,7 @@ export default function WiderrufPage() {
           href="/"
           style={{
             fontSize: 13,
-            color: "#6d7e5f",
+            color: "#7a5468",
             textDecoration: "none",
             display: "inline-block",
             marginBottom: "2rem",
@@ -172,6 +172,6 @@ const pStyle: React.CSSProperties = {
 };
 
 const linkStyle: React.CSSProperties = {
-  color: "#6d7e5f",
+  color: "#7a5468",
   textDecoration: "underline",
 };

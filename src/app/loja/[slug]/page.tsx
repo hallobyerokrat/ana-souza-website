@@ -215,11 +215,11 @@ export default function LojaPage({
                     onClick={handleBuy}
                     className="px-7 py-3 rounded-full text-sm tracking-wide transition-all duration-200 hover:-translate-y-0.5"
                     style={{
-                      background: "#6d7e5f",
+                      background: "#7a5468",
                       color: "#faf6ed",
                       fontFamily: "var(--font-inter)",
                       fontWeight: 500,
-                      boxShadow: "0 6px 16px rgba(109,126,95,0.32)",
+                      boxShadow: "0 6px 16px rgba(122,84,104,0.32)",
                     }}
                   >
                     {t("shop.buy")}

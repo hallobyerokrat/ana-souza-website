@@ -3,9 +3,9 @@ import HeroSection from "@/components/HeroSection";
 import CasosDeFamiliaSection from "@/components/CasosDeFamiliaSection";
 import EntreFloresSection from "@/components/EntreFloresSection";
 import CeuDeBrincarSection from "@/components/CeuDeBrincarSection";
+import BotanicalDivider from "@/components/BotanicalDivider";
 import AuthorSection from "@/components/AuthorSection";
-import NewsletterSection from "@/components/NewsletterSection";
-// import ShopSection from "@/components/ShopSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -16,12 +16,15 @@ export default function Home() {
       <main>
         <HeroSection />
         <div id="livros" />
-        <CasosDeFamiliaSection />
         <EntreFloresSection />
+        <BotanicalDivider />
         <CeuDeBrincarSection />
+        <BotanicalDivider />
+        <CasosDeFamiliaSection />
+        <BotanicalDivider />
         <AuthorSection />
-        {/* <ShopSection /> */}
-        <NewsletterSection />
+        <BotanicalDivider />
+        <ContactSection />
       </main>
       <Footer />
       <ScrollToTop />

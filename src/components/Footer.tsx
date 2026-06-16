@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useT } from "@/lib/i18n";
 
@@ -22,7 +22,7 @@ export default function Footer() {
     <footer
       className="relative wallpaper-botanical-dense border-t"
       style={{
-        borderColor: "rgba(61,42,26,0.12)",
+        borderColor: "rgba(61,43,53,0.12)",
       }}
     >
       <div className="max-w-6xl mx-auto px-6 py-14">
@@ -34,18 +34,18 @@ export default function Footer() {
               style={{
                 fontFamily: "var(--font-playfair)",
                 fontSize: 20,
-                color: "#3d2a1a",
+                color: "#3d2b35",
                 fontWeight: 500,
               }}
             >
               Ana Souza{" "}
-              <em style={{ fontStyle: "italic", color: "#6d7e5f" }}>
+              <em style={{ fontStyle: "italic", color: "#7a5468" }}>
                 de Magalhães
               </em>
             </p>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: "rgba(90,64,50,0.75)" }}
+              style={{ color: "#6b5060" }}
             >
               {t("footer.desc")}
             </p>
@@ -56,7 +56,7 @@ export default function Footer() {
             <p
               className="text-xs uppercase tracking-widest mb-4"
               style={{
-                color: "#6d7e5f",
+                color: "#7a5468",
                 fontWeight: 600,
               }}
             >
@@ -71,7 +71,7 @@ export default function Footer() {
                     style={{ color: "#5a4032" }}
                     onMouseEnter={(e) =>
                       ((e.currentTarget as HTMLElement).style.color =
-                        "#6d7e5f")
+                        "#7a5468")
                     }
                     onMouseLeave={(e) =>
                       ((e.currentTarget as HTMLElement).style.color =
@@ -90,7 +90,7 @@ export default function Footer() {
             <p
               className="text-xs uppercase tracking-widest mb-4"
               style={{
-                color: "#6d7e5f",
+                color: "#7a5468",
                 fontWeight: 600,
               }}
             >
@@ -102,14 +102,14 @@ export default function Footer() {
                   <a
                     href={l.href}
                     className="text-sm transition-colors duration-300"
-                    style={{ color: "rgba(90,64,50,0.7)" }}
+                    style={{ color: "#6b5060" }}
                     onMouseEnter={(e) =>
                       ((e.currentTarget as HTMLElement).style.color =
-                        "#6d7e5f")
+                        "#7a5468")
                     }
                     onMouseLeave={(e) =>
                       ((e.currentTarget as HTMLElement).style.color =
-                        "rgba(90,64,50,0.7)")
+                        "#6b5060")
                     }
                   >
                     {l.label}
@@ -122,12 +122,12 @@ export default function Footer() {
 
         <div
           className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t"
-          style={{ borderColor: "rgba(61,42,26,0.1)" }}
+          style={{ borderColor: "rgba(61,43,53,0.1)" }}
         >
-          <p className="text-xs" style={{ color: "rgba(90,64,50,0.55)" }}>
+          <p className="text-xs" style={{ color: "#4a3040" }}>
             © {year} Ana Souza de Magalhães. {t("footer.rights")}
           </p>
-          <p className="text-xs" style={{ color: "rgba(90,64,50,0.5)" }}>
+          <p className="text-xs" style={{ color: "#4a3040" }}>
             {t("footer.country")}
           </p>
         </div>
