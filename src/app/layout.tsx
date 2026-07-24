@@ -30,16 +30,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://anasouzademagalhaes.com",
+    url: "https://www.anasouza.space",
     siteName: "Ana Souza de Magalhães",
     title: "Ana Souza de Magalhães — Escritora",
     description:
       "Autora de Casos de Família e Céu de Brincar. Livros disponíveis na Amazon e ebook direto.",
     images: [
       {
-        url: "https://anasouzademagalhaes.com/images/ana-souza-foto.jpg",
-        width: 800,
-        height: 800,
+        url: "https://www.anasouza.space/icon.png",
+        width: 512,
+        height: 512,
         alt: "Ana Souza de Magalhães — Escritora",
       },
     ],
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ana Souza de Magalhães — Escritora",
     description: "Autora de Casos de Família e Céu de Brincar.",
-    images: ["https://anasouzademagalhaes.com/images/ana-souza-foto.jpg"],
+    images: ["https://www.anasouza.space/icon.png"],
   },
 };
 

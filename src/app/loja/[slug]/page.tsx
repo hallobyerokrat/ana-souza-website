@@ -9,6 +9,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useT } from "@/lib/i18n";
 import { getBook } from "@/lib/books";
+import { useBookDescription } from "@/lib/useBookDescription";
+import BuyOptions from "@/components/BuyOptions";
 
 export default function LojaPage({
   params,
@@ -20,6 +22,7 @@ export default function LojaPage({
   if (!book) notFound();
 
   const { t, locale } = useT();
+  const fullDesc = useBookDescription(book.slug, locale, book.fullDesc[locale]);
 
   const handleBuy = () => {
     if (!book.lemonsqueezyUrl) return;
@@ -184,7 +187,7 @@ export default function LojaPage({
 
               {/* Full description */}
               <div className="mb-10 space-y-4" style={{ maxWidth: 520 }}>
-                {book.fullDesc[locale].map((para, i) => (
+                {fullDesc.map((para, i) => (
                   <p
                     key={i}
                     className="text-base leading-loose"
@@ -208,6 +211,9 @@ export default function LojaPage({
               </p>
 
               {/* CTA buttons */}
+              {book.buyOptions ? (
+                <BuyOptions regions={book.buyOptions} locale={locale} />
+              ) : (
               <div className="flex flex-wrap gap-3">
                 {book.available && book.lemonsqueezyUrl && (
                   <button
@@ -293,6 +299,7 @@ export default function LojaPage({
                   </a>
                 )}
               </div>
+              )}
             </motion.div>
           </div>
         </div>

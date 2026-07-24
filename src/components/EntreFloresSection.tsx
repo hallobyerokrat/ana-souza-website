@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
+import { useBookDescription } from "@/lib/useBookDescription";
 import BookReviewAccordion from "@/components/BookReviewAccordion";
 
 function LeafSmall() {
@@ -14,7 +15,13 @@ function LeafSmall() {
 }
 
 export default function EntreFloresSection() {
-  const { t } = useT();
+  const { t, locale } = useT();
+  const paragraphs = useBookDescription("entre-flores", locale, [
+    t("flores.p1"),
+    t("flores.p2"),
+    t("flores.p3"),
+    t("flores.p4"),
+  ]);
 
   return (
     <section
@@ -118,9 +125,21 @@ export default function EntreFloresSection() {
               </em>
             </h2>
 
+            <div style={{ maxWidth: 460, marginBottom: 24 }}>
+              {paragraphs.map((p, i) => (
+                <p
+                  key={i}
+                  className="text-sm leading-relaxed mb-4"
+                  style={{ color: "#6b5060" }}
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+
             <p
-              className="text-base leading-relaxed mb-6"
-              style={{ color: "#6b5060", maxWidth: 420 }}
+              className="text-sm mb-6"
+              style={{ color: "#7a5468", fontStyle: "italic" }}
             >
               {t("flores.launchText")}
             </p>

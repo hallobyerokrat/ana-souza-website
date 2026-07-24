@@ -20,7 +20,7 @@ const pt: Dict = {
   "nav.contato": "Contato",
 
   "hero.subtitle":
-    "Literatura e experiência poético-musicais atravessadas pela memória e pela imaginação.",
+    "Uma literatura atravessada pela memória e pela imaginação — onde o afeto, o silêncio e o tempo se encontram.",
   "hero.caption": "escritora · contos · literatura infantil",
   "hero.note.livros": "Livros",
   "hero.note.poemas": "Projetos",
@@ -37,7 +37,7 @@ const pt: Dict = {
   "hero.note.contato.sub": "vamos conversar",
   "hero.note.loja.sub": "adquira meus livros",
   "hero.note.sobre.sub": "a autora",
-  "hero.tagline": "Literatura e experiência poético-musicais atravessadas pela memória e pela imaginação.",
+  "hero.tagline": "Uma literatura atravessada pela memória e pela imaginação — onde o afeto, o silêncio e o tempo se encontram.",
   "hero.tagline2": "",
   "hero.cta": "Ver Livros ↓",
 
@@ -61,11 +61,13 @@ const pt: Dict = {
   "flores.title.pre": "Entre Flores e",
   "flores.title.em": "Algodão",
   "flores.p1":
-    "Em Entre Flores e Algodão, acompanhamos Clara pelas memórias de sua infância em um ambiente interiorano, onde afetos, silêncios e pequenos gestos moldam sua forma de ver o mundo.",
+    "Clara cresceu entre o cheiro de alecrim, o calor do forno e as histórias contadas à sombra de um pé de manga. Há uma casa em movimento, um povoado e uma menina que observa os gestos e os silêncios.",
   "flores.p2":
-    "Com o tempo, essa infância é atravessada por rupturas e perdas que não se explicam — apenas não voltam.",
+    "Em sua infância, tudo parecia simples: os dias passavam entre brincadeiras, vozes na cozinha e pequenos segredos guardados na memória.",
   "flores.p3":
-    "Em uma linguagem sensorial e delicada, o livro constrói um percurso íntimo sobre crescer, lembrar e seguir adiante.",
+    "Aos poucos, o mundo começa a mudar. O tempo avança, as mudanças familiares se tornam mais densas e a infância, antes leve, ganha novos significados. Entre descobertas, despedidas e lembranças, Clara aprende. Crescer é lidar com aquilo que não volta.",
+  "flores.p4":
+    "Sensível e delicado, Entre Flores e Algodão é uma narrativa sobre memória, afeto e transformação — um convite para revisitar a infância e reconhecer, nos pequenos detalhes, aquilo que permanece para sempre.",
   "flores.status": "Em edição — lançamento em breve",
   "flores.cta": "Quero acompanhar o lançamento",
   "flores.launchText": "Lançamento em breve — acompanhe pelo Instagram",
@@ -111,7 +113,20 @@ const pt: Dict = {
   "contato.instagram": "Instagram",
   "contato.email": "E-mail",
   "contato.privacy":
-    "Seus dados são protegidos conforme o RGPD.",
+    "Seus dados são protegidos conforme o GDPR (regulamento europeu de proteção de dados).",
+
+  "projects.label": "Projetos em Andamento",
+  "projects.title.pre": "Em",
+  "projects.title.em": "Desenvolvimento",
+  "projects.tata.title": "Tanta Doçura, Tartaruga!",
+  "projects.tata.status": "Em edição e ilustração",
+  "projects.tata.desc":
+    "Uma tartaruga um tanto diferente… Vivia cercada de doces. Até que uma pequena descoberta lhe mostrou um novo caminho. Entre novas amizades, um mar de possibilidades e descobertas inesperadas, ela percebe que a vida pode ser muito mais doce do que imaginava. Uma história sensível sobre curiosidade, descobertas e as muitas formas de ressignificar a doçura.",
+  "projects.tata.note": "Em breve na epubli",
+  "projects.musica.title": "Projeto Musical",
+  "projects.musica.status": "Em produção",
+  "projects.musica.desc":
+    "Poemas autorais musicalizados — canções e paisagens sonoras construídas a partir de versos próprios, explorando memória, natureza, imaginação e o cotidiano.",
 
   "footer.desc":
     "Escritora brasileira radicada na Alemanha. Autora de Céu de Brincar e Entre Flores e Algodão (em edição).",
@@ -124,7 +139,7 @@ const pt: Dict = {
   "footer.link.datenschutz": "Política de Privacidade",
   "footer.link.widerruf": "Direito de Revogação",
   "footer.rights": "Todos os direitos reservados.",
-  "footer.country": "Operado a partir da Alemanha · Conforme RGPD",
+  "footer.country": "Operado a partir da Alemanha · Conforme o GDPR",
 
   "nav.loja": "Livraria",
 
@@ -192,11 +207,13 @@ const de: Dict = {
   "flores.title.pre": "Entre Flores e",
   "flores.title.em": "Algodão",
   "flores.p1":
-    "In Entre Flores e Algodão begleiten wir Clara durch die Erinnerungen ihrer Kindheit auf dem Land, wo Zuneigung, Stille und kleine Gesten ihren Blick auf die Welt formen.",
+    "Clara wuchs auf zwischen dem Duft von Rosmarin, der Wärme des Ofens und den Geschichten, die im Schatten eines Mangobaums erzählt wurden. Da ist ein Haus in Bewegung, ein Dorf und ein Mädchen, das die Gesten und das Schweigen beobachtet.",
   "flores.p2":
-    "Mit der Zeit wird diese Kindheit von Brüchen und Verlusten durchzogen, die sich nicht erklären lassen — sie kehren einfach nicht zurück.",
+    "In ihrer Kindheit schien alles einfach: Die Tage vergingen zwischen Spielen, Stimmen in der Küche und kleinen Geheimnissen, die im Gedächtnis bewahrt wurden.",
   "flores.p3":
-    "In einer sinnlichen, zarten Sprache zeichnet das Buch einen intimen Weg durch das Heranwachsen, das Erinnern und das Weitergehen nach.",
+    "Nach und nach beginnt sich die Welt zu verändern. Die Zeit schreitet voran, die familiären Veränderungen werden dichter, und die Kindheit, einst leicht, gewinnt neue Bedeutungen. Zwischen Entdeckungen, Abschieden und Erinnerungen lernt Clara: Erwachsenwerden heißt, mit dem umzugehen, was nicht zurückkehrt.",
+  "flores.p4":
+    "Sensibel und zart erzählt Entre Flores e Algodão von Erinnerung, Zuneigung und Wandel — eine Einladung, die Kindheit neu zu besuchen und in den kleinen Details das zu erkennen, was für immer bleibt.",
   "flores.status": "In Bearbeitung — Veröffentlichung in Kürze",
   "flores.cta": "Auf dem Laufenden bleiben",
   "flores.launchText": "Erscheint bald — folge dem Launch auf Instagram",
@@ -215,7 +232,7 @@ const de: Dict = {
   "ceu.cta.amazonDe": "Amazon.de",
   "ceu.cta.ebook": "Kindle / E-Book →",
   "ceu.quote": "«Ein zauberhaftes Buch für Kinder und Erwachsene — voller Phantasie und Zartheit.»",
-  "ceu.quote.author": "— Leserin, São Paulo",
+  "ceu.quote.author": "— Leserin",
 
   "author.label": "Über die Autorin",
   "author.title.pre": "Ein intuitives Schreiben,",
@@ -243,6 +260,19 @@ const de: Dict = {
   "contato.email": "E-Mail",
   "contato.privacy":
     "Deine Daten sind gemäß DSGVO geschützt.",
+
+  "projects.label": "Laufende Projekte",
+  "projects.title.pre": "In",
+  "projects.title.em": "Entwicklung",
+  "projects.tata.title": "Tanta Doçura, Tartaruga!",
+  "projects.tata.status": "In Lektorat & Illustration",
+  "projects.tata.desc":
+    "Eine Schildkröte, ein wenig anders als die anderen … Sie lebte umgeben von Süßigkeiten. Bis eine kleine Entdeckung ihr einen neuen Weg zeigte. Zwischen neuen Freundschaften, ungeahnten Möglichkeiten und unerwarteten Entdeckungen begreift sie: Das Leben kann viel süßer sein, als sie dachte. Eine einfühlsame Geschichte über Neugier, Entdeckungen und die vielen Arten, Süße neu zu deuten.",
+  "projects.tata.note": "Bald erhältlich auf epubli",
+  "projects.musica.title": "Musikprojekt",
+  "projects.musica.status": "In Produktion",
+  "projects.musica.desc":
+    "Eigene Gedichte, vertont zu Liedern und Klanglandschaften — sie kreisen um Erinnerung, Natur, Fantasie und die kleinen Momente des Alltags.",
 
   "footer.desc":
     "Brasilianische Schriftstellerin, lebt in Deutschland. Autorin von Céu de Brincar und Entre Flores e Algodão (in Bearbeitung).",

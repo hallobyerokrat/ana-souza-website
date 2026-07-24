@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
+import { useBookDescription } from "@/lib/useBookDescription";
+import BookReviewAccordion from "@/components/BookReviewAccordion";
 
 const PIX_ACTIVE = false;
 
@@ -15,7 +17,13 @@ function LeafSmall() {
 }
 
 export default function CasosDeFamiliaSection() {
-  const { t } = useT();
+  const { t, locale } = useT();
+  const paragraphs = useBookDescription("casos-de-familia", locale, [
+    t("casos.p1"),
+    t("casos.p2"),
+    t("casos.p3"),
+    t("casos.p4"),
+  ]);
 
   return (
     <section
@@ -132,30 +140,15 @@ export default function CasosDeFamiliaSection() {
               </em>
             </h2>
 
-            <p
-              className="text-base md:text-lg leading-loose mb-3"
-              style={{ color: "#6b5060", maxWidth: 520 }}
-            >
-              {t("casos.p1")}
-            </p>
-            <p
-              className="text-base leading-loose mb-3"
-              style={{ color: "#6b5060", maxWidth: 520 }}
-            >
-              {t("casos.p2")}
-            </p>
-            <p
-              className="text-base leading-loose mb-3"
-              style={{ color: "#6b5060", maxWidth: 520 }}
-            >
-              {t("casos.p3")}
-            </p>
-            <p
-              className="text-base leading-loose mb-5"
-              style={{ color: "#6b5060", maxWidth: 520 }}
-            >
-              {t("casos.p4")}
-            </p>
+            {paragraphs.map((p, i) => (
+              <p
+                key={i}
+                className="text-sm leading-loose mb-3"
+                style={{ color: "#6b5060", maxWidth: 520 }}
+              >
+                {p}
+              </p>
+            ))}
 
             {/* Badge */}
             <div className="flex flex-wrap items-center gap-4">
@@ -198,6 +191,8 @@ export default function CasosDeFamiliaSection() {
             )}
           </div>
         </div>
+
+        <BookReviewAccordion bookId="casos-de-familia" />
       </div>
     </section>
   );

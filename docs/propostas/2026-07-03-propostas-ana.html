@@ -1,0 +1,512 @@
+<title>Propostas de Ajustes — Ana Souza de Magalhães</title>
+<style>
+  :root {
+    --bg: #faf6ed;
+    --bg-soft: #f5ede8;
+    --surface: #fdf8f5;
+    --surface-2: #ffffff;
+    --ink: #3d2b35;
+    --ink-muted: #6b5060;
+    --ink-faint: #9b7080;
+    --accent: #7a5468;
+    --accent-line: rgba(122, 84, 104, 0.28);
+    --border: rgba(107, 80, 96, 0.15);
+    --shadow: rgba(61, 43, 53, 0.14);
+    --before: #b4483f;
+    --after: #3f7a52;
+    --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --font-body: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #241820;
+    --bg-soft: #2c1e28;
+    --surface: #2f2028;
+    --surface-2: #35242e;
+    --ink: #f4e9ee;
+    --ink-muted: #d8c0cc;
+    --ink-faint: #a98a97;
+    --accent: #e0a8bb;
+    --accent-line: rgba(224, 168, 187, 0.3);
+    --border: rgba(224, 168, 187, 0.18);
+    --shadow: rgba(0, 0, 0, 0.4);
+    --before: #e08a80;
+    --after: #7cc999;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #241820;
+      --bg-soft: #2c1e28;
+      --surface: #2f2028;
+      --surface-2: #35242e;
+      --ink: #f4e9ee;
+      --ink-muted: #d8c0cc;
+      --ink-faint: #a98a97;
+      --accent: #e0a8bb;
+      --accent-line: rgba(224, 168, 187, 0.3);
+      --border: rgba(224, 168, 187, 0.18);
+      --shadow: rgba(0, 0, 0, 0.4);
+      --before: #e08a80;
+      --after: #7cc999;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 24px 100px;
+  }
+
+  .masthead {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .eyebrow {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  h1.title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin: 0 0 14px;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  .masthead p {
+    color: var(--ink-muted);
+    max-width: 480px;
+    margin: 0 auto;
+    font-size: 15px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 auto 40px;
+    max-width: 340px;
+  }
+  .divider .line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--accent-line), transparent); }
+  .divider .label {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  section.block {
+    margin-bottom: 84px;
+  }
+
+  .block-head {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .block-num {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .block-head h2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.5rem, 3.6vw, 2rem);
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+  .block-head p {
+    color: var(--ink-muted);
+    font-size: 14px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ---- Section 1: typography before/after ---- */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 640px) {
+    .compare { grid-template-columns: 1fr; }
+  }
+  .compare-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 22px;
+    position: relative;
+  }
+  .compare-tag {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid currentColor;
+  }
+  .compare-card.before .compare-tag { color: var(--before); }
+  .compare-card.after .compare-tag { color: var(--after); }
+
+  .sample-label { font-size: 15px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.18em; margin: 14px 0 6px; font-weight: 600; }
+  .sample-title { font-family: var(--font-display); font-style: italic; color: var(--ink); margin: 4px 0 10px; }
+  .before .sample-title { font-size: 21px; }
+  .after .sample-title { font-size: 24px; }
+  .sample-body { color: var(--ink-muted); margin: 0 0 10px; }
+  .before .sample-body { font-size: 17px; line-height: 1.5; }
+  .after .sample-body { font-size: 16px; line-height: 1.65; }
+  .sample-meta { color: var(--ink-faint); }
+  .before .sample-meta { font-size: 10px; }
+  .after .sample-meta { font-size: 12px; }
+  .before .sample-label { font-size: 15px; }
+  .after .sample-label { font-size: 12px; letter-spacing: 0.14em; }
+
+  .scale-strip {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .scale-strip span {
+    font-size: 11px;
+    color: var(--ink-faint);
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: var(--bg-soft);
+  }
+  .before .scale-strip span:nth-child(odd) { color: var(--before); }
+  .after .scale-strip span { color: var(--after); }
+
+  .note {
+    font-size: 13px;
+    color: var(--ink-muted);
+    text-align: center;
+    margin-top: 18px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---- Section 2: credibility mock ---- */
+  .homepage-mock {
+    background: var(--bg-soft);
+    border-radius: 14px;
+    padding: 56px 32px;
+    border: 1px solid var(--border);
+  }
+  .leaf {
+    display: inline-block;
+    width: 9px; height: 13px;
+    background: var(--accent);
+    opacity: 0.55;
+    clip-path: path("M4.5 12.5C4.5 12.5 1 9.3 1 6C1 3 2.7 1 4.5 1C6.3 1 8 3 8 6C8 9.3 4.5 12.5 4.5 12.5Z");
+  }
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 8px;
+  }
+  @media (max-width: 700px) {
+    .quote-grid { grid-template-columns: 1fr; }
+  }
+  .quote-card {
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: 22px 20px;
+    box-shadow: 0 10px 26px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stars { color: var(--ink-faint); font-size: 13px; letter-spacing: 2px; }
+  .stars .on { color: var(--accent); }
+  .quote-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 14px;
+    line-height: 1.7;
+    flex: 1;
+    margin: 0;
+  }
+  .quote-who {
+    font-size: 12px;
+    color: var(--ink);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .quote-avatar {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--ink-faint));
+    flex-shrink: 0;
+  }
+  .quote-who small { display: block; font-weight: 400; color: var(--ink-faint); }
+
+  /* ---- Section 3: newsletter ---- */
+  .nl-flow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .nl-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    text-align: center;
+    width: 140px;
+  }
+  .nl-step b { display: block; color: var(--ink); font-size: 13px; margin-bottom: 3px; }
+  .nl-arrow { color: var(--ink-faint); font-size: 16px; }
+
+  .nl-mock {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    max-width: 380px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+  .nl-mock p { font-size: 13px; color: var(--ink-muted); margin: 0 0 14px; }
+  .nl-form { display: flex; gap: 8px; }
+  .nl-form input {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 13px;
+    font-family: var(--font-body);
+  }
+  .nl-form button {
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: var(--surface);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  table.costs {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  table.costs th, table.costs td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  table.costs th {
+    color: var(--ink-faint);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  table.costs td.price { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+  table.costs tr.recommended td { background: var(--bg-soft); }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; }
+  .table-wrap table { margin: 0; }
+  .table-wrap th:first-child, .table-wrap td:first-child { padding-left: 18px; }
+
+  .pill {
+    display: inline-block;
+    font-size: 10.5px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--surface);
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  footer.foot {
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 12px;
+    margin-top: 60px;
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <span class="eyebrow">✦ Rascunho para conversa ✦</span>
+    <h1 class="title">Três propostas, em prática</h1>
+    <p>Exemplos concretos do que muda em cada ponto — para você decidir com clareza o que faz sentido.</p>
+  </div>
+
+  <!-- SECTION 1: TYPOGRAPHY -->
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">01</span>
+      <h2>Ajuste de tipografia</h2>
+      <p>Hoje os tamanhos de texto no código variam de forma solta (15px, 17px, 21px, 22px...). A proposta é usar sempre os mesmos tamanhos — como escolher entre P/M/G em vez de qualquer número.</p>
+    </div>
+
+    <div class="compare">
+      <div class="compare-card before">
+        <span class="compare-tag">Hoje</span>
+        <div class="sample-label">Céu de Brincar</div>
+        <div class="sample-title">Um convite às nuvens</div>
+        <p class="sample-body">Céu de Brincar é um convite a redescobrir a infância através das nuvens — dragões, bailarinas, castelos e sonhos.</p>
+        <div class="sample-meta">Literatura Infantil · 2025</div>
+        <div class="scale-strip">
+          <span>15px</span><span>17px</span><span>10px</span><span>21px</span><span>13px</span><span>22px</span>
+        </div>
+      </div>
+      <div class="compare-card after">
+        <span class="compare-tag">Proposta</span>
+        <div class="sample-label">Céu de Brincar</div>
+        <div class="sample-title">Um convite às nuvens</div>
+        <p class="sample-body">Céu de Brincar é um convite a redescobrir a infância através das nuvens — dragões, bailarinas, castelos e sonhos.</p>
+        <div class="sample-meta">Literatura Infantil · 2025</div>
+        <div class="scale-strip">
+          <span>12px</span><span>14px</span><span>16px</span><span>18px</span><span>24px</span><span>32px</span>
+        </div>
+      </div>
+    </div>
+    <p class="note">Repare: o texto em si quase não muda visualmente — a diferença é que, no código, cada elemento passa a usar um tamanho de uma lista fixa (12 / 14 / 16 / 18 / 24 / 32px), em vez de valores soltos. É um ajuste técnico "por trás das cortinas", não uma mudança visual grande no site.</p>
+  </section>
+
+  <!-- SECTION 2: CREDIBILITY -->
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">02</span>
+      <h2>Seção de credibilidade</h2>
+      <p>Um bloco novo na página inicial, reunindo os depoimentos de leitores que hoje ficam escondidos dentro de cada livro — para reforçar confiança logo na primeira visita.</p>
+    </div>
+
+    <div class="homepage-mock">
+      <div class="divider">
+        <span class="line"></span>
+        <span class="label"><span class="leaf"></span> O que dizem os leitores <span class="leaf"></span></span>
+        <span class="line"></span>
+      </div>
+      <div class="quote-grid">
+        <div class="quote-card">
+          <div class="stars"><span class="on">★★★★★</span></div>
+          <p class="quote-text">"Eu super indico o livro Céu de Brincar. É um livro que nos leva a antigos hábitos que foram se perdendo com o tempo."</p>
+          <div class="quote-who"><span class="quote-avatar"></span> Anônimo <small>Leitora, Céu de Brincar</small></div>
+        </div>
+        <div class="quote-card">
+          <div class="stars"><span class="on">★★★★★</span></div>
+          <p class="quote-text">"As crianças precisam desse livro para se conectar com as maravilhas que a imaginação proporciona, longe da tela do celular."</p>
+          <div class="quote-who"><span class="quote-avatar"></span> Leitora <small>Céu de Brincar</small></div>
+        </div>
+        <div class="quote-card">
+          <div class="stars"><span class="on">★★★★★</span></div>
+          <p class="quote-text">"Um espaço para novos depoimentos aparecerem aqui, conforme forem chegando pelo site."</p>
+          <div class="quote-who"><span class="quote-avatar"></span> <em style="color:var(--ink-faint); font-style:italic;">— vaga para o próximo</em></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Os dois primeiros são depoimentos reais que já existem no site (hoje escondidos dentro do acordeão de "Céu de Brincar"). O terceiro é só um espaço reservado para os próximos.</p>
+  </section>
+
+  <!-- SECTION 3: NEWSLETTER -->
+  <section class="block">
+    <div class="block-head">
+      <span class="block-num">03</span>
+      <h2>Newsletter — como funcionaria</h2>
+      <p>Fora do escopo do contrato atual, por isso os custos e o funcionamento abaixo, para você decidir com calma.</p>
+    </div>
+
+    <div class="nl-flow">
+      <div class="nl-step"><b>1. Leitora</b>deixa o e-mail no site</div>
+      <span class="nl-arrow">→</span>
+      <div class="nl-step"><b>2. Fica guardado</b>numa lista privada sua</div>
+      <span class="nl-arrow">→</span>
+      <div class="nl-step"><b>3. Você escreve</b>uma novidade, quando quiser</div>
+      <span class="nl-arrow">→</span>
+      <div class="nl-step"><b>4. Enviado</b>para todos de uma vez</div>
+    </div>
+
+    <div class="nl-mock">
+      <p>Como apareceria no site:</p>
+      <div class="nl-form">
+        <input type="email" placeholder="seu@email.com" disabled />
+        <button type="button" disabled>Quero receber</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="costs">
+        <thead>
+          <tr><th>Caminho</th><th>Como funciona</th><th>Custo mensal</th></tr>
+        </thead>
+        <tbody>
+          <tr class="recommended">
+            <td><strong>Solução própria</strong><span class="pill">Recomendado</span></td>
+            <td>Aproveita o Resend e o banco de dados que o site já usa. Você escreve o e-mail direto no painel administrativo.</td>
+            <td class="price">Grátis até ~100 e-mails/dia</td>
+          </tr>
+          <tr>
+            <td>Buttondown</td>
+            <td>Ferramenta pronta, simples, focada em escritores/criadores.</td>
+            <td class="price">A partir de US$ 9</td>
+          </tr>
+          <tr>
+            <td>ConvertKit</td>
+            <td>Ferramenta popular entre autores, mais recursos de automação.</td>
+            <td class="price">Grátis até 1.000 contatos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Para o tamanho de lista que você provavelmente vai ter no início, a solução própria some sem custo nenhum — e o painel de administração já existe. Se a lista crescer muito, dá pra migrar depois.</p>
+  </section>
+
+  <footer class="foot">Feito para acompanhar a conversa sobre os próximos passos do site.</footer>
+</div>

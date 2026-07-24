@@ -33,6 +33,8 @@ export default function BookReviewAccordion({
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", stars: 0, comment: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const supabase = createClient();
 
   function formatDate(iso: string) {
@@ -66,24 +68,37 @@ export default function BookReviewAccordion({
   }, [bookId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleSubmit = async () => {
-    if (!form.stars || !form.comment.trim()) return;
-    const name = form.name.trim() || null;
-    const { data, error } = await supabase
-      .from("reviews")
-      .insert({ book_id: bookId, name, stars: form.stars, comment: form.comment.trim() })
-      .select()
-      .single();
+    if (submitting || !form.stars || !form.comment.trim()) return;
+    setSubmitting(true);
+    setSubmitError(false);
+    try {
+      const name = form.name.trim() || null;
+      const comment = form.comment.trim();
+      const { data, error } = await supabase
+        .from("reviews")
+        .insert({ book_id: bookId, name, stars: form.stars, comment })
+        .select()
+        .single();
 
-    if (!error && data) {
-      const newReview = dbToReview(data as DbReview);
-      setReviews((prev) => {
-        const withoutSeeds = prev.filter(r => !seedReviews.find(s => s.id === r.id));
-        return [newReview, ...withoutSeeds];
-      });
+      if (!error && data) {
+        const newReview = dbToReview(data as DbReview);
+        setReviews((prev) => {
+          const withoutSeeds = prev.filter(r => !seedReviews.find(s => s.id === r.id));
+          return [newReview, ...withoutSeeds];
+        });
+        setForm({ name: "", stars: 0, comment: "" });
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        console.error("Supabase insert error:", JSON.stringify(error));
+        setSubmitError(true);
+      }
+    } catch (err) {
+      console.error("Supabase threw:", err);
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
     }
-    setForm({ name: "", stars: 0, comment: "" });
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
   };
 
   const avg =
@@ -153,7 +168,7 @@ export default function BookReviewAccordion({
               {L.empty}
             </p>
           ) : (
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 28 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 12, marginBottom: 28 }}>
               {reviews.map((r) => (
                 <div key={r.id} style={{ background: "#fdf8f5", border: "1px solid rgba(107,80,96,0.12)", borderRadius: 8, padding: "14px 18px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
@@ -185,6 +200,7 @@ export default function BookReviewAccordion({
                 placeholder={L.name}
                 value={form.name}
                 onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                autoComplete="off"
                 style={{ background: "#fdf8f5", border: "1px solid rgba(107,80,96,0.18)", borderRadius: 6, padding: "9px 13px", fontFamily: "var(--font-inter)", fontSize: 13, color: "#3d2b35", outline: "none", width: "100%" }}
               />
               <div style={{ display: "flex", gap: 4 }}>
@@ -200,12 +216,18 @@ export default function BookReviewAccordion({
                 value={form.comment}
                 onChange={(e) => setForm((f) => ({ ...f, comment: e.target.value }))}
                 rows={3}
+                autoComplete="off"
                 style={{ background: "#fdf8f5", border: "1px solid rgba(107,80,96,0.18)", borderRadius: 6, padding: "9px 13px", fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 13, color: "#3d2b35", outline: "none", resize: "none", width: "100%" }}
               />
+              {submitError && (
+                <p style={{ textAlign: "center", fontFamily: "var(--font-inter)", fontSize: 12, color: "#c0392b", marginBottom: 4 }}>
+                  {locale === "de" ? "Fehler beim Senden. Bitte erneut versuchen." : "Erro ao enviar. Tente novamente."}
+                </p>
+              )}
               <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <button type="button" onClick={handleSubmit} disabled={!canSubmit}
-                  style={{ background: canSubmit ? "#7a5468" : "rgba(107,80,96,0.1)", color: canSubmit ? "#faf6f1" : "#9b7080", border: "none", borderRadius: 40, padding: "9px 24px", fontFamily: "var(--font-inter)", fontSize: 12, letterSpacing: "0.08em", cursor: canSubmit ? "pointer" : "not-allowed", transition: "all 0.2s" }}>
-                  {L.submit}
+                <button type="button" onClick={handleSubmit} disabled={!canSubmit || submitting}
+                  style={{ background: canSubmit && !submitting ? "#7a5468" : "rgba(107,80,96,0.1)", color: canSubmit && !submitting ? "#faf6f1" : "#9b7080", border: "none", borderRadius: 40, padding: "9px 24px", fontFamily: "var(--font-inter)", fontSize: 12, letterSpacing: "0.08em", cursor: canSubmit && !submitting ? "pointer" : "not-allowed", transition: "all 0.2s" }}>
+                  {submitting ? "…" : L.submit}
                 </button>
               </div>
             </div>

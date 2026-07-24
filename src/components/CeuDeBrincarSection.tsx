@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
+import { useBookDescription } from "@/lib/useBookDescription";
 import BookReviewAccordion from "@/components/BookReviewAccordion";
+import BuyOptions from "@/components/BuyOptions";
+import { getBook } from "@/lib/books";
 
 const CEU_SEED_REVIEWS = [
   {
@@ -24,7 +27,12 @@ function LeafSmall() {
 }
 
 export default function CeuDeBrincarSection() {
-  const { t } = useT();
+  const { t, locale } = useT();
+  const paragraphs = useBookDescription("ceu-de-brincar", locale, [
+    t("ceu.p1"),
+    t("ceu.p2"),
+    t("ceu.p3"),
+  ]);
 
   return (
     <section
@@ -85,44 +93,20 @@ export default function CeuDeBrincarSection() {
               </em>
             </h2>
 
-            <p
-              className="text-base md:text-lg leading-loose mb-4"
-              style={{ color: "#6b5060", maxWidth: 520 }}
-            >
-              {t("ceu.p1")}
-            </p>
-
-            <p
-              className="text-base leading-loose mb-4"
-              style={{ color: "#6b5060", maxWidth: 520 }}
-            >
-              {t("ceu.p2")}
-            </p>
-
-            <p
-              className="text-base leading-loose mb-5"
-              style={{ color: "#6b5060", maxWidth: 520 }}
-            >
-              {t("ceu.p3")}
-            </p>
-
-            {/* Buy buttons */}
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="https://literaryhighways.com/de/bucher/suche?where=books-search&what=C%C3%A9u+de+brincar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
-                style={{
-                  background: "#7a5468",
-                  color: "#fff",
-                  fontWeight: 500,
-                  border: "1px solid #7a5468",
-                }}
+            {paragraphs.map((p, i) => (
+              <p
+                key={i}
+                className="text-sm leading-loose mb-4"
+                style={{ color: "#6b5060", maxWidth: 520 }}
               >
-                Comprar agora →
-              </a>
-            </div>
+                {p}
+              </p>
+            ))}
+
+            {/* Buy options */}
+            {getBook("ceu-de-brincar")?.buyOptions && (
+              <BuyOptions regions={getBook("ceu-de-brincar")!.buyOptions!} locale={locale} />
+            )}
           </div>
 
           {/* Book cover (right on desktop) */}

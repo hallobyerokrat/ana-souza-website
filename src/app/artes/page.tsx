@@ -43,8 +43,10 @@ function SectionHeader({ label, title }: { label: string; title: string }) {
 const SEED_TEXTOS = [
   {
     id: "carta-jovem-escritor",
-    title: "Carta a um Jovem Escritor",
-    body: `Meu caro escritor,
+    title_pt: "Carta a um Jovem Escritor",
+    title_de: "Carta a um Jovem Escritor", // tradução alemã ainda não disponível
+    body_de: "", // preenchido abaixo com o mesmo texto em PT até haver tradução oficial
+    body_pt: `Meu caro escritor,
 
 hoje recebi seu livro. Quero agradecer pelo imenso carinho a mim dedicado. Fiquei muito feliz com esse gesto.
 
@@ -91,10 +93,11 @@ _______________________
 Texto produzido como exercício do curso de escrita criativa da Escola Metamorfose`,
   },
 ];
+SEED_TEXTOS[0].body_de = SEED_TEXTOS[0].body_pt;
 
 function TextosSection() {
   const { locale } = useT();
-  const [textos, setTextos] = useState<{ id: string; title: string; body: string }[]>([]);
+  const [textos, setTextos] = useState<{ id: string; title_pt: string; title_de: string; body_pt: string; body_de: string }[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const supabase = createClient();
 
@@ -107,10 +110,13 @@ function TextosSection() {
     return () => { document.body.style.overflow = ""; };
   }, [activeId]);
 
-  const label = locale === "de" ? "Worte" : "Palavras";
-  const title = locale === "de" ? "Gedichte & Texte" : "Poemas & Textos";
   const readMore = locale === "de" ? "Lesen →" : "Ler mais →";
-  const items = textos.length > 0 ? textos : SEED_TEXTOS;
+  const rawItems = textos.length > 0 ? textos : SEED_TEXTOS;
+  const items = rawItems.map(i => ({
+    id: i.id,
+    title: locale === "de" ? i.title_de : i.title_pt,
+    body: locale === "de" ? i.body_de : i.body_pt,
+  }));
   const activeItem = items.find(i => i.id === activeId) ?? null;
 
   function teaser(body: string) {
@@ -122,7 +128,6 @@ function TextosSection() {
   return (
     <section style={{ padding: "80px 24px", background: "rgba(245,237,232,0.4)" }}>
       <div style={{ maxWidth: 960, margin: "0 auto" }}>
-        <SectionHeader label={label} title={title} />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 20 }}>
           {items.map(item => (
             <button
@@ -151,7 +156,7 @@ function TextosSection() {
               }}
             >
               <div style={{ width: 28, height: 2, background: "rgba(122,84,104,0.3)", borderRadius: 2, marginBottom: 16 }} />
-              <h3 style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 17, color: "#3d2b35", margin: "0 0 12px", lineHeight: 1.35 }}>
+              <h3 style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 21, color: "#3d2b35", margin: "0 0 12px", lineHeight: 1.35 }}>
                 {item.title}
               </h3>
               <p style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic", fontSize: 13, color: "#9b7080", lineHeight: 1.75, margin: "0 0 20px", flex: 1 }}>
@@ -229,7 +234,6 @@ function FotosSection() {
 
 const LOCAL_VIDEOS = [
   { src: "/videos/ana-video-2.mp4" },
-  { src: "/videos/ana-video-1.mp4" },
 ];
 
 function VideosSection() {
@@ -292,8 +296,8 @@ export default function ArtesPage() {
   const backLabel = locale === "de" ? "← Zurück" : "← Voltar";
   const pageTitle = locale === "de" ? "Kunst & Texte" : "Arte e Textos";
   const pageSubtitle = locale === "de"
-    ? "Texte, Fotos und Videos von Ana Souza de Magalhães"
-    : "Textos, fotos e vídeos de Ana Souza de Magalhães";
+    ? "Texte, Bilder & Videobeiträge"
+    : "Textos, imagens e audiovisuais";
 
   return (
     <>

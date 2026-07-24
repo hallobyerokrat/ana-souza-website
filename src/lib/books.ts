@@ -11,9 +11,19 @@ export type Book = {
   title: string;
   titleEm: string;
   titlePre: string;
+  ctaLabel: { pt: string; de: string };
+  ctaDisabled?: boolean;
   shortDesc: { pt: string; de: string };
   fullDesc: { pt: string[]; de: string[] };
   details: { pt: string; de: string };
+  buyOptions?: BuyRegion[];
+};
+
+export type BuyRegion = {
+  key: string;
+  label: { pt: string; de: string };
+  icon: "globe" | "pin" | "book";
+  links: { label: string; url: string; note?: string }[];
 };
 
 export const books: Book[] = [
@@ -27,6 +37,8 @@ export const books: Book[] = [
     title: "Casos de Família",
     titlePre: "Casos de",
     titleEm: "Família",
+    ctaLabel: { pt: "Esgotado", de: "Vergriffen" },
+    ctaDisabled: true,
     shortDesc: {
       pt: "64 autores, 64 histórias sobre os laços que nos definem — e que nunca esquecemos.",
       de: "64 Autoren, 64 Geschichten über die Bande, die uns prägen — und die wir nie vergessen.",
@@ -63,6 +75,7 @@ export const books: Book[] = [
     title: "Céu de Brincar",
     titlePre: "Céu de",
     titleEm: "Brincar",
+    ctaLabel: { pt: "Compre", de: "Kaufen" },
     shortDesc: {
       pt: "Um convite a redescobrir a infância através das nuvens — dragões, bailarinas, castelos e sonhos.",
       de: "Eine Einladung, die Kindheit durch die Wolken neu zu entdecken — Drachen, Ballerinen, Schlösser.",
@@ -83,6 +96,26 @@ export const books: Book[] = [
       pt: "Literatura Infantil · Publicado em 2025 · Disponível na Amazon",
       de: "Kinderliteratur · Erschienen 2025 · Erhältlich auf Amazon",
     },
+    buyOptions: [
+      {
+        key: "brasil",
+        label: { pt: "Comprar no Brasil", de: "In Brasilien kaufen" },
+        icon: "pin",
+        links: [
+          { label: "WhatsApp", url: "https://wa.me/5511914044118", note: "Livraria Tutear" },
+          { label: "Livraria Tutear", url: "https://instagram.com/tutearlivraria", note: "Livros selecionados" },
+        ],
+      },
+      {
+        key: "europa",
+        label: { pt: "Comprar na Europa", de: "In Europa kaufen" },
+        icon: "globe",
+        links: [
+          { label: "WhatsApp", url: "https://wa.me/491709250795", note: "Fale comigo para comprar" },
+          { label: "Clube de Autores", url: "#", note: "Em breve" }, // preencher com link real
+        ],
+      },
+    ],
   },
   {
     slug: "entre-flores",
@@ -94,20 +127,24 @@ export const books: Book[] = [
     title: "Entre Flores e Algodão",
     titlePre: "Entre Flores e",
     titleEm: "Algodão",
+    ctaLabel: { pt: "Breve na Amazon", de: "Bald auf Amazon" },
+    ctaDisabled: true,
     shortDesc: {
       pt: "A história de Clara — uma infância no interior, atravessada por silêncios e rupturas que não voltam.",
       de: "Claras Geschichte — eine Kindheit auf dem Land, durchzogen von Stille und Brüchen, die nicht zurückkehren.",
     },
     fullDesc: {
       pt: [
-        "Em Entre Flores e Algodão, acompanhamos Clara pelas memórias de sua infância em um ambiente interiorano, onde afetos, silêncios e pequenos gestos moldam sua forma de ver o mundo.",
-        "Com o tempo, essa infância é atravessada por rupturas e perdas que não se explicam — apenas não voltam.",
-        "Em uma linguagem sensorial e delicada, o livro constrói um percurso íntimo sobre crescer, lembrar e seguir adiante.",
+        "Clara cresceu entre o cheiro de alecrim, o calor do forno e as histórias contadas à sombra de um pé de manga. Há uma casa em movimento, um povoado e uma menina que observa os gestos e os silêncios.",
+        "Em sua infância, tudo parecia simples: os dias passavam entre brincadeiras, vozes na cozinha e pequenos segredos guardados na memória.",
+        "Aos poucos, o mundo começa a mudar. O tempo avança, as mudanças familiares se tornam mais densas e a infância, antes leve, ganha novos significados. Entre descobertas, despedidas e lembranças, Clara aprende. Crescer é lidar com aquilo que não volta.",
+        "Sensível e delicado, Entre Flores e Algodão é uma narrativa sobre memória, afeto e transformação — um convite para revisitar a infância e reconhecer, nos pequenos detalhes, aquilo que permanece para sempre.",
       ],
       de: [
-        "In Entre Flores e Algodão begleiten wir Clara durch die Erinnerungen ihrer Kindheit auf dem Land, wo Zuneigung, Stille und kleine Gesten ihren Blick auf die Welt formen.",
-        "Mit der Zeit wird diese Kindheit von Brüchen und Verlusten durchzogen, die sich nicht erklären lassen — sie kehren einfach nicht zurück.",
-        "In einer sinnlichen, zarten Sprache zeichnet das Buch einen intimen Weg durch das Heranwachsen, das Erinnern und das Weitergehen nach.",
+        "Clara wuchs auf zwischen dem Duft von Rosmarin, der Wärme des Ofens und den Geschichten, die im Schatten eines Mangobaums erzählt wurden. Da ist ein Haus in Bewegung, ein Dorf und ein Mädchen, das die Gesten und das Schweigen beobachtet.",
+        "In ihrer Kindheit schien alles einfach: Die Tage vergingen zwischen Spielen, Stimmen in der Küche und kleinen Geheimnissen, die im Gedächtnis bewahrt wurden.",
+        "Nach und nach beginnt sich die Welt zu verändern. Die Zeit schreitet voran, die familiären Veränderungen werden dichter, und die Kindheit, einst leicht, gewinnt neue Bedeutungen. Zwischen Entdeckungen, Abschieden und Erinnerungen lernt Clara: Erwachsenwerden heißt, mit dem umzugehen, was nicht zurückkehrt.",
+        "Sensibel und zart erzählt Entre Flores e Algodão von Erinnerung, Zuneigung und Wandel — eine Einladung, die Kindheit neu zu besuchen und in den kleinen Details das zu erkennen, was für immer bleibt.",
       ],
     },
     details: {
