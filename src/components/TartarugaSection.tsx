@@ -51,7 +51,7 @@ export default function TartarugaSection() {
         <div className="grid md:grid-cols-[auto_1fr] gap-14 md:gap-20 items-center">
           {/* Book cover */}
           <div className="flex justify-center md:justify-start">
-            <div className="relative" style={{ width: "min(280px, 70vw)", height: "min(280px, 70vw)" }}>
+            <div className="relative" style={{ width: "min(400px, 80vw)", height: "min(400px, 80vw)" }}>
               <div
                 aria-hidden
                 className="absolute"
