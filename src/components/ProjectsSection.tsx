@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useT } from "@/lib/i18n";
 
 function LeafSmall() {
@@ -16,14 +15,10 @@ function ProjectCard({
   title,
   status,
   desc,
-  note,
-  cover,
 }: {
   title: string;
   status: string;
   desc: string;
-  note?: string;
-  cover?: string;
 }) {
   return (
     <div
@@ -34,25 +29,6 @@ function ProjectCard({
         padding: "28px 26px",
       }}
     >
-      {cover && (
-        <div
-          style={{
-            width: 96,
-            marginBottom: 18,
-            borderRadius: 6,
-            overflow: "hidden",
-            boxShadow: "0 4px 14px rgba(61,43,53,0.18)",
-          }}
-        >
-          <Image
-            src={cover}
-            alt={title}
-            width={300}
-            height={300}
-            style={{ width: "100%", height: "auto", display: "block" }}
-          />
-        </div>
-      )}
       <h3
         style={{
           fontFamily: "var(--font-playfair)",
@@ -92,20 +68,6 @@ function ProjectCard({
       >
         {desc}
       </p>
-      {note && (
-        <p
-          style={{
-            fontFamily: "var(--font-inter)",
-            fontSize: 11.5,
-            letterSpacing: "0.03em",
-            color: "#7a5468",
-            marginTop: 14,
-            marginBottom: 0,
-          }}
-        >
-          {note}
-        </p>
-      )}
     </div>
   );
 }
@@ -161,19 +123,14 @@ export default function ProjectsSection() {
           </em>
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <ProjectCard
-            title={t("projects.tata.title")}
-            status={t("projects.tata.status")}
-            desc={t("projects.tata.desc")}
-            note={t("projects.tata.note")}
-            cover="/images/tanta-docura-tartaruga-cover.jpg"
-          />
-          <ProjectCard
-            title={t("projects.musica.title")}
-            status={t("projects.musica.status")}
-            desc={t("projects.musica.desc")}
-          />
+        <div className="flex justify-center">
+          <div style={{ maxWidth: 420, width: "100%" }}>
+            <ProjectCard
+              title={t("projects.musica.title")}
+              status={t("projects.musica.status")}
+              desc={t("projects.musica.desc")}
+            />
+          </div>
         </div>
       </div>
     </section>

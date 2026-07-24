@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import CasosDeFamiliaSection from "@/components/CasosDeFamiliaSection";
 import EntreFloresSection from "@/components/EntreFloresSection";
 import CeuDeBrincarSection from "@/components/CeuDeBrincarSection";
+import TartarugaSection from "@/components/TartarugaSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ShopSection from "@/components/ShopSection";
 import BotanicalDivider from "@/components/BotanicalDivider";
@@ -21,6 +22,8 @@ export default function Home() {
         <EntreFloresSection />
         <BotanicalDivider />
         <CeuDeBrincarSection />
+        <BotanicalDivider />
+        <TartarugaSection />
         <BotanicalDivider />
         <CasosDeFamiliaSection />
         <BotanicalDivider />

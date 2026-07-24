@@ -112,7 +112,7 @@ export const books: Book[] = [
         icon: "globe",
         links: [
           { label: "WhatsApp", url: "https://wa.me/491709250795", note: "Fale comigo para comprar" },
-          { label: "Clube de Autores", url: "#", note: "Em breve" }, // preencher com link real
+          { label: "epubli", url: "#", note: "Em breve" }, // preencher com link real assim que Ana enviar
         ],
       },
     ],

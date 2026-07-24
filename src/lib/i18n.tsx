@@ -73,6 +73,18 @@ const pt: Dict = {
   "flores.launchText": "Lançamento em breve — acompanhe pelo Instagram",
   "flores.instagram": "Seguir no Instagram →",
 
+  "tartaruga.label": "Literatura Infantil",
+  "tartaruga.title.pre": "Tanta Doçura,",
+  "tartaruga.title.em": "Tartaruga!",
+  "tartaruga.credit": "Ilustrado por Luiza Perufo",
+  "tartaruga.p1":
+    "Uma tartaruga um tanto diferente… Vivia cercada de doces. Até que uma pequena descoberta lhe mostrou um novo caminho.",
+  "tartaruga.p2":
+    "Entre novas amizades, um mar de possibilidades e descobertas inesperadas, ela percebe que a vida pode ser muito mais doce do que imaginava.",
+  "tartaruga.p3":
+    "Uma história sensível sobre curiosidade, descobertas e as muitas formas de ressignificar a doçura.",
+  "tartaruga.status": "Em breve na epubli",
+
   "ceu.label": "Literatura Infantil",
   "ceu.title.pre": "Céu de",
   "ceu.title.em": "Brincar",
@@ -118,11 +130,6 @@ const pt: Dict = {
   "projects.label": "Projetos em Andamento",
   "projects.title.pre": "Em",
   "projects.title.em": "Desenvolvimento",
-  "projects.tata.title": "Tanta Doçura, Tartaruga!",
-  "projects.tata.status": "Em edição e ilustração",
-  "projects.tata.desc":
-    "Uma tartaruga um tanto diferente… Vivia cercada de doces. Até que uma pequena descoberta lhe mostrou um novo caminho. Entre novas amizades, um mar de possibilidades e descobertas inesperadas, ela percebe que a vida pode ser muito mais doce do que imaginava. Uma história sensível sobre curiosidade, descobertas e as muitas formas de ressignificar a doçura.",
-  "projects.tata.note": "Em breve na epubli",
   "projects.musica.title": "Projeto Musical",
   "projects.musica.status": "Em produção",
   "projects.musica.desc":
@@ -219,6 +226,18 @@ const de: Dict = {
   "flores.launchText": "Erscheint bald — folge dem Launch auf Instagram",
   "flores.instagram": "Auf Instagram folgen →",
 
+  "tartaruga.label": "Kinderliteratur",
+  "tartaruga.title.pre": "Tanta Doçura,",
+  "tartaruga.title.em": "Tartaruga!",
+  "tartaruga.credit": "Illustriert von Luiza Perufo",
+  "tartaruga.p1":
+    "Eine Schildkröte, ein wenig anders als die anderen … Sie lebte umgeben von Süßigkeiten. Bis eine kleine Entdeckung ihr einen neuen Weg zeigte.",
+  "tartaruga.p2":
+    "Zwischen neuen Freundschaften, ungeahnten Möglichkeiten und unerwarteten Entdeckungen begreift sie: Das Leben kann viel süßer sein, als sie dachte.",
+  "tartaruga.p3":
+    "Eine einfühlsame Geschichte über Neugier, Entdeckungen und die vielen Arten, Süße neu zu deuten.",
+  "tartaruga.status": "Bald erhältlich auf epubli",
+
   "ceu.label": "Kinderliteratur",
   "ceu.title.pre": "Céu de",
   "ceu.title.em": "Brincar",
@@ -264,11 +283,6 @@ const de: Dict = {
   "projects.label": "Laufende Projekte",
   "projects.title.pre": "In",
   "projects.title.em": "Entwicklung",
-  "projects.tata.title": "Tanta Doçura, Tartaruga!",
-  "projects.tata.status": "In Lektorat & Illustration",
-  "projects.tata.desc":
-    "Eine Schildkröte, ein wenig anders als die anderen … Sie lebte umgeben von Süßigkeiten. Bis eine kleine Entdeckung ihr einen neuen Weg zeigte. Zwischen neuen Freundschaften, ungeahnten Möglichkeiten und unerwarteten Entdeckungen begreift sie: Das Leben kann viel süßer sein, als sie dachte. Eine einfühlsame Geschichte über Neugier, Entdeckungen und die vielen Arten, Süße neu zu deuten.",
-  "projects.tata.note": "Bald erhältlich auf epubli",
   "projects.musica.title": "Musikprojekt",
   "projects.musica.status": "In Produktion",
   "projects.musica.desc":
