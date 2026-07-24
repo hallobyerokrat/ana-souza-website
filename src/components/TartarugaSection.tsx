@@ -89,7 +89,7 @@ export default function TartarugaSection() {
               className="mb-2 leading-tight"
               style={{
                 fontFamily: "var(--font-playfair)",
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                fontSize: "clamp(1.8rem, 4.2vw, 3rem)",
                 fontWeight: 600,
                 color: "#3d2b35",
                 letterSpacing: "0.005em",
