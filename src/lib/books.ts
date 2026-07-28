@@ -23,7 +23,7 @@ export type BuyRegion = {
   key: string;
   label: { pt: string; de: string };
   icon: "globe" | "pin" | "book";
-  links: { label: string; url: string; note?: string }[];
+  links: { label: string; url: string; note?: string; available?: boolean }[];
 };
 
 export const books: Book[] = [
@@ -111,6 +111,7 @@ export const books: Book[] = [
         label: { pt: "Comprar na Europa", de: "In Europa kaufen" },
         icon: "globe",
         links: [
+          { label: "Amazon", url: "https://amzn.eu/d/04pq1tYo", note: "Disponível agora", available: true },
           { label: "WhatsApp", url: "https://wa.me/491709250795", note: "Fale comigo para comprar" },
           { label: "epubli", url: "#", note: "Em breve" }, // preencher com link real assim que Ana enviar
         ],

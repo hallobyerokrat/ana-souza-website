@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
 
-export type BuyLink = { label: string; url: string; note?: string };
+export type BuyLink = { label: string; url: string; note?: string; available?: boolean };
 export type BuyRegion = { key: string; label: { pt: string; de: string }; icon: "globe" | "pin" | "book"; links: BuyLink[] };
 
 function RegionIcon({ icon }: { icon: BuyRegion["icon"] }) {
@@ -85,18 +85,32 @@ export default function BuyOptions({ regions, locale }: { regions: BuyRegion[]; 
                   style={{
                     padding: "10px 12px",
                     borderRadius: 8,
-                    background: "#fff",
-                    border: "1px solid rgba(107,80,96,0.15)",
+                    background: link.available ? "#fdf8f5" : "#fff",
+                    border: link.available ? "1px solid rgba(122,84,104,0.35)" : "1px solid rgba(107,80,96,0.15)",
                     cursor: isPlaceholder ? "default" : "pointer",
                     opacity: isPlaceholder ? 0.6 : 1,
                     textDecoration: "none",
                   }}
                 >
-                  <span>
-                    <span style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#3d2b35" }}>{link.label}</span>
-                    {link.note && (
-                      <span style={{ display: "block", fontSize: 11, color: "#9b7080" }}>{link.note}</span>
+                  <span className="flex items-center gap-2">
+                    {link.available && (
+                      <span
+                        aria-hidden
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: "50%",
+                          background: "#5a8a6b",
+                          flexShrink: 0,
+                        }}
+                      />
                     )}
+                    <span>
+                      <span style={{ display: "block", fontSize: 13, fontWeight: 600, color: "#3d2b35" }}>{link.label}</span>
+                      {link.note && (
+                        <span style={{ display: "block", fontSize: 11, color: link.available ? "#5a8a6b" : "#9b7080" }}>{link.note}</span>
+                      )}
+                    </span>
                   </span>
                   {!isPlaceholder && <span style={{ color: "#7a5468", fontSize: 13 }}>↗</span>}
                 </a>
