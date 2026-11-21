@@ -1,6 +1,8 @@
 export type Book = {
   slug: string;
   cover: string | null;
+  coverFit?: "contain" | "cover";
+  promoImage?: string;
   available: boolean;
   lemonsqueezyUrl: string | null;
   amazonBr?: string;
@@ -27,6 +29,37 @@ export type BuyRegion = {
 };
 
 export const books: Book[] = [
+  {
+    slug: "planeta-fantastico",
+    cover: "/images/planeta-fantastico-cover.jpg",
+    available: true,
+    lemonsqueezyUrl: null,
+    price: { pt: "A consultar", de: "Auf Anfrage" },
+    genre: { pt: "Coletânea · Fantasia & Ficção Científica", de: "Anthologie · Fantasy & Science-Fiction" },
+    title: "Planeta Fantástico",
+    titlePre: "Planeta",
+    titleEm: "Fantástico",
+    ctaLabel: { pt: "Saiba mais", de: "Mehr erfahren" },
+    ctaDisabled: true,
+    shortDesc: {
+      pt: "Coletânea de fantasia, ficção científica, realismo mágico e horror — reunindo vários autores em uma série inspirada nas revistas pulp americanas.",
+      de: "Anthologie mit Fantasy, Science-Fiction, magischem Realismus und Horror — mehrere Autoren in einer Reihe inspiriert von amerikanischen Pulp-Magazinen.",
+    },
+    fullDesc: {
+      pt: [
+        "A série Planeta Fantástico segue a tradição de narrativas populares que foram disseminadas em revistas pulp dos Estados Unidos na primeira metade do século XX.",
+        "Editada pela Metamorfose, esta coletânea reúne vários autores cujas narrativas de fantasia, ficção científica (incluindo textos futuristas), realismo mágico e/ou horror entram em ação.",
+      ],
+      de: [
+        "Die Reihe Planeta Fantástico folgt der Tradition populärer Erzählungen, die in der ersten Hälfte des 20. Jahrhunderts in amerikanischen Pulp-Magazinen verbreitet wurden.",
+        "Herausgegeben von Metamorfose, versammelt diese Anthologie mehrere Autoren, deren Erzählungen Fantasy, Science-Fiction (einschließlich futuristischer Texte), magischen Realismus und/oder Horror umfassen.",
+      ],
+    },
+    details: {
+      pt: "Coletânea · Editora Metamorfose · 2026",
+      de: "Anthologie · Editora Metamorfose · 2026",
+    },
+  },
   {
     slug: "casos-de-familia",
     cover: "/images/casos-de-familia-cover.jpg",
@@ -65,6 +98,7 @@ export const books: Book[] = [
   {
     slug: "ceu-de-brincar",
     cover: "/images/ceu-de-brincar-cover.png",
+    coverFit: "cover",
     available: true,
     lemonsqueezyUrl: null, // preencher após criar conta Lemon Squeezy
     amazonBr: "#", // preencher com link real
@@ -103,8 +137,6 @@ export const books: Book[] = [
         icon: "pin",
         links: [
           { label: "Um Livro", url: "https://loja.umlivro.com.br/ceu-de-brincar-8510023/p", note: "Disponível agora", available: true },
-          { label: "WhatsApp", url: "https://wa.me/5511914044118", note: "Livraria Tutear" },
-          { label: "Livraria Tutear", url: "https://instagram.com/tutearlivraria", note: "Livros selecionados" },
         ],
       },
       {
@@ -117,13 +149,48 @@ export const books: Book[] = [
           { label: "WhatsApp", url: "https://wa.me/491709250795", note: "Fale comigo para comprar" },
         ],
       },
+    ],
+  },
+  {
+    slug: "ceu-de-brincar-bilingue",
+    cover: "/images/ceu-de-brincar-bilingue-cover.jpg",
+    available: true,
+    lemonsqueezyUrl: null,
+    price: { pt: "Ver opções", de: "Optionen ansehen" },
+    genre: { pt: "Literatura Infantil · Bilíngue PT/DE", de: "Kinderliteratur · Zweisprachig PT/DE" },
+    title: "Céu de Brincar",
+    titlePre: "Céu de",
+    titleEm: "Brincar",
+    ctaLabel: { pt: "Compre", de: "Kaufen" },
+    shortDesc: {
+      pt: "Edição bilíngue (Português / Deutsch) — um convite a redescobrir a infância através das nuvens, em duas línguas.",
+      de: "Zweisprachige Ausgabe (Portugiesisch / Deutsch) — eine Einladung, die Kindheit durch die Wolken neu zu entdecken.",
+    },
+    fullDesc: {
+      pt: [
+        "Céu de Brincar é um convite a redescobrir a infância através das nuvens.",
+        "Com poesia e encanto, o céu se transforma em palco de cores e formas — dragões, bailarinas, castelos e sonhos.",
+        "Esta edição bilíngue (PT/DE) permite que a história seja vivida em português e alemão, conectando culturas e leitores.",
+      ],
+      de: [
+        "Céu de Brincar ist eine Einladung, die Kindheit durch die Wolken neu zu entdecken.",
+        "Mit Poesie und Zauber wird der Himmel zur Bühne für Farben und Formen — Drachen, Ballerinen, Schlösser und Träume.",
+        "Diese zweisprachige Ausgabe (PT/DE) lässt die Geschichte auf Portugiesisch und Deutsch erleben — Kulturen und Leser verbindend.",
+      ],
+    },
+    details: {
+      pt: "Literatura Infantil · Edição Bilíngue PT/DE · Disponível na Amazon",
+      de: "Kinderliteratur · Zweisprachige Ausgabe PT/DE · Erhältlich auf Amazon",
+    },
+    buyOptions: [
       {
-        key: "bilingue",
-        label: { pt: "Edição Bilíngue (PT/DE)", de: "Zweisprachige Ausgabe (PT/DE)" },
-        icon: "book",
+        key: "europa",
+        label: { pt: "Comprar", de: "Kaufen" },
+        icon: "globe",
         links: [
           { label: "Amazon.de", url: "https://www.amazon.de/dp/3565738340/", note: "Disponível agora", available: true },
           { label: "epubli", url: "https://www.epubli.com/shop/ceu-de-brincar-spielhimmel-9783565738342", note: "Disponível agora", available: true },
+          { label: "WhatsApp", url: "https://wa.me/491709250795", note: "Fale comigo para comprar" },
         ],
       },
     ],
@@ -240,6 +307,7 @@ export const books: Book[] = [
             note: "Disponível agora",
             available: true,
           },
+          { label: "WhatsApp", url: "https://wa.me/491709250795", note: "Fale comigo para comprar" },
         ],
       },
     ],
@@ -247,6 +315,7 @@ export const books: Book[] = [
   {
     slug: "spielhimmel",
     cover: "/images/spielhimmel-cover.jpg",
+    coverFit: "cover",
     available: true,
     lemonsqueezyUrl: null,
     price: { pt: "Ver opções", de: "Optionen ansehen" },
@@ -283,6 +352,7 @@ export const books: Book[] = [
         links: [
           { label: "Amazon.de", url: "https://www.amazon.de/Spielhimmel-Ana-Souza-Magalh%C3%A3es/dp/3565707178/", note: "Disponível agora", available: true },
           { label: "epubli", url: "https://www.epubli.com/shop/spielhimmel-9783565707171", note: "Disponível agora", available: true },
+          { label: "WhatsApp", url: "https://wa.me/491709250795", note: "Fale comigo para comprar" },
         ],
       },
     ],

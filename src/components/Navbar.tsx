@@ -68,15 +68,33 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
         <Link
           href="#hero"
-          className="text-base tracking-wide transition-opacity duration-300 hover:opacity-70"
-          style={{
-            fontFamily: "var(--font-playfair)",
-            color: "#3d2b35",
-            fontSize: 17,
-          }}
+          className="transition-opacity duration-300 hover:opacity-70 flex flex-col leading-tight"
+          style={{ textDecoration: "none" }}
         >
-          Ana Souza{" "}
-          <em style={{ fontStyle: "italic", color: "#6b5060" }}>de Magalhães</em>
+          <span
+            style={{
+              fontFamily: "var(--font-caveat)",
+              color: "#3d2b35",
+              fontSize: 30,
+              fontWeight: 600,
+              lineHeight: 1.15,
+            }}
+          >
+            Ana Souza{" "}
+            <span style={{ color: "#6b5060" }}>de Magalhães</span>
+          </span>
+          <span
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: 10,
+              fontWeight: 500,
+              color: "#9b7080",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+            }}
+          >
+            {locale === "de" ? "Autorin — Literatur zwischen Welten" : "Autora — literatura entre mundos"}
+          </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-7">

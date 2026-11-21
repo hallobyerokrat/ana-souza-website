@@ -48,11 +48,11 @@ const pt: Dict = {
   "casos.p2":
     "São plurais, nos atravessam e, inevitavelmente, rendem histórias.",
   "casos.p3":
-    "Nesta coletânea, 64 autores de diferentes partes do Brasil apresentam contos cujos conflitos passam pelas relações familiares.",
+    "Nesta coletânea, 64 autores de diferentes partes do Brasil apresentam contos cujos conflitos giram em torno das relações familiares.",
   "casos.p4":
     "Casais, avós, pais, irmãos, crianças — somos nós, refletidos em cada texto, em cada história.",
   "casos.badge": "Edição impressa — tiragem limitada, disponível no Brasil",
-  "casos.cta": "Quero adquirir um exemplar",
+  "casos.cta": "Quero comprar um exemplar",
   "casos.quote": "«Uma escrita que toca o coração — delicada, verdadeira e cheia de afeto.»",
   "casos.quote.author": "— Leitor da coletânea Casos de Família",
 
@@ -78,7 +78,7 @@ const pt: Dict = {
   "tartaruga.title.em": "Tartaruga!",
   "tartaruga.credit": "Ilustrado por Luiza Perufo",
   "tartaruga.p1":
-    "Uma tartaruga um tanto diferente… Vivia cercada de doces. Até que uma pequena descoberta lhe mostrou um novo caminho.",
+    "Uma tartaruga um tanto diferente… Ela vivia cercada de doces. Até que uma pequena descoberta lhe mostrou um novo caminho.",
   "tartaruga.p2":
     "Entre novas amizades, um mar de possibilidades e descobertas inesperadas, ela percebe que a vida pode ser muito mais doce do que imaginava.",
   "tartaruga.p3":
@@ -120,7 +120,7 @@ const pt: Dict = {
     "Ana Souza de Magalhães nasceu no interior de Minas Gerais. É formada em Pedagogia pela UEMG, com pós-graduação em Pedagogia Empresarial pela PUC Minas. Vive há alguns anos na Alemanha, onde se especializou em cuidados geriátricos pela escola Johanniter, em Wertheim. Atuou na área da geriatria, tanto em hospitais quanto em instituições de longa permanência para idosos, experiência que contribui para seu olhar sobre memória, envelhecimento e relações humanas.",
   "author.p2": "",
   "author.p3":
-    "Participa das coletâneas Casos de Família, com o conto Idaí, e Mundo Fantástico, com o conto Urá, organizadas pela Metamorfose, escola de escrita criativa da qual faz parte.",
+    "Participa das coletâneas Casos de Família, com o conto Idaí, e Planeta Fantástico, com o conto Urá, organizadas pela Metamorfose, escola de escrita criativa da qual faz parte.",
   "author.p4":
     "É autora do livro infantil Céu de Brincar e do romance Entre Flores e Algodão, em edição pela Metamorfose.",
   "author.p5":
@@ -170,7 +170,7 @@ const pt: Dict = {
   "shop.readMore": "Ver livro →",
   "shop.buy": "Comprar agora",
   "shop.comingSoon": "Em breve",
-  "shop.notifyMe": "Avisem-me no lançamento",
+  "shop.notifyMe": "Me avise no lançamento",
   "shop.alsoAmazon": "Também disponível na Amazon",
   "shop.amazonBr": "Amazon Brasil",
   "shop.amazonDe": "Amazon.de",
@@ -178,7 +178,7 @@ const pt: Dict = {
   "shop.details": "Detalhes",
   "shop.backToShop": "← Voltar à livraria",
 
-  "nav.musica": "Música",
+  "nav.musica": "Poemas musicados",
   "nav.videos": "Textos & Vídeos",
 
   "hero.slide.launch": "Lançamento",
@@ -199,7 +199,7 @@ const pt: Dict = {
   "contemp.cta1": "Conheça as obras",
   "contemp.cta2": "Ver opções de compra",
 
-  "musica.label": "Álbum",
+  "musica.label": "Poemas musicados",
   "musica.title": "Verso & Stimme",
   "musica.desc": "Poemas que ganham uma nova forma de interpretação através da música.",
   "musica.spotify": "Ouvir no Spotify",
@@ -231,11 +231,11 @@ const de: Dict = {
   "hero.note.sobre1": "Über",
   "hero.note.sobre2": "die Autorin",
   "hero.note.arte": "Kunst",
-  "hero.note.contatoSub": "Lass uns sprechen →",
+  "hero.note.contatoSub": "Schreib mir →",
   "hero.note.livros.sub": "meine Bücher",
   "hero.note.poemas.sub": "laufende Projekte",
   "hero.note.artes.sub": "Gedichte & Illustrationen",
-  "hero.note.contato.sub": "Lass uns sprechen",
+  "hero.note.contato.sub": "Schreib mir",
   "hero.note.loja.sub": "Bücher kaufen",
   "hero.note.sobre.sub": "die Autorin",
   "hero.tagline": "Literatur und poetisch-musikalische Erfahrungen, durchdrungen von Erinnerung und Vorstellungskraft.",
@@ -253,7 +253,7 @@ const de: Dict = {
   "casos.p4":
     "Paare, Großeltern, Eltern, Geschwister, Kinder — das sind wir, gespiegelt in jedem Text und jeder Geschichte.",
   "casos.badge": "Gedruckte Ausgabe — limitierte Auflage, erhältlich in Brasilien",
-  "casos.cta": "Ich möchte ein Exemplar kaufen",
+  "casos.cta": "Jetzt bestellen",
   "casos.quote": "«Ein Schreiben, das das Herz berührt — zart, aufrichtig und voller Wärme.»",
   "casos.quote.author": "— Leser der Anthologie Casos de Família",
 
@@ -262,11 +262,11 @@ const de: Dict = {
   "flores.title.pre": "Entre Flores e",
   "flores.title.em": "Algodão",
   "flores.p1":
-    "Clara wuchs auf zwischen dem Duft von Rosmarin, der Wärme des Ofens und den Geschichten, die im Schatten eines Mangobaums erzählt wurden. Da ist ein Haus in Bewegung, ein Dorf und ein Mädchen, das die Gesten und das Schweigen beobachtet.",
+    "Clara wuchs auf zwischen dem Duft von Rosmarin, der Wärme des Ofens und den Geschichten, die im Schatten eines Mangobaums erzählt wurden. Ein Haus im Wandel, ein Dorf – und ein Mädchen, das die Gesten und das Schweigen der anderen in sich aufnimmt.",
   "flores.p2":
     "In ihrer Kindheit schien alles einfach: Die Tage vergingen zwischen Spielen, Stimmen in der Küche und kleinen Geheimnissen, die im Gedächtnis bewahrt wurden.",
   "flores.p3":
-    "Nach und nach beginnt sich die Welt zu verändern. Die Zeit schreitet voran, die familiären Veränderungen werden dichter, und die Kindheit, einst leicht, gewinnt neue Bedeutungen. Zwischen Entdeckungen, Abschieden und Erinnerungen lernt Clara: Erwachsenwerden heißt, mit dem umzugehen, was nicht zurückkehrt.",
+    "Nach und nach beginnt sich die Welt zu verändern. Die Zeit schreitet voran, die familiären Verhältnisse verdichten sich, und die Kindheit, einst so leicht, bekommt ein neues Gewicht. Zwischen Entdeckungen, Abschieden und Erinnerungen lernt Clara: Erwachsenwerden heißt, mit dem umzugehen, was nicht zurückkehrt.",
   "flores.p4":
     "Sensibel und zart erzählt Entre Flores e Algodão von Erinnerung, Zuneigung und Wandel — eine Einladung, die Kindheit neu zu besuchen und in den kleinen Details das zu erkennen, was für immer bleibt.",
   "flores.status": "In Bearbeitung — Veröffentlichung in Kürze",
@@ -318,10 +318,10 @@ const de: Dict = {
   "author.title.pre": "Ein intuitives Schreiben,",
   "author.title.em": "gewebt aus Erinnerung",
   "author.p1":
-    "Ana Souza de Magalhães wurde im Landesinneren von Minas Gerais geboren. Sie hat Pädagogik an der UEMG studiert und einen Postgraduierten-Abschluss in Betriebspädagogik von der PUC Minas. Seit einigen Jahren lebt sie in Deutschland, wo sie sich an der Johanniter-Schule in Wertheim auf Altenpflege spezialisiert hat. Sie war sowohl in Krankenhäusern als auch in stationären Pflegeeinrichtungen tätig – eine Erfahrung, die ihren Blick auf Gedächtnis, Alterung und menschliche Beziehungen prägt.",
+    "Ana Souza de Magalhães wurde im Landesinneren von Minas Gerais geboren. Sie studierte Pädagogik an der UEMG und schloss ein weiterführendes Studium in Betriebspädagogik an der PUC Minas ab. Seit einigen Jahren lebt sie in Deutschland, wo sie sich an der Johanniter-Schule in Wertheim auf Altenpflege spezialisiert hat. Sie war sowohl in Krankenhäusern als auch in stationären Pflegeeinrichtungen tätig – eine Erfahrung, die ihren Blick auf Gedächtnis, Alter und menschliche Beziehungen prägt.",
   "author.p2": "",
   "author.p3":
-    "Sie nimmt an den Anthologien Casos de Família, mit der Kurzgeschichte Idaí, und Mundo Fantástico, mit der Kurzgeschichte Urá, teil – beide organisiert von Metamorfose, einer Schule für kreatives Schreiben, der sie angehört.",
+    "Sie nimmt an den Anthologien Casos de Família, mit der Kurzgeschichte Idaí, und Planeta Fantástico, mit der Kurzgeschichte Urá, teil – beide organisiert von Metamorfose, einer Schule für kreatives Schreiben, der sie angehört.",
   "author.p4":
     "Sie ist Autorin des Kinderbuchs Céu de Brincar und des Romans Entre Flores e Algodão, der derzeit bei Metamorfose erscheint.",
   "author.p5":
@@ -362,24 +362,24 @@ const de: Dict = {
   "footer.rights": "Alle Rechte vorbehalten.",
   "footer.country": "Betrieben aus Deutschland · DSGVO-konform",
 
-  "nav.loja": "Buchhandlung",
+  "nav.loja": "Bücher",
 
-  "shop.label": "Buchhandlung",
+  "shop.label": "Bücher",
   "shop.title.pre": "Die",
   "shop.title.em": "Bücher",
   "shop.subtitle": "Direkt kaufen oder auf Amazon finden",
   "shop.readMore": "Buch ansehen →",
   "shop.buy": "Jetzt kaufen",
   "shop.comingSoon": "Demnächst",
-  "shop.notifyMe": "Beim Launch benachrichtigen",
+  "shop.notifyMe": "Beim Erscheinen benachrichtigen",
   "shop.alsoAmazon": "Auch auf Amazon erhältlich",
   "shop.amazonBr": "Amazon Brasil",
   "shop.amazonDe": "Amazon.de",
   "shop.ebook": "Kindle / E-Book",
   "shop.details": "Details",
-  "shop.backToShop": "← Zurück zur Buchhandlung",
+  "shop.backToShop": "← Zurück zu den Büchern",
 
-  "nav.musica": "Musik",
+  "nav.musica": "Vertonte Gedichte",
   "nav.videos": "Texte & Videos",
 
   "hero.slide.launch": "Neuerscheinung",
@@ -390,7 +390,7 @@ const de: Dict = {
   "infantil.label": "Kinderliteratur",
   "infantil.subtitle": "Geschichten, die Kulturen verbinden",
   "infantil.annotation": "Zwei Sprachen.\nUnendliche Möglichkeiten.",
-  "infantil.sinopse": "Klappentext",
+  "infantil.sinopse": "Mehr erfahren",
   "infantil.comprar": "Kaufen",
 
   "contemp.label": "Zeitgenössische Literatur",
@@ -400,7 +400,7 @@ const de: Dict = {
   "contemp.cta1": "Die Werke entdecken",
   "contemp.cta2": "Kaufoptionen ansehen",
 
-  "musica.label": "Album",
+  "musica.label": "Vertonte Gedichte",
   "musica.title": "Verso & Stimme",
   "musica.desc": "Gedichte, die durch Musik eine neue Form der Interpretation gewinnen.",
   "musica.spotify": "Auf Spotify hören",

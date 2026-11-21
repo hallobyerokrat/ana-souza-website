@@ -1,39 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useT } from "@/lib/i18n";
 
 // Replace these with real URLs when Ana sends them
-const SPOTIFY_URL = "#";
-const YOUTUBE_URL = "#";
+const SPOTIFY_URL = "https://open.spotify.com/intl-de/album/5VXkHfqzBfiFJkhFQIplsN";
+const YOUTUBE_URL = "https://music.youtube.com/playlist?list=OLAK5uy_m9As__lDsGoZGCvW9H-vL4-0Bc9WvRdnQ";
 const OTHER_PLATFORMS_URL = "#";
-
-function VinylSVG() {
-  return (
-    <svg viewBox="0 0 200 200" width="200" height="200" aria-hidden>
-      <circle cx="100" cy="100" r="98" fill="#1a0e1a" stroke="#3d2040" strokeWidth="2" />
-      <circle cx="100" cy="100" r="75" fill="#120a12" />
-      <circle cx="100" cy="100" r="60" fill="#1a0e1a" />
-      <circle cx="100" cy="100" r="45" fill="#120a12" />
-      <circle cx="100" cy="100" r="30" fill="#1a0e1a" />
-      <circle cx="100" cy="100" r="18" fill="#c1654a" opacity="0.9" />
-      <circle cx="100" cy="100" r="5" fill="#1a0e1a" />
-      {[0,30,60,90,120,150,180,210,240,270,300,330].map((deg, i) => (
-        <line
-          key={i}
-          x1="100" y1="100"
-          x2={100 + 90 * Math.cos((deg * Math.PI) / 180)}
-          y2={100 + 90 * Math.sin((deg * Math.PI) / 180)}
-          stroke="#2a1a2a"
-          strokeWidth="0.5"
-          opacity="0.4"
-        />
-      ))}
-      {[35,42,50,58,65,72,80,88].map((r, i) => (
-        <circle key={i} cx="100" cy="100" r={r} fill="none" stroke="#2a1a2a" strokeWidth="0.4" opacity="0.3" />
-      ))}
-    </svg>
-  );
-}
 
 function SpotifyIcon() {
   return (
@@ -58,21 +31,52 @@ export default function MusicSection() {
     <section
       id="musica"
       className="relative overflow-hidden py-20 md:py-28"
-      style={{ background: "#1e1228" }}
+      style={{ background: "#271b0e" }}
     >
-      {/* Subtle texture */}
+      {/* Warm grain overlay */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "url('/botanical-1.svg') repeat", opacity: 0.04 }}
+        style={{
+          background:
+            "radial-gradient(ellipse at 70% 50%, rgba(120,70,20,0.18) 0%, transparent 65%)",
+        }}
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-[auto_1fr] gap-14 md:gap-20 items-center">
-          {/* Left: vinyl + author photo */}
+        <div className="grid md:grid-cols-[auto_1fr] gap-12 md:gap-20 items-center">
+
+          {/* Left: album cover */}
           <div className="flex justify-center md:justify-start">
-            <div className="relative flex items-center justify-center" style={{ width: "min(280px, 70vw)", height: "min(280px, 70vw)" }}>
-              <VinylSVG />
+            <div
+              className="relative"
+              style={{
+                width: "min(300px, 75vw)",
+                flexShrink: 0,
+              }}
+            >
+              {/* Glow behind cover */}
+              <div
+                aria-hidden
+                className="absolute inset-0 rounded-lg"
+                style={{
+                  boxShadow: "0 0 60px 10px rgba(193,101,74,0.25)",
+                  zIndex: 0,
+                }}
+              />
+              <Image
+                src="/images/verso-stimme-cover.jpg"
+                alt="Verso & Stimme — álbum de Ana Souza de Magalhães"
+                width={300}
+                height={300}
+                className="relative rounded-lg w-full h-auto"
+                style={{
+                  boxShadow:
+                    "0 8px 40px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4)",
+                  transform: "rotate(-1.5deg)",
+                  zIndex: 1,
+                }}
+              />
             </div>
           </div>
 
@@ -106,7 +110,7 @@ export default function MusicSection() {
                 color: "#c1654a",
                 fontFamily: "var(--font-inter)",
                 fontWeight: 600,
-                background: "rgba(193,101,74,0.12)",
+                background: "rgba(193,101,74,0.15)",
                 padding: "3px 10px",
                 borderRadius: 20,
               }}
@@ -120,14 +124,17 @@ export default function MusicSection() {
                 fontFamily: "var(--font-playfair)",
                 fontSize: "clamp(2rem, 4vw, 3rem)",
                 fontWeight: 700,
-                color: "#f5ede4",
+                color: "#f0dfc0",
                 letterSpacing: "-0.01em",
               }}
             >
               {t("musica.title")}
             </h2>
 
-            <p className="mb-8 text-sm leading-relaxed" style={{ color: "#b89aaa", maxWidth: 400 }}>
+            <p
+              className="mb-8 text-sm leading-relaxed"
+              style={{ color: "#b89a72", maxWidth: 400 }}
+            >
               {t("musica.desc")}
             </p>
 
@@ -137,7 +144,7 @@ export default function MusicSection() {
                 href={SPOTIFY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3 rounded text-sm font-semibold tracking-wide"
+                className="flex items-center gap-3 px-5 py-3 rounded text-sm font-semibold tracking-wide transition-opacity hover:opacity-85"
                 style={{
                   background: "#1DB954",
                   color: "#fff",
@@ -152,7 +159,7 @@ export default function MusicSection() {
                 href={YOUTUBE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-5 py-3 rounded text-sm font-semibold tracking-wide"
+                className="flex items-center gap-3 px-5 py-3 rounded text-sm font-semibold tracking-wide transition-opacity hover:opacity-85"
                 style={{
                   background: "#FF0000",
                   color: "#fff",
@@ -167,10 +174,10 @@ export default function MusicSection() {
                 href={OTHER_PLATFORMS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center px-5 py-3 rounded text-sm tracking-wide"
+                className="flex items-center justify-center px-5 py-3 rounded text-sm tracking-wide transition-colors hover:border-opacity-60"
                 style={{
-                  border: "1px solid rgba(245,237,228,0.25)",
-                  color: "#d4b8c4",
+                  border: "1px solid rgba(240,223,192,0.2)",
+                  color: "#c9a87a",
                   fontFamily: "var(--font-inter)",
                   cursor: "pointer",
                 }}

@@ -19,13 +19,9 @@ export default function Home() {
         <LiteraturaInfantilSection />
         <BotanicalDivider />
         <LiteraturaContemporaneaSection />
-        <BotanicalDivider />
         <MusicSection />
-        <BotanicalDivider />
         <TextosVideosSection />
-        <BotanicalDivider />
         <AuthorSection />
-        <BotanicalDivider />
         <ContactSection />
       </main>
       <Footer />

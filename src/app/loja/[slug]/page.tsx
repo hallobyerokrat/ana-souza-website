@@ -81,7 +81,7 @@ export default function LojaPage({
             >
               <div
                 className="relative"
-                style={{ width: 280, height: 420, flexShrink: 0 }}
+                style={{ width: 280, aspectRatio: "1/1", flexShrink: 0 }}
               >
                 {/* Drop shadow blob */}
                 <div
@@ -102,7 +102,7 @@ export default function LojaPage({
                   style={{
                     borderRadius: 4,
                     boxShadow:
-                      "0 30px 60px rgba(60,40,22,0.3), 0 10px 20px rgba(60,40,22,0.18), -6px 0 0 rgba(0,0,0,0.15)",
+                      "0 30px 60px rgba(60,40,22,0.3), 0 10px 20px rgba(60,40,22,0.18)",
                   }}
                 >
                   {book.cover ? (
@@ -112,7 +112,7 @@ export default function LojaPage({
                         alt={book.title}
                         fill
                         sizes="280px"
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: book.coverFit ?? "contain" }}
                         priority
                       />
                       <div
@@ -303,6 +303,28 @@ export default function LojaPage({
             </motion.div>
           </div>
         </div>
+
+        {/* Promo image (book-specific) */}
+        {book.promoImage && (
+          <div className="max-w-2xl mx-auto px-6 pb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Image
+                src={book.promoImage}
+                alt={`${book.title} — imagem promocional`}
+                width={800}
+                height={800}
+                className="w-full h-auto rounded-2xl"
+                style={{
+                  boxShadow: "0 12px 48px rgba(60,40,22,0.18)",
+                }}
+              />
+            </motion.div>
+          </div>
+        )}
 
         {/* Edge fade bottom */}
         <div

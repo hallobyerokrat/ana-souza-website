@@ -1,6 +1,7 @@
 import AdminSidebar from '@/components/admin/AdminSidebar'
 import LogoutButton from '@/components/admin/LogoutButton'
 
+export const dynamic = "force-dynamic"
 export const metadata = { robots: 'noindex, nofollow' }
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

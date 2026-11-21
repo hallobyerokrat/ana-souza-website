@@ -7,8 +7,11 @@ import { useT } from "@/lib/i18n";
 
 type Slide = {
   slug: string;
-  label: "launch" | "featured";
+  label?: "launch" | "featured";
   cover: string;
+  coverRatio?: string;
+  coverWidth?: string;
+  coverFit?: string;
   alt: string;
   tagline: { pt: string; de: string };
   annotation: { pt: string; de: string };
@@ -18,8 +21,23 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    slug: "tanta-docura-tartaruga",
+    slug: "entre-flores",
     label: "launch",
+    coverRatio: "2/3",
+    coverWidth: "min(300px, 72vw)",
+    coverFit: "cover",
+    cover: "/images/entre-flores-cover-2.jpg",
+    alt: "Entre Flores e Algodão",
+    tagline: {
+      pt: "Um romance sobre memória, infância e as raízes que nos moldam — em breve.",
+      de: "Ein Roman über Erinnerung, Kindheit und die Wurzeln, die uns formen — bald erhältlich.",
+    },
+    annotation: { pt: "", de: "" },
+    whatsapp: "https://wa.me/491709250795",
+    bg: "/images/entre-flores-hero-bg.jpg",
+  },
+  {
+    slug: "tanta-docura-tartaruga",
     cover: "/images/tanta-docura-tartaruga-cover.jpg",
     alt: "Tanta Doçura, Tartaruga!",
     tagline: {
@@ -35,7 +53,7 @@ const SLIDES: Slide[] = [
   },
   {
     slug: "ceu-de-brincar",
-    label: "featured",
+    coverFit: "cover",
     cover: "/images/ceu-de-brincar-cover.png",
     alt: "Céu de Brincar",
     tagline: {
@@ -51,23 +69,22 @@ const SLIDES: Slide[] = [
   },
   {
     slug: "spielhimmel",
-    label: "featured",
+    coverFit: "cover",
+    coverWidth: "min(300px, 72vw)",
     cover: "/images/spielhimmel-cover.jpg",
     alt: "Spielhimmel",
     tagline: {
       pt: "O que se esconde atrás das nuvens? Um convite a olhar o mundo com os olhos abertos.",
       de: "Was verbirgt sich hinter den Wolken? Ein Kinderbuch voller Neugier und Fantasie.",
     },
-    annotation: {
-      pt: "O céu é\nnossa tela. ♡",
-      de: "Der Himmel\nist unsere Leinwand. ♡",
-    },
+    annotation: { pt: "", de: "" },
     whatsapp: "https://wa.me/491709250795",
     bg: "/images/clouds-hero-bg.jpg",
   },
 ];
 
 const SLIDE_TITLES: Record<string, { pt: string; de: string }> = {
+  "entre-flores": { pt: "Entre Flores e Algodão", de: "Entre Flores e Algodão" },
   "tanta-docura-tartaruga": { pt: "Tanta Doçura, Tartaruga!", de: "Tanta Doçura, Tartaruga!" },
   "ceu-de-brincar": { pt: "Céu de Brincar", de: "Céu de Brincar" },
   spielhimmel: { pt: "Spiel Himmel", de: "Spiel Himmel" },
@@ -133,35 +150,47 @@ export default function HeroSlider() {
               display: "flex",
               alignItems: "center",
               position: "relative",
-              ...(s.bg ? {
-                backgroundImage: `url('${s.bg}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              } : {}),
             }}
           >
-            <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-28 md:py-36 grid md:grid-cols-2 gap-12 md:gap-20 items-center" style={{ position: "relative", zIndex: 1 }}>
+            {/* Blurred background image */}
+            {s.bg && (
+              <div
+                aria-hidden
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `url('${s.bg}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  filter: "blur(3px)",
+                  transform: "scale(1.06)",
+                  zIndex: 0,
+                }}
+              />
+            )}
+            <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-20 md:py-36 flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-20 items-center" style={{ position: "relative", zIndex: 1 }}>
               {/* Text — jedes Element im eigenen Kästchen */}
-              <div className="flex flex-col gap-3 items-start">
-                <span
-                  className="inline-block text-xs uppercase tracking-[0.3em]"
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontWeight: 600,
-                    background: "rgba(45,90,61,0.88)",
-                    color: "#fff",
-                    padding: "5px 14px",
-                    borderRadius: 20,
-                  }}
-                >
-                  {t(s.label === "launch" ? "hero.slide.launch" : "hero.slide.featured")}
-                </span>
+              <div className="flex flex-col gap-3 items-start order-2 md:order-1">
+                {s.label && (
+                  <span
+                    className="inline-block text-xs uppercase tracking-[0.3em]"
+                    style={{
+                      fontFamily: "var(--font-inter)",
+                      fontWeight: 600,
+                      background: "rgba(45,90,61,0.88)",
+                      color: "#fff",
+                      padding: "5px 14px",
+                      borderRadius: 20,
+                    }}
+                  >
+                    {t(s.label === "launch" ? "hero.slide.launch" : "hero.slide.featured")}
+                  </span>
+                )}
 
                 <h1
                   className="leading-tight"
                   style={{
                     fontFamily: "var(--font-playfair)",
-                    fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
+                    fontSize: "clamp(1.7rem, 3.5vw, 2.6rem)",
                     fontWeight: 700,
                     color: "#2a1a22",
                     letterSpacing: "-0.01em",
@@ -220,10 +249,10 @@ export default function HeroSlider() {
               </div>
 
               {/* Cover + annotation */}
-              <div className="flex justify-center md:justify-end relative">
+              <div className="flex flex-col items-center md:items-end gap-3 order-1 md:order-2">
                 <div
                   className="relative"
-                  style={{ width: "min(320px, 75vw)", height: "min(380px, 90vw)" }}
+                  style={{ width: s.coverWidth ?? "min(260px, 65vw)", aspectRatio: s.coverRatio ?? "1/1" }}
                 >
                   <div
                     aria-hidden
@@ -249,32 +278,32 @@ export default function HeroSlider() {
                       src={s.cover}
                       alt={s.alt}
                       fill
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: (s.coverFit as "contain" | "cover") ?? "contain", objectPosition: "top center" }}
                       sizes="320px"
                       priority={i === 0}
                     />
                   </div>
                 </div>
 
-                {/* Handwritten annotation */}
-                <div
-                  aria-hidden
-                  className="absolute hidden md:block"
-                  style={{
-                    right: -10,
-                    top: "20%",
-                    fontFamily: "var(--font-caveat)",
-                    fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
-                    color: "#c1654a",
-                    lineHeight: 1.4,
-                    whiteSpace: "pre-line",
-                    textAlign: "right",
-                    opacity: 0.85,
-                    fontWeight: 500,
-                  }}
-                >
-                  {s.annotation[locale]}
-                </div>
+                {/* Handwritten annotation — below cover */}
+                {s.annotation[locale] && (
+                  <div
+                    aria-hidden
+                    style={{
+                      fontFamily: "var(--font-caveat)",
+                      fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
+                      color: "#c1654a",
+                      lineHeight: 1.4,
+                      whiteSpace: "pre-line",
+                      textAlign: "right",
+                      opacity: 0.85,
+                      fontWeight: 500,
+                      paddingTop: 8,
+                    }}
+                  >
+                    {s.annotation[locale]}
+                  </div>
+                )}
               </div>
             </div>
           </div>

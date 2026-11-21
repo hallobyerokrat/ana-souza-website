@@ -35,7 +35,8 @@ export default function AuthorSection() {
   }
 
   const bioGroups = [
-    [bio("p1"), bio("p3"), bio("p4"), bio("p5")],
+    [bio("p1")],
+    [bio("p3"), bio("p4"), bio("p5")],
   ];
 
   return (
@@ -125,8 +126,8 @@ export default function AuthorSection() {
           {/* Bio text */}
           <div className="md:col-span-3" style={{ background: "#f5ede8", borderRadius: 4, padding: "4px 8px", boxShadow: "0 0 8px 4px #f5ede8, 0 0 18px 10px rgba(245,237,232,0.85), 0 0 36px 18px rgba(245,237,232,0.45)" }}>
             <div style={{ color: "#6b5060", maxWidth: 620 }}>
-              {/* Always visible: groups 0 + 1 */}
-              {bioGroups.slice(0, 2).map((group, gi) => (
+              {/* Always visible: group 0 only */}
+              {bioGroups.slice(0, 1).map((group, gi) => (
                 <div key={gi}>
                   {gi > 0 && <Divider />}
                   <div className="space-y-3" style={{ padding: "0.25rem 0" }}>
@@ -152,7 +153,7 @@ export default function AuthorSection() {
                 </div>
               ))}
 
-              {/* Collapsible: groups 2 + 3 */}
+              {/* Collapsible: group 1 */}
               <div
                 style={{
                   overflow: "hidden",
@@ -160,8 +161,8 @@ export default function AuthorSection() {
                   transition: "max-height 0.55s cubic-bezier(0.22, 1, 0.36, 1)",
                 }}
               >
-                {bioGroups.slice(2).map((group, gi) => (
-                  <div key={gi + 2}>
+                {bioGroups.slice(1).map((group, gi) => (
+                  <div key={gi + 1}>
                     <Divider />
                     <div className="space-y-3" style={{ padding: "0.25rem 0" }}>
                       {group.map((p, pi) => (

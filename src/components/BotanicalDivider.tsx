@@ -9,6 +9,7 @@ export default function BotanicalDivider() {
         alignItems: "center",
         padding: "4px 24px",
         overflow: "hidden",
+        background: "#faf6ed",
       }}
     >
       <svg

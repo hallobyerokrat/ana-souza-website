@@ -7,13 +7,11 @@ import { motion } from "framer-motion";
 import { useT } from "@/lib/i18n";
 import { books } from "@/lib/books";
 
-// All books with a cover — ordered: children first, then adult/anthology
 const ALL_SLUGS = [
   "ceu-de-brincar",
+  "ceu-de-brincar-bilingue",
   "tanta-docura-tartaruga",
   "spielhimmel",
-  "entre-flores",
-  "casos-de-familia",
 ];
 
 function LeafIcon() {
@@ -37,7 +35,8 @@ export default function LiteraturaInfantilSection() {
   return (
     <section
       id="livros"
-      className="wallpaper-botanical-dense relative overflow-hidden py-20 md:py-28"
+      className="relative overflow-hidden py-20 md:py-28"
+      style={{ background: "#faf6ed" }}
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Header */}
@@ -67,8 +66,8 @@ export default function LiteraturaInfantilSection() {
             aria-hidden
             className="hidden lg:block absolute"
             style={{
-              right: -24,
-              top: "30%",
+              right: -20,
+              top: "-10%",
               fontFamily: "var(--font-caveat)",
               fontSize: "1.3rem",
               color: "#c1654a",
@@ -212,17 +211,18 @@ function BookCard({
         className="relative mb-4"
         style={{
           width: "min(180px, 55vw)",
-          aspectRatio: "3/4",
+          aspectRatio: "1/1",
           borderRadius: 3,
           overflow: "hidden",
-          boxShadow: "0 8px 28px rgba(60,40,22,0.18), -4px 0 0 rgba(0,0,0,0.08)",
+          boxShadow: "0 8px 28px rgba(60,40,22,0.18)",
+          background: "transparent",
         }}
       >
         <Image
           src={book.cover ?? ""}
           alt={book.title}
           fill
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: book.coverFit ?? "contain" }}
           sizes="180px"
         />
       </div>

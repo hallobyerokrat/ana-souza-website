@@ -33,13 +33,7 @@ html {
 }
 
 body {
-  background-color: #faf6f1;
-  background-image:
-    url("/botanical-1.svg"),
-    url("/botanical-2.svg");
-  background-size: 320px 320px, 560px 560px;
-  background-position: 0 0, 40px 50px;
-  background-attachment: fixed;
+  background-color: #faf6ed;
   color: #3d2a1a;
   font-family: var(--font-inter), 'Inter', sans-serif;
   overflow-x: hidden;
