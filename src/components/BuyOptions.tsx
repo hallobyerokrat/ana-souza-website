@@ -33,7 +33,14 @@ function RegionIcon({ icon }: { icon: BuyRegion["icon"] }) {
 }
 
 export default function BuyOptions({ regions, locale }: { regions: BuyRegion[]; locale: Locale }) {
-  const [open, setOpen] = useState<string | null>(null);
+  const [openSet, setOpenSet] = useState<Set<string>>(() => new Set(regions.map((r) => r.key)));
+
+  const toggle = (key: string) =>
+    setOpenSet((prev) => {
+      const next = new Set(prev);
+      next.has(key) ? next.delete(key) : next.add(key);
+      return next;
+    });
 
   return (
     <div className="flex flex-col gap-3">
@@ -42,24 +49,24 @@ export default function BuyOptions({ regions, locale }: { regions: BuyRegion[]; 
           <button
             key={region.key}
             type="button"
-            onClick={() => setOpen(open === region.key ? null : region.key)}
+            onClick={() => toggle(region.key)}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5"
             style={{
-              background: open === region.key ? "#7a5468" : "transparent",
-              color: open === region.key ? "#fff" : "#7a5468",
+              background: openSet.has(region.key) ? "#7a5468" : "transparent",
+              color: openSet.has(region.key) ? "#fff" : "#7a5468",
               fontWeight: 500,
               border: "1px solid #7a5468",
             }}
           >
             <RegionIcon icon={region.icon} />
             {region.label[locale]}
-            <span style={{ fontSize: 10, opacity: 0.8 }}>{open === region.key ? "▲" : "▼"}</span>
+            <span style={{ fontSize: 10, opacity: 0.8 }}>{openSet.has(region.key) ? "▲" : "▼"}</span>
           </button>
         ))}
       </div>
 
       {regions.map((region) =>
-        open === region.key ? (
+        openSet.has(region.key) ? (
           <div
             key={region.key}
             style={{

@@ -83,7 +83,18 @@ const pt: Dict = {
     "Entre novas amizades, um mar de possibilidades e descobertas inesperadas, ela percebe que a vida pode ser muito mais doce do que imaginava.",
   "tartaruga.p3":
     "Uma história sensível sobre curiosidade, descobertas e as muitas formas de ressignificar a doçura.",
-  "tartaruga.status": "Em breve na epubli",
+  "tartaruga.status": "Disponível agora",
+
+  "spielhimmel.label": "Literatura Infantil",
+  "spielhimmel.title.pre": "Spiel",
+  "spielhimmel.title.em": "Himmel",
+  "spielhimmel.p1":
+    "O que se esconde atrás das nuvens? Quais figuras aparecem quando erguemos o olhar e deixamos a imaginação fluir livremente?",
+  "spielhimmel.p2":
+    "O céu pode ser azul ou cinza, tranquilo ou cheio de movimento. Com palavras poéticas e ilustrações cheias de fantasia, Spielhimmel abre espaço para a curiosidade, a criatividade e os momentos compartilhados.",
+  "spielhimmel.p3":
+    "Um livro infantil que convida a olhar o mundo com os olhos abertos e descobrir o especial no cotidiano.",
+  "spielhimmel.cta": "Disponível agora",
 
   "ceu.label": "Literatura Infantil",
   "ceu.title.pre": "Céu de",
@@ -99,6 +110,8 @@ const pt: Dict = {
   "ceu.cta.ebook": "Kindle / Ebook →",
   "ceu.quote": "«Eu super indico o livro Céu de Brincar. É um livro que nos leva a antigos hábitos que foram se perdendo com o tempo. As crianças precisam desse livro para se conectar com as maravilhas que Deus nos proporciona e deixar de lado o celular.»",
   "ceu.quote.author": "— Leitora",
+
+  "book.cta.shop": "Ver onde comprar",
 
   "author.label": "Sobre a autora",
   "author.title.pre": "Uma escrita intuitiva,",
@@ -164,6 +177,41 @@ const pt: Dict = {
   "shop.ebook": "Kindle / Ebook",
   "shop.details": "Detalhes",
   "shop.backToShop": "← Voltar à livraria",
+
+  "nav.musica": "Música",
+  "nav.videos": "Textos & Vídeos",
+
+  "hero.slide.launch": "Lançamento",
+  "hero.slide.featured": "Em Destaque",
+  "hero.slide.cta.book": "Conheça o livro",
+  "hero.slide.cta.whatsapp": "Fale pelo WhatsApp",
+
+  "infantil.label": "Literatura Infantil",
+  "infantil.subtitle": "Histórias que conectam culturas",
+  "infantil.annotation": "Duas línguas.\nMuitas possibilidades.",
+  "infantil.sinopse": "Sinopse",
+  "infantil.comprar": "Comprar",
+
+  "contemp.label": "Literatura Contemporânea",
+  "contemp.subtitle": "Poesia, prosa e outras travessias",
+  "contemp.annotation": "Ler\ntambém é\natravessar\nfronteiras.",
+  "contemp.desc": "Textos que exploram a identidade, o pertencimento e as sutilezas da vida entre culturas.",
+  "contemp.cta1": "Conheça as obras",
+  "contemp.cta2": "Ver opções de compra",
+
+  "musica.label": "Álbum",
+  "musica.title": "Verso & Stimme",
+  "musica.desc": "Poemas que ganham uma nova forma de interpretação através da música.",
+  "musica.spotify": "Ouvir no Spotify",
+  "musica.youtube": "Ouvir no YouTube Music",
+  "musica.other": "Ouvir em outras plataformas",
+  "musica.annotation": "Poesia\ntambém\nse ouve.",
+
+  "videos.label": "Textos & Vídeos",
+  "videos.title.pre": "Textos &",
+  "videos.title.em": "Vídeos",
+  "videos.subtitle": "Leituras, conversas e bastidores",
+  "videos.cta": "Explorar conteúdos",
 };
 
 const de: Dict = {
@@ -236,7 +284,18 @@ const de: Dict = {
     "Zwischen neuen Freundschaften, ungeahnten Möglichkeiten und unerwarteten Entdeckungen begreift sie: Das Leben kann viel süßer sein, als sie dachte.",
   "tartaruga.p3":
     "Eine einfühlsame Geschichte über Neugier, Entdeckungen und die vielen Arten, Süße neu zu deuten.",
-  "tartaruga.status": "Bald erhältlich auf epubli",
+  "tartaruga.status": "Jetzt erhältlich",
+
+  "spielhimmel.label": "Kinderliteratur",
+  "spielhimmel.title.pre": "Spiel",
+  "spielhimmel.title.em": "Himmel",
+  "spielhimmel.p1":
+    "Was verbirgt sich hinter den Wolken? Welche Figuren entstehen, wenn wir den Blick nach oben richten und unserer Fantasie freien Lauf lassen?",
+  "spielhimmel.p2":
+    "Mal ist der Himmel blau, mal grau, mal still und mal voller Bewegung. Mit poetischen Worten und fantasievollen Illustrationen öffnet Spielhimmel einen Raum für Neugier, Kreativität und gemeinsame Augenblicke.",
+  "spielhimmel.p3":
+    "Ein Kinderbuch, das dazu einlädt, die Welt mit offenen Augen zu betrachten und das Besondere im Alltäglichen zu entdecken.",
+  "spielhimmel.cta": "Jetzt erhältlich",
 
   "ceu.label": "Kinderliteratur",
   "ceu.title.pre": "Céu de",
@@ -252,6 +311,8 @@ const de: Dict = {
   "ceu.cta.ebook": "Kindle / E-Book →",
   "ceu.quote": "«Ein zauberhaftes Buch für Kinder und Erwachsene — voller Phantasie und Zartheit.»",
   "ceu.quote.author": "— Leserin",
+
+  "book.cta.shop": "Wo kaufen",
 
   "author.label": "Über die Autorin",
   "author.title.pre": "Ein intuitives Schreiben,",
@@ -317,6 +378,41 @@ const de: Dict = {
   "shop.ebook": "Kindle / E-Book",
   "shop.details": "Details",
   "shop.backToShop": "← Zurück zur Buchhandlung",
+
+  "nav.musica": "Musik",
+  "nav.videos": "Texte & Videos",
+
+  "hero.slide.launch": "Neuerscheinung",
+  "hero.slide.featured": "Im Fokus",
+  "hero.slide.cta.book": "Buch entdecken",
+  "hero.slide.cta.whatsapp": "Per WhatsApp schreiben",
+
+  "infantil.label": "Kinderliteratur",
+  "infantil.subtitle": "Geschichten, die Kulturen verbinden",
+  "infantil.annotation": "Zwei Sprachen.\nUnendliche Möglichkeiten.",
+  "infantil.sinopse": "Klappentext",
+  "infantil.comprar": "Kaufen",
+
+  "contemp.label": "Zeitgenössische Literatur",
+  "contemp.subtitle": "Poesie, Prosa und andere Übergänge",
+  "contemp.annotation": "Lesen\nist auch\nGrenzen\nüberwinden.",
+  "contemp.desc": "Texte, die Identität, Zugehörigkeit und die Feinheiten des Lebens zwischen Kulturen erkunden.",
+  "contemp.cta1": "Die Werke entdecken",
+  "contemp.cta2": "Kaufoptionen ansehen",
+
+  "musica.label": "Album",
+  "musica.title": "Verso & Stimme",
+  "musica.desc": "Gedichte, die durch Musik eine neue Form der Interpretation gewinnen.",
+  "musica.spotify": "Auf Spotify hören",
+  "musica.youtube": "Auf YouTube Music hören",
+  "musica.other": "Auf anderen Plattformen hören",
+  "musica.annotation": "Poesie\nhört man\nauch.",
+
+  "videos.label": "Texte & Videos",
+  "videos.title.pre": "Texte &",
+  "videos.title.em": "Videos",
+  "videos.subtitle": "Lesungen, Gespräche und Hintergründe",
+  "videos.cta": "Inhalte entdecken",
 };
 
 const dict: Record<Locale, Dict> = { pt, de };

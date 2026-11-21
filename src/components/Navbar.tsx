@@ -10,6 +10,9 @@ const SECTION_TO_HREF: Record<string, string> = {
   "casos-de-familia": "#livros",
   "entre-flores": "#livros",
   "ceu-de-brincar": "#livros",
+  contemporanea: "#contemporanea",
+  musica: "#musica",
+  videos: "#videos",
   loja: "#loja",
   sobre: "#sobre",
   contato: "#contato",
@@ -42,7 +45,8 @@ export default function Navbar() {
   const links = [
     { href: "#hero", label: t("nav.inicio") },
     { href: "#livros", label: t("nav.livros") },
-    { href: "#loja", label: t("nav.loja") },
+    { href: "#musica", label: t("nav.musica") },
+    { href: "#videos", label: t("nav.videos") },
     { href: "#sobre", label: t("nav.sobre") },
     { href: "#contato", label: t("nav.contato") },
   ];

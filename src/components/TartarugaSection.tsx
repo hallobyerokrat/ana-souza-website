@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useT } from "@/lib/i18n";
 
 function LeafSmall() {
@@ -120,7 +121,8 @@ export default function TartarugaSection() {
               ))}
             </div>
 
-            <span
+            <Link
+              href="/loja/tanta-docura-tartaruga"
               className="inline-block px-5 py-2 rounded-full text-xs tracking-wide"
               style={{
                 background: "rgba(122,84,104,0.1)",
@@ -128,8 +130,8 @@ export default function TartarugaSection() {
                 fontWeight: 600,
               }}
             >
-              {t("tartaruga.status")}
-            </span>
+              {t("book.cta.shop")} →
+            </Link>
           </div>
         </div>
       </div>

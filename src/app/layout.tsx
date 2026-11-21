@@ -24,6 +24,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.anasouza.space"),
   title: "Ana Souza de Magalhães — Escritora",
   description:
     "Ana Souza de Magalhães é autora de Casos de Família e Céu de Brincar. Conheça seus livros e adquira agora.",
@@ -37,9 +38,9 @@ export const metadata: Metadata = {
       "Autora de Casos de Família e Céu de Brincar. Livros disponíveis na Amazon e ebook direto.",
     images: [
       {
-        url: "https://www.anasouza.space/icon.png",
-        width: 512,
-        height: 512,
+        url: "https://www.anasouza.space/images/ana-souza-foto.jpg",
+        width: 800,
+        height: 800,
         alt: "Ana Souza de Magalhães — Escritora",
       },
     ],
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ana Souza de Magalhães — Escritora",
     description: "Autora de Casos de Família e Céu de Brincar.",
-    images: ["https://www.anasouza.space/icon.png"],
+    images: ["https://www.anasouza.space/images/ana-souza-foto.jpg"],
   },
 };
 

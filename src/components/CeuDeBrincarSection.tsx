@@ -1,11 +1,10 @@
 ﻿"use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useT } from "@/lib/i18n";
 import { useBookDescription } from "@/lib/useBookDescription";
 import BookReviewAccordion from "@/components/BookReviewAccordion";
-import BuyOptions from "@/components/BuyOptions";
-import { getBook } from "@/lib/books";
 
 const CEU_SEED_REVIEWS = [
   {
@@ -103,10 +102,17 @@ export default function CeuDeBrincarSection() {
               </p>
             ))}
 
-            {/* Buy options */}
-            {getBook("ceu-de-brincar")?.buyOptions && (
-              <BuyOptions regions={getBook("ceu-de-brincar")!.buyOptions!} locale={locale} />
-            )}
+            <Link
+              href="/loja/ceu-de-brincar"
+              className="inline-block px-5 py-2 rounded-full text-xs tracking-wide"
+              style={{
+                background: "rgba(107,80,96,0.1)",
+                color: "#6b5060",
+                fontWeight: 600,
+              }}
+            >
+              {t("book.cta.shop")} →
+            </Link>
           </div>
 
           {/* Book cover (right on desktop) */}

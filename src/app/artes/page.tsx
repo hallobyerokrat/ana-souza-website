@@ -44,8 +44,7 @@ const SEED_TEXTOS = [
   {
     id: "carta-jovem-escritor",
     title_pt: "Carta a um Jovem Escritor",
-    title_de: "Carta a um Jovem Escritor", // tradução alemã ainda não disponível
-    body_de: "", // preenchido abaixo com o mesmo texto em PT até haver tradução oficial
+    title_de: "Brief an einen jungen Schriftsteller",
     body_pt: `Meu caro escritor,
 
 hoje recebi seu livro. Quero agradecer pelo imenso carinho a mim dedicado. Fiquei muito feliz com esse gesto.
@@ -91,9 +90,53 @@ Ana Souza de Magalhães
 
 _______________________
 Texto produzido como exercício do curso de escrita criativa da Escola Metamorfose`,
+    body_de: `Mein lieber Schriftsteller,
+
+heute erhielt ich dein Buch. Ich möchte dir für die große Zuneigung danken, die du mir damit erwiesen hast. Es hat mich sehr gefreut.
+
+Als ich darin blätterte, verzauberten mich die Illustrationen. Sie erinnerten mich an den Kleinen Prinzen: welch eine Zartheit in den Linien! Der Illustrator hat die Worte sehr einfühlsam zum Leben erweckt. Und das Cover! Ich war hingerissen von der Leichtigkeit und der Vollkommenheit des Phönix. Das letzte Kapitel brachte mich zum Weinen. Ich las auch den Brief, der auf der ersten Seite beigelegt war.
+
+Beim Lesen spürte ich deine Frustration, die Enttäuschung über das Schreiben — und vor allem den Zweifel, ob du diesen Weg als Schriftsteller weitergehen sollst.
+
+Ja, mein Lieber, ich verstehe deine Qual vollkommen. Es schmerzt — und es ist völlig berechtigt, diesen Schmerz zu empfinden. Dies ist ein verwirrender Moment, voller widersprüchlicher Gefühle. Während manche scheinbar mühelos vorankommen, brauchen andere mehr Zeit, mehr Anstrengung.
+
+Mir erging es so. Und vielleicht ist es für dich nicht viel anders. Wenn wir aufgehört haben zu schreiben, beginnt eine andere Arbeit — und oft eine schwierigere.
+
+Als ich anfing, dachte ich daran aufzugeben. Ich erinnere mich an die Veröffentlichung meines ersten Buches, eines Kinderbuches. Ich glaubte naiv, ich würde genug verkaufen, um die Druckkosten zu decken.
+
+Ein Irrtum. Der Verkauf war ein Desaster.
+
+Was mich am meisten verletzte, war zu sehen, wie der Verlag alle Werbung auf einen anderen Kindertitel verwendete — den einer bereits bekannten Autorin. Ich muss nicht sagen, wie frustrierend und schmerzhaft das war.
+
+Auf dem Höhepunkt meiner Empörung fragte ich mich:
+— Was hat sie, was ich nicht habe?
+Alles, antwortete ich mir.
+
+Sie hatte einen Namen, Erfahrung und Leser. Das wusste ich — doch etwas in mir bestand darauf zu sagen, ich sei keine Schriftstellerin. Ich dachte daran, das Buch zu verbrennen, aber ich tat es nicht.
+
+Ich zog mich in die Stille zurück und blieb so für Tage, Monate, Jahre. Erst viel später verstand ich, was geschah. Dieses Zurückziehen nach der Veröffentlichung war für mich eine Art Wochenbett.
+
+Das Wochenbett bedeutet, lernen dem mütterlichen Instinkt zu vertrauen. Es ist ein verwirrender Prozess: schlaflose Nächte, nicht enden wollende Tränen, ein schmerzender Körper, Milch die nicht fließen will. Wir möchten der Welt die Schönheit unseres Kindes zeigen, aber wir sind erschöpft, zerstreut, versteckt hinter dunklen Augenringen. Gleichzeitig, da wir uns nach Anerkennung sehnen, ist das Einzige, was wir wollen, zu verschwinden.
+
+Mit der Zeit beruhigt sich alles. Die Nächte hören auf, eine Qual zu sein, das Weinen bekommt seine Stunden, die Koliken werden verständlich — und man lernt sogar, die Bedeutung jedes Weinens zu erkennen. So entsteht die Beziehung zwischen Mutter und Kind: Es wird aus uns geboren, aber nicht für uns.
+
+Das Gleiche gilt für Bücher. Auch sie werden aus uns geboren, aber nicht für uns. Diese Zeit nenne ich das literarische Wochenbett.
+
+Du befindest dich genau in dieser Phase: der des literarischen Wochenbetts. Eine Zeit, um zu lernen, mit deinem Werk zu leben. Es ist dein Werk. Ob du willst oder nicht — es ist aus dir entstanden. Und von da an gehört es der Welt. Es lässt sich nicht mehr beherrschen.
+
+Einmal, nachdem ein Herr eines meiner Gedichte gelesen hatte, sagte er:
+— Ich verstehe nicht ganz, was du schreibst, aber es liegt etwas Philosophisches in den Worten. Deshalb musst du weitermachen.
+
+Zum Schluss: Sorge für dein Werk und für dich selbst. Beide lernen noch, gemeinsam zu gehen.
+
+Eine herzliche Umarmung — und schon ungeduldig, das nächste Buch zu lesen, von dem ich weiß, dass es kommen wird.
+
+Ana Souza de Magalhães
+
+_______________________
+Text entstanden als Übung im Kurs für kreatives Schreiben der Escola Metamorfose`,
   },
 ];
-SEED_TEXTOS[0].body_de = SEED_TEXTOS[0].body_pt;
 
 function TextosSection() {
   const { locale } = useT();
@@ -288,6 +331,100 @@ function VideosSection() {
   );
 }
 
+// ─── Música Section ──────────────────────────────────────────────────────────
+
+function MusicaSection() {
+  const { locale } = useT();
+
+  const label = locale === "de" ? "Musik" : "Música";
+  const title = locale === "de" ? "Album anhören" : "Ouça o álbum";
+  const subtitle = locale === "de"
+    ? "Verfügbar auf Ihren Lieblingsplattformen"
+    : "Disponível nas suas plataformas favoritas";
+
+  const platforms = [
+    {
+      name: "Spotify",
+      url: "https://open.spotify.com/album/5VXkHfqzBfiFJkhFQIplsN",
+      color: "#1DB954",
+      hoverColor: "#1aa34a",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 28, height: 28 }}>
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+        </svg>
+      ),
+    },
+    {
+      name: "YouTube Music",
+      url: "https://music.youtube.com/playlist?list=OLAK5uy_m9As__lDsGoZGCvW9H-vL4-0Bc9WvRdnQ",
+      color: "#FF0000",
+      hoverColor: "#cc0000",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: 28, height: 28 }}>
+          <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/>
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <section style={{ padding: "80px 24px", background: "rgba(245,237,232,0.4)" }}>
+      <div style={{ maxWidth: 960, margin: "0 auto" }}>
+        <SectionHeader label={label} title={title} />
+        <p style={{ textAlign: "center", fontFamily: "var(--font-inter)", fontSize: 14, color: "#9b7080", marginBottom: 48, marginTop: -32, letterSpacing: "0.02em" }}>
+          {subtitle}
+        </p>
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 20,
+          justifyContent: "center",
+        }}>
+          {platforms.map((p) => (
+            <a
+              key={p.name}
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 14,
+                background: "#fdf8f5",
+                border: "1px solid rgba(107,80,96,0.15)",
+                borderRadius: 12,
+                padding: "18px 28px",
+                textDecoration: "none",
+                boxShadow: "0 2px 8px rgba(61,43,53,0.06)",
+                transition: "box-shadow 0.2s, transform 0.2s",
+                minWidth: 220,
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 28px rgba(61,43,53,0.14)";
+                (e.currentTarget as HTMLElement).style.transform = "translateY(-3px)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 8px rgba(61,43,53,0.06)";
+                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+              }}
+            >
+              <span style={{ color: p.color, display: "flex", alignItems: "center", flexShrink: 0 }}>
+                {p.icon}
+              </span>
+              <span style={{ fontFamily: "var(--font-inter)", fontSize: 15, fontWeight: 600, color: "#3d2b35", letterSpacing: "0.01em" }}>
+                {p.name}
+              </span>
+              <span style={{ marginLeft: "auto", fontFamily: "var(--font-inter)", fontSize: 11, color: "#9b7080", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                ↗
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ArtesPage() {
@@ -297,7 +434,7 @@ export default function ArtesPage() {
   const pageTitle = locale === "de" ? "Kunst & Texte" : "Arte e Textos";
   const pageSubtitle = locale === "de"
     ? "Texte, Bilder & Videobeiträge"
-    : "Textos, imagens e audiovisuais";
+    : "Textos, imagens, audiovisuais e música";
 
   return (
     <>
@@ -320,6 +457,8 @@ export default function ArtesPage() {
         <FotosSection />
         <SectionDivider />
         <VideosSection />
+        <SectionDivider />
+        <MusicaSection />
       </main>
       <Footer />
     </>

@@ -1,11 +1,9 @@
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import CasosDeFamiliaSection from "@/components/CasosDeFamiliaSection";
-import EntreFloresSection from "@/components/EntreFloresSection";
-import CeuDeBrincarSection from "@/components/CeuDeBrincarSection";
-import TartarugaSection from "@/components/TartarugaSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import ShopSection from "@/components/ShopSection";
+import HeroSlider from "@/components/HeroSlider";
+import LiteraturaInfantilSection from "@/components/LiteraturaInfantilSection";
+import LiteraturaContemporaneaSection from "@/components/LiteraturaContemporaneaSection";
+import MusicSection from "@/components/MusicSection";
+import TextosVideosSection from "@/components/TextosVideosSection";
 import BotanicalDivider from "@/components/BotanicalDivider";
 import AuthorSection from "@/components/AuthorSection";
 import ContactSection from "@/components/ContactSection";
@@ -17,23 +15,18 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <HeroSection />
-        <div id="livros" />
-        <EntreFloresSection />
+        <HeroSlider />
+        <LiteraturaInfantilSection />
         <BotanicalDivider />
-        <CeuDeBrincarSection />
+        <LiteraturaContemporaneaSection />
         <BotanicalDivider />
-        <TartarugaSection />
+        <MusicSection />
         <BotanicalDivider />
-        <CasosDeFamiliaSection />
-        <BotanicalDivider />
-        <ProjectsSection />
+        <TextosVideosSection />
         <BotanicalDivider />
         <AuthorSection />
         <BotanicalDivider />
         <ContactSection />
-        <BotanicalDivider />
-        <ShopSection />
       </main>
       <Footer />
       <ScrollToTop />
